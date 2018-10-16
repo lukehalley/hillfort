@@ -18,8 +18,7 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name="org.wit.hillfort.activities.HillfortActivity" />
-        <activity android:name="org.wit.hillfort.activities.HillfortListActivity">
+        <activity android:name="org.wit.hillfort.activities.HillfortLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

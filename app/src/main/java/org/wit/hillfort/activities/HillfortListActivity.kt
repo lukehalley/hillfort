@@ -15,38 +15,39 @@ import org.wit.hillfort.models.HillfortModel
 
 class HillfortListActivity : AppCompatActivity(), HillfortListener {
 
-  lateinit var app: MainApp
+    lateinit var app: MainApp
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_hillfort_list)
-    app = application as MainApp
-    toolbarMain.title = title
-    setSupportActionBar(toolbarMain)
+//        setContentView(R.layout.activity_login)
+        app = application as MainApp
+        toolbarMain.title = title
+        setSupportActionBar(toolbarMain)
 
-    val layoutManager = LinearLayoutManager(this)
-    recyclerView.layoutManager = layoutManager
-    recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
-  }
-
-  override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-    menuInflater.inflate(R.menu.menu_main, menu)
-    return super.onCreateOptionsMenu(menu)
-  }
-
-  override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-    when (item?.itemId) {
-      R.id.item_add -> startActivityForResult<HillfortActivity>(0)
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
     }
-    return super.onOptionsItemSelected(item)
-  }
 
-  override fun onHillfortClick(hillfort: HillfortModel) {
-    startActivityForResult(intentFor<HillfortActivity>().putExtra("hillfort_edit", hillfort), 0)
-  }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
-  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    recyclerView.adapter?.notifyDataSetChanged()
-    super.onActivityResult(requestCode, resultCode, data)
-  }
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.item_add -> startActivityForResult<HillfortActivity>(0)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onHillfortClick(hillfort: HillfortModel) {
+        startActivityForResult(intentFor<HillfortActivity>().putExtra("hillfort_edit", hillfort), 0)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        recyclerView.adapter?.notifyDataSetChanged()
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 }

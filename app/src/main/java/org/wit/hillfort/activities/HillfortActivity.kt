@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_hillfort.*
+import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
