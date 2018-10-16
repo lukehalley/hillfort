@@ -4,7 +4,7 @@
 
   <item
     android:id="@+id/item_add"
-    android:text="menu_addPlacemark"
-    android:title="@string/menu_addPlacemark"
+    android:text="menu_addHillfort"
+    android:title="@string/menu_addHillfort"
     app:showAsAction="always" />
 </menu>
