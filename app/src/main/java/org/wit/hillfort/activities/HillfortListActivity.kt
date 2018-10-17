@@ -1,13 +1,13 @@
 package org.wit.hillfort.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.startActivityForResult
+import org.jetbrains.anko.*
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
@@ -49,5 +49,15 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         recyclerView.adapter?.notifyDataSetChanged()
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onBackPressed() {
+        alert(R.string.logoutPrompt) {
+            yesButton {
+                finish()
+                super.onBackPressed()
+            }
+            noButton {}
+        }.show()
     }
 }
