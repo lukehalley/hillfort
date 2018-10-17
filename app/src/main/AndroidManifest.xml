@@ -14,9 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <activity android:name="org.wit.hillfort.activities.HillfortLoginActivity">
             <intent-filter>
@@ -28,7 +26,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA7rn6Aaj8O8IZhIM3LTrmT" />
+            android:value="AIzaSyA7rn6Aaj8O8IZhIM3LTrmT-O3-xqjcd9A" />
 
         <activity
             android:name="org.wit.hillfort.activities.MapsActivity"
