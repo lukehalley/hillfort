@@ -6,6 +6,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.wit.hillfort.R
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.info
+import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 
 class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
@@ -15,13 +16,13 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_login)
 
         loginButton.setOnClickListener {
-            // Checking if the user enters the correct log in details and assigning it to a variable to use
-            var loggedIn =
-                    if (enteredEmail.text.toString().equals("luke123halley@gmail.com") && enteredPassword.text.toString().equals("password")) {
-                        info { "Logged In!" }
-                    } else {
-                        toast(R.string.toast_InvalidCreds)
-                    }
+            // Checking if the user enters the correct log in details
+            if (enteredEmail.text.toString().equals("luke123halley@gmail.com") && enteredPassword.text.toString().equals("password")) {
+                info { "Logged In!" }
+                startActivityForResult<HillfortListActivity>(0)
+            } else {
+                toast(R.string.toast_InvalidCreds)
+            }
         }
 
     }
