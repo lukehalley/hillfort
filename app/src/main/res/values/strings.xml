@@ -16,4 +16,7 @@
     <string name="change_hillfortImage">Change Hillfort Image</string>
     <string name="button_setLocation">Set Location</string>
     <string name="title_activityMaps">Map</string>
+    <string name="toast_InvalidCreds">Incorrect Email or Password!</string>
+    <string name="name">Name</string>
+    <string name="promptSignUp">Not Signed Up Yet? Sign Up Below</string>
 </resources>
