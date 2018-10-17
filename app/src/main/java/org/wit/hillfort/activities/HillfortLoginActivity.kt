@@ -17,7 +17,7 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
 
         loginButton.setOnClickListener {
             // Checking if the user enters the correct log in details
-            if (enteredEmail.text.toString().equals("luke123halley@gmail.com") && enteredPassword.text.toString().equals("password")) {
+            if (enteredEmail.text.toString() == ("luke123halley@gmail.com") && enteredPassword.text.toString() == ("password")) {
                 info { "Logged In!" }
                 startActivityForResult<HillfortListActivity>(0)
             } else {
