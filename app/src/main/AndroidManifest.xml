@@ -16,7 +16,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
-        <activity android:name="org.wit.hillfort.activities.HillfortLoginActivity">
+        <activity android:name="org.wit.hillfort.activities.HillfortSplashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,6 +39,11 @@
         <activity
             android:name="org.wit.hillfort.activities.HillfortActivity"
             android:label="@string/title_HillfortAdd" />
+
+        <activity
+            android:name="org.wit.hillfort.activities.HillfortLoginActivity"
+            android:label="@string/title_HillfortLogin" />
+
     </application>
 
 </manifest>
