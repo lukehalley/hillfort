@@ -22,4 +22,6 @@
     <string name="name">Name</string>
     <string name="promptSignUp">Not Signed Up Yet? Sign Up Below</string>
     <string name="logoutPrompt">Are you sure you would like to log out?</string>
+    <string name="title_splashscreen">Splashscreen</string>
+    <string name="title_HillfortLogin">Hillfort Login</string>
 </resources>
