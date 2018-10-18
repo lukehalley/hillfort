@@ -7,6 +7,7 @@
     <string name="hint_hillfortTitle">Hillfort Title</string>
     <string name="hint_hillfortDescription">Description </string>
     <string name="button_addHillfort">Add Hillfort</string>
+    <string name="title_editHillfort">Edit Hillfort</string>
     <string name="menu_addHillfort">Add</string>
     <string name="menu_cancelHillfort">Cancel</string>
     <string name="hint_EnterHillfortTitle">Please Fill In All Above Fields!</string>
@@ -24,4 +25,7 @@
     <string name="logoutPrompt">Are you sure you would like to log out?</string>
     <string name="title_splashscreen">Splashscreen</string>
     <string name="title_HillfortLogin">Hillfort Login</string>
+    <string name="infoTag">Information</string>
+    <string name="imageTag">Images</string>
+    <string name="mapTag">Location</string>
 </resources>

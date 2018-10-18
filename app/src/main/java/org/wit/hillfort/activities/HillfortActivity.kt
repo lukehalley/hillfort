@@ -1,10 +1,11 @@
 package org.wit.hillfort.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -15,8 +16,8 @@ import org.wit.hillfort.helpers.readImage
 import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.helpers.showImagePicker
 import org.wit.hillfort.main.MainApp
-import org.wit.hillfort.models.Location
 import org.wit.hillfort.models.HillfortModel
+import org.wit.hillfort.models.Location
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
@@ -38,10 +39,13 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
         if (intent.hasExtra("hillfort_edit")) {
             edit = true
+            toolbarAdd.title = "Edit Hillfort"
+            setSupportActionBar(toolbarAdd)
             hillfort = intent.extras.getParcelable<HillfortModel>("hillfort_edit")
             hillfortTitle.setText(hillfort.title)
             description.setText(hillfort.description)
             hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
+            hillfortImage.visibility = View.VISIBLE
             if (hillfort.image != null) {
                 chooseImage.setText(R.string.change_hillfortImage)
             }
@@ -95,6 +99,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 if (data != null) {
                     hillfort.image = data.getData().toString()
                     hillfortImage.setImageBitmap(readImage(this, resultCode, data))
+                    hillfortImage.visibility = View.VISIBLE
                     chooseImage.setText(R.string.change_hillfortImage)
                 }
             }
