@@ -13,6 +13,8 @@ import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 
 
+
+
 class HillfortListActivity : AppCompatActivity(), HillfortListener {
 
     lateinit var app: MainApp
@@ -27,6 +29,10 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
         loadHillforts()
+
+        addHillfortFab.setOnClickListener(){
+            startActivityForResult<HillfortActivity>(0)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

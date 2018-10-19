@@ -29,6 +29,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_hillfort)
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         info("Hillfort Activity started..")
 
         app = application as MainApp
@@ -83,6 +84,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         hillfortLocation.setOnClickListener {
             startActivityForResult(intentFor<MapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
