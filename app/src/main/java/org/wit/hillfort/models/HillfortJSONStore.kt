@@ -40,7 +40,6 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
         serialize()
     }
 
-
     override fun update(hillfort: HillfortModel) {
         var foundHillfort: HillfortModel? = hillforts.find { p -> p.id == hillfort.id }
         if (foundHillfort != null) {
@@ -49,6 +48,11 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
             foundHillfort.image = hillfort.image
             serialize()
         }
+    }
+
+    override fun delete(placemark: HillfortModel) {
+        hillforts.remove(placemark)
+        serialize()
     }
 
     private fun serialize() {
