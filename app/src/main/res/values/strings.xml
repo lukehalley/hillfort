@@ -28,4 +28,6 @@
     <string name="infoTag">Information</string>
     <string name="imageTag">Images</string>
     <string name="mapTag">Location</string>
+    <string name="button_deleteHillfort">Delete Hillfort</string>
+    <string name="deletePrompt">Are you sure you want to delete this Hillfort?</string>
 </resources>

@@ -7,10 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_hillfort.*
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
 import org.wit.hillfort.R
 import org.wit.hillfort.helpers.readImage
 import org.wit.hillfort.helpers.readImageFromPath
@@ -52,7 +49,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.button_saveHillfort)
         }
 
-        btnAdd.setOnClickListener() {
+        btnAdd.setOnClickListener {
             hillfort.title = hillfortTitle.text.toString()
             hillfort.description = description.text.toString()
             if (hillfort.title.isEmpty() or hillfort.description.isEmpty()) {
@@ -67,6 +64,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             }
+        }
+
+        btnDelete.setOnClickListener {
+            alert(R.string.deletePrompt) {
+                yesButton {
+                    app.hillforts.delete(hillfort)
+                    finish()
+                }
+                noButton {}
+            }.show()
         }
 
         chooseImage.setOnClickListener {
