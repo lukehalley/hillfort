@@ -38,6 +38,7 @@
 
         <activity
             android:name="org.wit.hillfort.activities.HillfortActivity"
+            android:parentActivityName="org.wit.hillfort.activities.HillfortListActivity"
             android:label="@string/title_HillfortAdd" />
 
         <activity
