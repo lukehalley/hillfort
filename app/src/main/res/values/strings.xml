@@ -33,4 +33,5 @@
     <string name="registerTitle">Register</string>
     <string name="title_Register">Hillfort User Register</string>
     <string name="hint_SucessfullRegister">Registration Sucessfull!</string>
+    <string name="err_UserExists">User with the entered email already exists!</string>
 </resources>

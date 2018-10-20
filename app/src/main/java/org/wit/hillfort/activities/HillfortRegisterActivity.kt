@@ -18,7 +18,6 @@ class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        info { "TITLE: " + title }
         toolbarRegister.title = title
         setSupportActionBar(toolbarRegister)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -27,16 +26,21 @@ class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
 
         registerButton.setOnClickListener {
-            user.name = enteredName.text.toString()
-            user.email = enteredEmail.text.toString()
-            user.password = enteredPassword.text.toString()
-            if (user.name.isEmpty() or user.email.isEmpty() or user.password.isEmpty()) {
-                toast(R.string.hint_EnterHillfortTitle)
+            var users = app.users.findAll()
+            if (enteredEmail.text.toString() !in users.toString()) {
+                user.name = enteredName.text.toString()
+                user.email = enteredEmail.text.toString()
+                user.password = enteredPassword.text.toString()
+                if (user.name.isEmpty() or user.email.isEmpty() or user.password.isEmpty()) {
+                    toast(R.string.hint_EnterHillfortTitle)
+                } else {
+                    app.users.create(user.copy())
+                    setResult(AppCompatActivity.RESULT_OK)
+                    toast(R.string.hint_SucessfullRegister)
+                    finish()
+                }
             } else {
-                app.users.create(user.copy())
-                setResult(AppCompatActivity.RESULT_OK)
-                toast(R.string.hint_SucessfullRegister)
-                finish()
+                toast(R.string.err_UserExists)
             }
         }
 
