@@ -10,58 +10,58 @@ import org.wit.hillfort.helpers.read
 import org.wit.hillfort.helpers.write
 import java.util.*
 
-val JSON_FILE = "hillforts.json"
-val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
-val listType = object : TypeToken<java.util.ArrayList<HillfortModel>>() {}.type
+val USER_JSON_FILE = "users.json"
+val usergsonBuilder = GsonBuilder().setPrettyPrinting().create()
+val userListType = object : TypeToken<java.util.ArrayList<UserModel>>() {}.type
 
-fun generateRandomId(): Long {
+fun generateRandomUserId(): Long {
     return Random().nextLong()
 }
 
-class HillfortJSONStore : HillfortStore, AnkoLogger {
+class UserJSONStore : UserStore, AnkoLogger {
 
     val context: Context
-    var hillforts = mutableListOf<HillfortModel>()
+    var users = mutableListOf<UserModel>()
 
     constructor (context: Context) {
         this.context = context
-        if (exists(context, JSON_FILE)) {
+        if (exists(context, USER_JSON_FILE)) {
             deserialize()
         }
     }
 
-    override fun findAll(): MutableList<HillfortModel> {
-        return hillforts
+    override fun findAll(): MutableList<UserModel> {
+        return users
     }
 
-    override fun create(hillfort: HillfortModel) {
-        hillfort.id = generateRandomId()
-        hillforts.add(hillfort)
+    override fun create(user: UserModel) {
+        user.id = generateRandomUserId()
+        users.add(user)
         serialize()
     }
 
-    override fun update(hillfort: HillfortModel) {
-        var foundHillfort: HillfortModel? = hillforts.find { p -> p.id == hillfort.id }
-        if (foundHillfort != null) {
-            foundHillfort.title = hillfort.title
-            foundHillfort.description = hillfort.description
-            foundHillfort.image = hillfort.image
+    override fun update(user: UserModel) {
+        var foundUser: UserModel? = users.find { p -> p.id == user.id }
+        if (foundUser != null) {
+            foundUser.name = user.name
+            foundUser.email = user.email
+            foundUser.password = user.password
             serialize()
         }
     }
 
-    override fun delete(placemark: HillfortModel) {
-        hillforts.remove(placemark)
+    override fun delete(user: UserModel) {
+        users.remove(user)
         serialize()
     }
 
     private fun serialize() {
-        val jsonString = gsonBuilder.toJson(hillforts, listType)
-        write(context, JSON_FILE, jsonString)
+        val jsonString = usergsonBuilder.toJson(users, userListType)
+        write(context, USER_JSON_FILE, jsonString)
     }
 
     private fun deserialize() {
-        val jsonString = read(context, JSON_FILE)
-        hillforts = Gson().fromJson(jsonString, listType)
+        val jsonString = read(context, USER_JSON_FILE)
+        users = Gson().fromJson(jsonString, userListType)
     }
 }

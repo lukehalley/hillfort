@@ -1,13 +1,13 @@
 package org.wit.hillfort.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import org.jetbrains.anko.AnkoLogger
-import org.wit.hillfort.R
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
+import org.wit.hillfort.R
 
 class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
 
@@ -23,6 +23,10 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
             } else {
                 toast(R.string.toast_InvalidCreds)
             }
+        }
+
+        navToRegisterButton.setOnClickListener {
+            startActivityForResult<HillfortRegisterActivity>(0)
         }
 
     }

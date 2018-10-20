@@ -45,6 +45,11 @@
             android:name="org.wit.hillfort.activities.HillfortLoginActivity"
             android:label="@string/title_HillfortLogin" />
 
+        <activity
+            android:name="org.wit.hillfort.activities.HillfortRegisterActivity"
+            android:parentActivityName="org.wit.hillfort.activities.HillfortLoginActivity"
+            android:label="@string/title_Register" />
+
     </application>
 
 </manifest>
