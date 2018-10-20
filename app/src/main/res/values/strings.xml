@@ -26,7 +26,7 @@
     <string name="title_splashscreen">Splashscreen</string>
     <string name="title_HillfortLogin">Hillfort Login</string>
     <string name="infoTag">Information</string>
-    <string name="imageTag">Images</string>
+    <string name="imageTag">Images (Up To 4)</string>
     <string name="mapTag">Location</string>
     <string name="button_deleteHillfort">Delete Hillfort</string>
     <string name="deletePrompt">Are you sure you want to delete this Hillfort?</string>
@@ -34,4 +34,8 @@
     <string name="title_Register">Hillfort User Register</string>
     <string name="hint_SucessfullRegister">Registration Sucessfull!</string>
     <string name="err_UserExists">User with the entered email already exists!</string>
+    <string name="hint_hillfortadditionalNotes">Additional Notes</string>
+    <string name="visitedTag">Visited</string>
+    <string name="radio_Visited">Visited</string>
+    <string name="date_Visited">Date Visited: (Not Visited Yet)</string>
 </resources>

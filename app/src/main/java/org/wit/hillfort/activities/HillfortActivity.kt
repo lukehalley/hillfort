@@ -42,10 +42,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfort = intent.extras.getParcelable<HillfortModel>("hillfort_edit")
             hillfortTitle.setText(hillfort.title)
             description.setText(hillfort.description)
-            hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image))
-            hillfortImage.visibility = View.VISIBLE
+            hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.image))
+            hillfortFirstImage.visibility = View.VISIBLE
             if (hillfort.image != null) {
-                chooseImage.setText(R.string.change_hillfortImage)
+                chooseFirstImage.setText(R.string.change_hillfortImage)
             }
             btnAdd.setText(R.string.button_saveHillfort)
         }
@@ -77,7 +77,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }.show()
         }
 
-        chooseImage.setOnClickListener {
+        chooseFirstImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
         }
 
@@ -107,9 +107,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             IMAGE_REQUEST -> {
                 if (data != null) {
                     hillfort.image = data.getData().toString()
-                    hillfortImage.setImageBitmap(readImage(this, resultCode, data))
-                    hillfortImage.visibility = View.VISIBLE
-                    chooseImage.setText(R.string.change_hillfortImage)
+                    hillfortFirstImage.setImageBitmap(readImage(this, resultCode, data))
+                    hillfortFirstImage.visibility = View.VISIBLE
+                    chooseFirstImage.setText(R.string.change_hillfortImage)
                 }
             }
             LOCATION_REQUEST -> {
