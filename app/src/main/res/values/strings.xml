@@ -30,4 +30,8 @@
     <string name="mapTag">Location</string>
     <string name="button_deleteHillfort">Delete Hillfort</string>
     <string name="deletePrompt">Are you sure you want to delete this Hillfort?</string>
+    <string name="registerTitle">Register</string>
+    <string name="title_Register">Hillfort User Register</string>
+    <string name="hint_SucessfullRegister">Registration Sucessfull!</string>
+    <string name="err_UserExists">User with the entered email already exists!</string>
 </resources>

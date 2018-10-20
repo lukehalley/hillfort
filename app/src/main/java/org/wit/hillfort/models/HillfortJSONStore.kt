@@ -14,7 +14,7 @@ val JSON_FILE = "hillforts.json"
 val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
 val listType = object : TypeToken<java.util.ArrayList<HillfortModel>>() {}.type
 
-fun generateRandomId(): Long {
+fun generateRandomHillfortId(): Long {
     return Random().nextLong()
 }
 
@@ -25,7 +25,7 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
 
     constructor (context: Context) {
         this.context = context
-        if (exists(context, JSON_FILE)) {
+        if (exists(context, USER_JSON_FILE)) {
             deserialize()
         }
     }
@@ -35,7 +35,7 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     }
 
     override fun create(hillfort: HillfortModel) {
-        hillfort.id = generateRandomId()
+        hillfort.id = generateRandomHillfortId()
         hillforts.add(hillfort)
         serialize()
     }
@@ -57,11 +57,11 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
 
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(hillforts, listType)
-        write(context, JSON_FILE, jsonString)
+        write(context, USER_JSON_FILE, jsonString)
     }
 
     private fun deserialize() {
-        val jsonString = read(context, JSON_FILE)
+        val jsonString = read(context, USER_JSON_FILE)
         hillforts = Gson().fromJson(jsonString, listType)
     }
 }

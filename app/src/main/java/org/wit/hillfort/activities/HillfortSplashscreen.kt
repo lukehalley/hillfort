@@ -8,7 +8,7 @@ import org.wit.hillfort.R
 
 class HillfortSplashscreen : AppCompatActivity() {
     private var mDelayHandler: Handler? = null
-    private val splashDelay: Long = 3000 //3 seconds
+    private val splashDelay: Long = 1000 // 1 second
 
     internal val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
