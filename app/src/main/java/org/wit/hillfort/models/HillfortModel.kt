@@ -2,14 +2,14 @@ package org.wit.hillfort.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import java.util.*
 
 @Parcelize
 data class HillfortModel(var id: Long = 0,
                          var title: String = "",
                          var description: String = "",
+                         var addNotes: String = "",
                          var visited: Boolean = false,
-                         var dateVisited: Date,
+                         var dateVisited: String = "",
                          var firstImage: String = "",
                          var secondImage: String = "",
                          var thirdImage: String = "",

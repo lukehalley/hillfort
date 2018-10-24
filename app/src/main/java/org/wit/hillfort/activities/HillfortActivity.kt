@@ -16,13 +16,8 @@ import org.wit.hillfort.helpers.showImagePicker
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.models.Location
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.time.ZoneId.systemDefault
-import java.time.temporal.TemporalQueries.localDate
-import java.util.*
 
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
@@ -35,7 +30,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     val FOURTH_IMAGE_REQUEST = 1
     val LOCATION_REQUEST = 2
     var location = Location(52.245696, -7.139102, 15f)
-    var visited = false
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +50,12 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfort = intent.extras.getParcelable<HillfortModel>("hillfort_edit")
             hillfortTitle.setText(hillfort.title)
             description.setText(hillfort.description)
+            additionalNotes.setText(hillfort.addNotes)
+            visitedSwitch.isChecked = hillfort.visited
+            if (hillfort.visited) {
+                dateVisited.text = hillfort.dateVisited
+                dateVisited.visibility = View.VISIBLE
+            }
             hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.firstImage))
             hillfortFirstImage.visibility = View.VISIBLE
             if (hillfort.firstImage != null) {
@@ -67,11 +67,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         btnAdd.setOnClickListener {
             hillfort.title = hillfortTitle.text.toString()
             hillfort.description = description.text.toString()
+            hillfort.addNotes = additionalNotes.text.toString()
             hillfort.visited = visitedSwitch.isChecked
-            val d = dateVisited.text.toString()
-            val date = LocalDate.parse(d, DateTimeFormatter.ISO_DATE)
-            val newDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant())
-            hillfort.dateVisited = newDate
+            hillfort.dateVisited = dateVisited.text.toString()
             if (hillfort.title.isEmpty() or hillfort.description.isEmpty()) {
                 toast(R.string.hint_EnterHillfortTitle)
             } else {
@@ -118,14 +116,11 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
         visitedSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked){
-                visited = true
                 val current = LocalDateTime.now()
-                val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss.SSS")
-                dateVisited.text = current.format(formatter)
+                val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
+                dateVisited.text = current.format(formatter).toString()
                 dateVisited.visibility = View.VISIBLE
             } else {
-                visited = false
-                dateVisited.text = "Date Visited: (Not Visited Yet)"
                 dateVisited.visibility = View.INVISIBLE
             }
         }
