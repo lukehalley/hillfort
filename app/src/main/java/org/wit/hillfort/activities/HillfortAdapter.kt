@@ -2,15 +2,18 @@ package org.wit.hillfort.activities
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.card_hillfort.view.*
 import org.wit.hillfort.R
 import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.models.HillfortModel
+import org.wit.hillfort.models.UserModel
 
 interface HillfortListener {
     fun onHillfortClick(hillfort: HillfortModel)
+    fun onOptionsItemSelected(item: MenuItem?): Boolean
 }
 
 class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,

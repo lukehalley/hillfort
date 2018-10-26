@@ -9,7 +9,7 @@ import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.UserModel
 
 
-class SettingsActivity : AppCompatActivity(), AnkoLogger {
+class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
 
     var user = UserModel()
     lateinit var app: MainApp

@@ -31,7 +31,7 @@
             android:value="AIzaSyA7rn6Aaj8O8IZhIM3LTrmT-O3-xqjcd9A" />
 
         <activity
-            android:name=".activities.MapsActivity"
+            android:name=".activities.HillfortMapsActivity"
             android:label="@string/title_activityMaps" />
         <activity
             android:name=".activities.HillfortListActivity"
@@ -48,7 +48,7 @@
             android:label="@string/title_Register"
             android:parentActivityName=".activities.HillfortLoginActivity" />
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name=".activities.HillfortSettingsActivity"
             android:label="@string/title_Settings"
             android:parentActivityName=".activities.HillfortListActivity" />
     </application>

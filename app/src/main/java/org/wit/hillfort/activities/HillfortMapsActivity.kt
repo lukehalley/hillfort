@@ -16,7 +16,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.wit.hillfort.R
 import org.wit.hillfort.models.Location
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDragListener, GoogleMap.OnCameraMoveListener, AnkoLogger {
+class HillfortMapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDragListener, GoogleMap.OnCameraMoveListener, AnkoLogger {
 
     private lateinit var map: GoogleMap
     var location = Location()

@@ -9,7 +9,8 @@
         app:showAsAction="always" />
 
     <item
-        android:title="Item"
-        android:icon="@drawable/ic_settings_black_24dp"
+        android:id="@+id/item_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings_white_24dp"
         app:showAsAction="always" />
 </menu>
