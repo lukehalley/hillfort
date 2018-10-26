@@ -3,10 +3,7 @@ package org.wit.hillfort.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
-import org.jetbrains.anko.startActivityForResult
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 
@@ -23,10 +20,11 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
             var users = app.users.findAll()
             if (enteredEmail.text.toString() in users.toString() && enteredPassword.text.toString() in users.toString()) {
                 info { "Logged In!" }
-                startActivityForResult<HillfortListActivity>(0)
+                startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", enteredEmail.text.toString()), 0)
             } else if (enteredEmail.text.toString().equals("admin")) {
                 info { "Logged In As Admin!" }
                 startActivityForResult<HillfortListActivity>(0)
+                startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", "admin"), 0)
             } else {
                 toast(R.string.toast_InvalidCreds)
             }

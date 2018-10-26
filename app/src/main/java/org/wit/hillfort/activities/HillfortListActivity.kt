@@ -13,10 +13,9 @@ import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.models.UserModel
 
-class HillfortListActivity : AppCompatActivity(), HillfortListener {
+class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
     lateinit var app: MainApp
-    var user = UserModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort_list)
@@ -27,6 +26,9 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
         loadHillforts()
+        val intent = intent
+        val currentUser = intent.getStringExtra("loggedInUser")
+        info { "CURRENT USER: $currentUser" }
         addHillfortFab.setOnClickListener(){
             startActivityForResult<HillfortActivity>(0)
         }
@@ -38,6 +40,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        var user = UserModel()
         when (item?.itemId) {
             R.id.item_add -> startActivityForResult<HillfortActivity>(0)
         }

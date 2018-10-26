@@ -1,6 +1,5 @@
 package org.wit.hillfort.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -31,7 +30,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     val LOCATION_REQUEST = 2
     var location = Location(52.245696, -7.139102, 15f)
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort)
@@ -58,9 +56,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.firstImage))
             hillfortFirstImage.visibility = View.VISIBLE
-            if (hillfort.firstImage != null) {
-                chooseFirstImage.setText(R.string.change_hillfortFirstImage)
-            }
+            chooseFirstImage.setText(R.string.change_hillfortFirstImage)
             btnAdd.setText(R.string.button_saveHillfort)
         }
 

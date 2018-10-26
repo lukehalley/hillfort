@@ -24,6 +24,7 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
 
         user = intent.extras.getParcelable<UserModel>("user_edit")
+        info { "USER INFO " + user.name +  user.email + user.password}
         editUserName.setText(user.name)
         editUserEmail.setText(user.email)
         editUserPassword.setText(user.password)
