@@ -25,9 +25,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     var hillfort = HillfortModel()
     lateinit var app: MainApp
     val IMAGE_REQUEST = 1
-//    val SECOND_IMAGE_REQUEST = 3
-//    val THIRD_IMAGE_REQUEST = 4
-//    val FOURTH_IMAGE_REQUEST = 5
+    val SECOND_IMAGE_REQUEST = 3
+    val THIRD_IMAGE_REQUEST = 4
+    val FOURTH_IMAGE_REQUEST = 5
     val LOCATION_REQUEST = 2
     var location = Location(52.245696, -7.139102, 15f)
 
@@ -98,17 +98,17 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             showImagePicker(this, IMAGE_REQUEST)
         }
 
-//        chooseSecondImage.setOnClickListener {
-//            showImagePicker(this, SECOND_IMAGE_REQUEST)
-//        }
-//
-//        chooseThirdImage.setOnClickListener {
-//            showImagePicker(this, THIRD_IMAGE_REQUEST)
-//        }
-//
-//        chooseFourthImage.setOnClickListener {
-//            showImagePicker(this, FOURTH_IMAGE_REQUEST)
-//        }
+        chooseSecondImage.setOnClickListener {
+            showImagePicker(this, SECOND_IMAGE_REQUEST)
+        }
+
+        chooseThirdImage.setOnClickListener {
+            showImagePicker(this, THIRD_IMAGE_REQUEST)
+        }
+
+        chooseFourthImage.setOnClickListener {
+            showImagePicker(this, FOURTH_IMAGE_REQUEST)
+        }
 
         hillfortLocation.setOnClickListener {
             startActivityForResult(intentFor<MapsActivity>().putExtra("location", location), LOCATION_REQUEST)
@@ -153,32 +153,32 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     chooseSecondImage.visibility = View.VISIBLE
                 }
             }
-//            SECOND_IMAGE_REQUEST -> {
-//                if (data != null) {
-//                    hillfort.secondImage = data.getData().toString()
-//                    hillfortSecondImage.setImageBitmap(readImage(this, resultCode, data))
-//                    hillfortSecondImage.visibility = View.VISIBLE
-//                    chooseSecondImage.setText(R.string.change_hillfortSecondImage)
-//                    chooseThirdImage.visibility = View.VISIBLE
-//                }
-//            }
-//            THIRD_IMAGE_REQUEST -> {
-//                if (data != null) {
-//                    hillfort.thirdImage = data.getData().toString()
-//                    hillfortThirdImage.setImageBitmap(readImage(this, resultCode, data))
-//                    hillfortThirdImage.visibility = View.VISIBLE
-//                    chooseSecondImage.setText(R.string.change_hillfortThirdImage)
-//                    chooseFourthImage.visibility = View.VISIBLE
-//                }
-//            }
-//            FOURTH_IMAGE_REQUEST -> {
-//                if (data != null) {
-//                    hillfort.fourthImage = data.getData().toString()
-//                    hillfortFourthImage.setImageBitmap(readImage(this, resultCode, data))
-//                    hillfortFourthImage.visibility = View.VISIBLE
-//                    chooseFirstImage.setText(R.string.change_hillfortFourthImage)
-//                }
-//            }
+            SECOND_IMAGE_REQUEST -> {
+                if (data != null) {
+                    hillfort.secondImage = data.getData().toString()
+                    hillfortSecondImage.setImageBitmap(readImage(this, resultCode, data))
+                    hillfortSecondImage.visibility = View.VISIBLE
+                    chooseSecondImage.setText(R.string.change_hillfortSecondImage)
+                    chooseThirdImage.visibility = View.VISIBLE
+                }
+            }
+            THIRD_IMAGE_REQUEST -> {
+                if (data != null) {
+                    hillfort.thirdImage = data.getData().toString()
+                    hillfortThirdImage.setImageBitmap(readImage(this, resultCode, data))
+                    hillfortThirdImage.visibility = View.VISIBLE
+                    chooseSecondImage.setText(R.string.change_hillfortThirdImage)
+                    chooseFourthImage.visibility = View.VISIBLE
+                }
+            }
+            FOURTH_IMAGE_REQUEST -> {
+                if (data != null) {
+                    hillfort.fourthImage = data.getData().toString()
+                    hillfortFourthImage.setImageBitmap(readImage(this, resultCode, data))
+                    hillfortFourthImage.visibility = View.VISIBLE
+                    chooseFirstImage.setText(R.string.change_hillfortFourthImage)
+                }
+            }
             LOCATION_REQUEST -> {
                 if (data != null) {
                     location = data.extras.getParcelable<Location>("location")
