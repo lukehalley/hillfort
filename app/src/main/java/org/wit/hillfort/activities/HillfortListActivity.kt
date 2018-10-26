@@ -26,7 +26,6 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
         loadHillforts()
-
         addHillfortFab.setOnClickListener(){
             startActivityForResult<HillfortActivity>(0)
         }
