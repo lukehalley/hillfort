@@ -18,85 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4543ee8-0b09-4421-8d9b-952e3d5d37e6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/delete.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/logout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hillfort/src/main/res/menu/menu_hillfort.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/org/wit/hillfort/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/androidTest/java/org/wit/hillfort/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortLoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortLoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortMapsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortMapsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortRegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortRegisterActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortSettingsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortSettingsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortSplashscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortSplashscreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/Filehelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/helpers/Filehelper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/main/MainApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/main/MainApp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortJSONStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/HillfortJSONStore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/HillfortModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/HillfortStore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/UserJSONStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/UserJSONStore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/UserModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/UserModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/UserStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/UserStore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/add_white.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/add_white.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_info_black_24dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/ic_info_black_24dp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_settings_white_24dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/ic_settings_white_24dp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_sync_black_24dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/ic_sync_black_24dp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splashscreen.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/splashscreen.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splashscreenblr.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/drawable/splashscreenblr.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_maps.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splashscreen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_splashscreen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_hillfort.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/card_hillfort.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_hillfort.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/menu/menu_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/wit/hillfort/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/test/java/org/wit/hillfort/ExampleUnitTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="d4543ee8-0b09-4421-8d9b-952e3d5d37e6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,8 +46,8 @@
       <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="245" selection-start-line="245" selection-start-column="2" selection-end-line="253" selection-end-column="7" />
+            <state relative-caret-position="658">
+              <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
               <folding>
                 <element signature="e#1835#1865#1" expanded="true" />
                 <element signature="e#2333#2367#1" expanded="true" />
@@ -146,7 +68,6 @@
                 <element signature="e#9073#9108#1" expanded="true" />
                 <element signature="e#9486#9516#1" expanded="true" />
                 <element signature="e#9616#9638#1" expanded="true" />
-                <element signature="e#9848#9870#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4982,14 +4903,14 @@
       <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.25028312" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.19800995" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.19800995" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.3283582" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2172524" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2172524" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.25870648" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.32960597" />
@@ -5415,8 +5336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="245" selection-start-line="245" selection-start-column="2" selection-end-line="253" selection-end-column="7" />
+        <state relative-caret-position="658">
+          <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
           <folding>
             <element signature="e#1835#1865#1" expanded="true" />
             <element signature="e#2333#2367#1" expanded="true" />
@@ -5437,7 +5358,6 @@
             <element signature="e#9073#9108#1" expanded="true" />
             <element signature="e#9486#9516#1" expanded="true" />
             <element signature="e#9616#9638#1" expanded="true" />
-            <element signature="e#9848#9870#1" expanded="true" />
           </folding>
         </state>
       </provider>
