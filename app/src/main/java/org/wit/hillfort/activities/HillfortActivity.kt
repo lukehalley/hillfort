@@ -54,26 +54,27 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 dateVisited.text = hillfort.dateVisited
                 dateVisited.visibility = View.VISIBLE
             }
-            if (hillfort.firstImage.length != 0) {
-                info { "FIRST IS: " + hillfortFirstImage }
+            if (hillfort.firstImage.isNotEmpty()) {
                 hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.firstImage))
                 hillfortFirstImage.visibility = View.VISIBLE
                 chooseFirstImage.setText(R.string.change_hillfortFirstImage)
             }
-            if (hillfort.secondImage.length != 0) {
-                info { "SECOND IS: " + hillfortSecondImage }
+            if (hillfort.secondImage.isNotEmpty()) {
                 hillfortSecondImage.setImageBitmap(readImageFromPath(this, hillfort.secondImage))
                 hillfortSecondImage.visibility = View.VISIBLE
+                chooseSecondImage.visibility = View.VISIBLE
                 chooseSecondImage.setText(R.string.change_hillfortSecondImage)
             }
-            if (hillfort.thirdImage.length != 0) {
+            if (hillfort.thirdImage.isNotEmpty()) {
                 hillfortThirdImage.setImageBitmap(readImageFromPath(this, hillfort.thirdImage))
                 hillfortThirdImage.visibility = View.VISIBLE
+                chooseThirdImage.visibility = View.VISIBLE
                 chooseThirdImage.setText(R.string.change_hillfortThirdImage)
             }
-            if (hillfort.fourthImage.length != 0) {
+            if (hillfort.fourthImage.isNotEmpty()) {
                 hillfortFourthImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
                 hillfortFourthImage.visibility = View.VISIBLE
+                chooseFourthImage.visibility = View.VISIBLE
                 chooseFourthImage.setText(R.string.change_hillfortFourthImage)
             }
             btnAdd.setText(R.string.button_saveHillfort)
