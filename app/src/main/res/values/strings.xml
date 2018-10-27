@@ -20,6 +20,7 @@
     <string name="change_hillfortThirdImage">Change Third Hillfort Image</string>
     <string name="change_hillfortFourthImage">Change Fourth Hillfort Image</string>
     <string name="button_setLocation">Set Location</string>
+    <string name="button_changeLocation">Change Location</string>
     <string name="title_activityMaps">Map</string>
     <string name="title_HillfortList">Hillfort List</string>
     <string name="title_HillfortAdd">Add Hillfort</string>

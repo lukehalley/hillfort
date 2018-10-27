@@ -50,6 +50,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             description.setText(hillfort.description)
             additionalNotes.setText(hillfort.addNotes)
             visitedSwitch.isChecked = hillfort.visited
+            hillfortLocation.setText(R.string.button_changeLocation)
+            deleteHillfortBtn.visibility = View.VISIBLE
             if (hillfort.visited) {
                 dateVisited.text = hillfort.dateVisited
                 dateVisited.visibility = View.VISIBLE
@@ -77,10 +79,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 chooseFourthImage.visibility = View.VISIBLE
                 chooseFourthImage.setText(R.string.change_hillfortFourthImage)
             }
-            btnAdd.setText(R.string.button_saveHillfort)
+            addHillfortBtn.setText(R.string.button_saveHillfort)
         }
 
-        btnAdd.setOnClickListener {
+        addHillfortBtn.setOnClickListener {
             hillfort.title = hillfortTitle.text.toString()
             hillfort.description = description.text.toString()
             hillfort.addNotes = additionalNotes.text.toString()
@@ -100,7 +102,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
         }
 
-        btnDelete.setOnClickListener {
+        deleteHillfortBtn.setOnClickListener {
             alert(R.string.deletePrompt) {
                 yesButton {
                     app.hillforts.delete(hillfort)
@@ -211,6 +213,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfort.lat = location.lat
                     hillfort.lng = location.lng
                     hillfort.zoom = location.zoom
+                    hillfortLocation.setText(R.string.button_changeLocation)
                 }
             }
         }

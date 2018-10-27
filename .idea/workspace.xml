@@ -19,7 +19,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4543ee8-0b09-4421-8d9b-952e3d5d37e6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,37 +57,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+            <state relative-caret-position="232">
+              <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
               <folding>
                 <element signature="e#37#665#0" expanded="true" />
-                <element signature="e#2266#2300#1" expanded="true" />
-                <element signature="e#2631#2666#1" expanded="true" />
-                <element signature="e#2931#2965#1" expanded="true" />
-                <element signature="e#3236#3271#1" expanded="true" />
-                <element signature="e#3314#3342#1" expanded="true" />
-                <element signature="e#3795#3827#1" expanded="true" />
-                <element signature="e#4258#4279#1" expanded="true" />
-                <element signature="e#6730#6764#1" expanded="true" />
-                <element signature="e#6876#6907#1" expanded="true" />
-                <element signature="e#7286#7321#1" expanded="true" />
-                <element signature="e#7431#7462#1" expanded="true" />
-                <element signature="e#7837#7871#1" expanded="true" />
-                <element signature="e#7983#8014#1" expanded="true" />
-                <element signature="e#8393#8428#1" expanded="true" />
+                <element signature="e#1835#1865#1" expanded="true" />
+                <element signature="e#2290#2324#1" expanded="true" />
+                <element signature="e#2655#2690#1" expanded="true" />
+                <element signature="e#3015#3049#1" expanded="true" />
+                <element signature="e#3380#3415#1" expanded="true" />
+                <element signature="e#3458#3486#1" expanded="true" />
+                <element signature="e#3939#3971#1" expanded="true" />
+                <element signature="e#4402#4423#1" expanded="true" />
+                <element signature="e#6874#6908#1" expanded="true" />
+                <element signature="e#7020#7051#1" expanded="true" />
+                <element signature="e#7430#7465#1" expanded="true" />
+                <element signature="e#7575#7606#1" expanded="true" />
+                <element signature="e#7981#8015#1" expanded="true" />
+                <element signature="e#8127#8158#1" expanded="true" />
+                <element signature="e#8537#8572#1" expanded="true" />
+                <element signature="e#8950#8980#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_hillfort.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="activity_hillfort.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="165" column="54" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="54" />
+            <state relative-caret-position="613">
+              <caret line="287" column="59" lean-forward="true" selection-start-line="287" selection-start-column="59" selection-end-line="287" selection-end-column="59" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2">
@@ -86,8 +100,8 @@
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="40" />
+            <state relative-caret-position="276">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -151,6 +165,7 @@
       <find>item_add</find>
       <find>change_hillfortSecondImage</find>
       <find>Hill</find>
+      <find>set</find>
     </findStrings>
     <replaceStrings>
       <replace>Hillfort</replace>
@@ -2550,8 +2565,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortJSONStore.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml" />
       </list>
     </option>
   </component>
@@ -3197,13 +3212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
@@ -3214,38 +3222,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="165" column="54" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="54" />
+        <state relative-caret-position="276">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="39" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+        <state relative-caret-position="232">
+          <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
           <folding>
             <element signature="e#37#665#0" expanded="true" />
-            <element signature="e#2266#2300#1" expanded="true" />
-            <element signature="e#2631#2666#1" expanded="true" />
-            <element signature="e#2931#2965#1" expanded="true" />
-            <element signature="e#3236#3271#1" expanded="true" />
-            <element signature="e#3314#3342#1" expanded="true" />
-            <element signature="e#3795#3827#1" expanded="true" />
-            <element signature="e#4258#4279#1" expanded="true" />
-            <element signature="e#6730#6764#1" expanded="true" />
-            <element signature="e#6876#6907#1" expanded="true" />
-            <element signature="e#7286#7321#1" expanded="true" />
-            <element signature="e#7431#7462#1" expanded="true" />
-            <element signature="e#7837#7871#1" expanded="true" />
-            <element signature="e#7983#8014#1" expanded="true" />
-            <element signature="e#8393#8428#1" expanded="true" />
+            <element signature="e#1835#1865#1" expanded="true" />
+            <element signature="e#2290#2324#1" expanded="true" />
+            <element signature="e#2655#2690#1" expanded="true" />
+            <element signature="e#3015#3049#1" expanded="true" />
+            <element signature="e#3380#3415#1" expanded="true" />
+            <element signature="e#3458#3486#1" expanded="true" />
+            <element signature="e#3939#3971#1" expanded="true" />
+            <element signature="e#4402#4423#1" expanded="true" />
+            <element signature="e#6874#6908#1" expanded="true" />
+            <element signature="e#7020#7051#1" expanded="true" />
+            <element signature="e#7430#7465#1" expanded="true" />
+            <element signature="e#7575#7606#1" expanded="true" />
+            <element signature="e#7981#8015#1" expanded="true" />
+            <element signature="e#8127#8158#1" expanded="true" />
+            <element signature="e#8537#8572#1" expanded="true" />
+            <element signature="e#8950#8980#1" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hillfort.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="287" column="59" lean-forward="true" selection-start-line="287" selection-start-column="59" selection-end-line="287" selection-end-column="59" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

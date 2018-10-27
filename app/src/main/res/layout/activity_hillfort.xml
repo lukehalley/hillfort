@@ -262,12 +262,13 @@
                     android:paddingBottom="8dp" />
 
                 <Button
-                    android:id="@+id/btnAdd"
+                    android:id="@+id/addHillfortBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@color/colorAccent"
                     android:stateListAnimator="@null"
                     android:text="@string/button_addHillfort"
@@ -275,14 +276,17 @@
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/btnDelete"
+                    android:id="@+id/deleteHillfortBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@android:color/holo_red_dark"
                     android:stateListAnimator="@null"
                     android:text="@string/button_deleteHillfort"
                     android:textColor="@color/colorPrimary"
+                    android:visibility="gone"
                     android:textSize="16sp" />
 
             </LinearLayout>
