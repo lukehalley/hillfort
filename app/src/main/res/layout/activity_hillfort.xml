@@ -64,7 +64,7 @@
                 <EditText
                     android:id="@+id/description"
                     android:layout_width="match_parent"
-                    android:layout_height="93dp"
+                    android:layout_height="100dp"
                     android:layout_marginLeft="10dip"
                     android:layout_marginTop="10dip"
                     android:layout_marginRight="10dip"
@@ -74,6 +74,43 @@
                     android:inputType="textMultiLine|textCapSentences"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/additionalNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginRight="10dip"
+                    android:ems="150"
+                    android:gravity="left|top"
+                    android:hint="@string/hint_hillfortadditionalNotes"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="17sp" />
+
+                <Switch
+                    android:id="@+id/visitedSwitch"
+                    android:layout_width="384dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="20dip"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/radio_Visited"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/dateVisited"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="10dip"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/date_Visited" />
 
                 <View
                     android:layout_width="match_parent"
@@ -93,7 +130,7 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/hillfortImage"
+                    android:id="@+id/hillfortFirstImage"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
@@ -103,7 +140,7 @@
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <Button
-                    android:id="@+id/chooseImage"
+                    android:id="@+id/chooseFirstImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -113,6 +150,78 @@
                     android:paddingBottom="8dp"
                     android:text="@string/button_addImage"
                     android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/hillfortSecondImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                <Button
+                    android:id="@+id/chooseSecondImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/button_addImage"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="gone"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/hillfortThirdImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                <Button
+                    android:id="@+id/chooseThirdImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/button_addImage"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="gone"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/hillfortFourthImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                <Button
+                    android:id="@+id/chooseFourthImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/button_addImage"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="gone"
                     android:textSize="16sp" />
 
                 <View
@@ -153,12 +262,13 @@
                     android:paddingBottom="8dp" />
 
                 <Button
-                    android:id="@+id/btnAdd"
+                    android:id="@+id/addHillfortBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@color/colorAccent"
                     android:stateListAnimator="@null"
                     android:text="@string/button_addHillfort"
@@ -166,14 +276,17 @@
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/btnDelete"
+                    android:id="@+id/deleteHillfortBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@android:color/holo_red_dark"
                     android:stateListAnimator="@null"
                     android:text="@string/button_deleteHillfort"
                     android:textColor="@color/colorPrimary"
+                    android:visibility="gone"
                     android:textSize="16sp" />
 
             </LinearLayout>

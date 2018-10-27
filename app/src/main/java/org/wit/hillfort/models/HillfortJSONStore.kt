@@ -45,7 +45,14 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
         if (foundHillfort != null) {
             foundHillfort.title = hillfort.title
             foundHillfort.description = hillfort.description
-            foundHillfort.image = hillfort.image
+            foundHillfort.addNotes = hillfort.addNotes
+            foundHillfort.lat = hillfort.lat
+            foundHillfort.lng = hillfort.lng
+            foundHillfort.zoom = hillfort.zoom
+            foundHillfort.firstImage = hillfort.firstImage
+            foundHillfort.secondImage = hillfort.secondImage
+            foundHillfort.thirdImage = hillfort.thirdImage
+            foundHillfort.fourthImage = hillfort.fourthImage
             serialize()
         }
     }
