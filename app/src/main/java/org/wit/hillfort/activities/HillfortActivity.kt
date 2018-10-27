@@ -24,11 +24,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     var hillfort = HillfortModel()
     lateinit var app: MainApp
     val IMAGE_REQUEST = 1
+    val LOCATION_REQUEST = 2
     val SECOND_IMAGE_REQUEST = 3
     val THIRD_IMAGE_REQUEST = 4
     val FOURTH_IMAGE_REQUEST = 5
-    val LOCATION_REQUEST = 2
-    var location = Location(52.245696, -7.139102, 15f)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,7 +105,17 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             showImagePicker(this, FOURTH_IMAGE_REQUEST)
         }
 
+//        hillfortLocation.setOnClickListener {
+//            startActivityForResult(intentFor<HillfortMapsActivity>().putExtra("location", location), LOCATION_REQUEST)
+//        }
+
         hillfortLocation.setOnClickListener {
+            val location = Location(52.245696, -7.139102, 15f)
+            if (location.zoom != 0f) {
+                location.lat =  hillfort.lat
+                location.lng = hillfort.lng
+                location.zoom = hillfort.zoom
+            }
             startActivityForResult(intentFor<HillfortMapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
 
@@ -177,7 +186,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             LOCATION_REQUEST -> {
                 if (data != null) {
-                    location = data.extras.getParcelable<Location>("location")
+                    val location = data.extras.getParcelable<Location>("location")
+                    hillfort.lat = location.lat
+                    hillfort.lng = location.lng
+                    hillfort.zoom = location.zoom
                 }
             }
         }
