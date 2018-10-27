@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:fitsSystemWindows="true"
+        app:elevation="0dip"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@color/colorPrimary" />
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/loginLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:fontFamily="casual"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="75sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginLogo"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="53dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/enteredName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:inputType="textPersonName|textCapWords" />
+
+        <EditText
+            android:id="@+id/enteredEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:inputType="textWebEmailAddress" />
+
+        <EditText
+            android:id="@+id/enteredPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/registerButton" />
+
+    </LinearLayout>
+
+</RelativeLayout>
