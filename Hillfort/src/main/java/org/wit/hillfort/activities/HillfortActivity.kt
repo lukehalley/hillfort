@@ -46,8 +46,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             toolbarAdd.title = "Edit Hillfort"
             setSupportActionBar(toolbarAdd)
             hillfort = intent.extras.getParcelable<HillfortModel>("hillfort_edit")
-            hillfortTitle.setText(hillfort.title)
-            description.setText(hillfort.description)
+            cardHillfortTitle.setText(hillfort.title)
+            cardHillfortDescription.setText(hillfort.description)
             additionalNotes.setText(hillfort.addNotes)
             visitedSwitch.isChecked = hillfort.visited
             hillfortLocation.setText(R.string.button_changeLocation)
@@ -83,8 +83,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
 
         addHillfortBtn.setOnClickListener {
-            hillfort.title = hillfortTitle.text.toString()
-            hillfort.description = description.text.toString()
+            hillfort.title = cardHillfortTitle.text.toString()
+            hillfort.description = cardHillfortDescription.text.toString()
             hillfort.addNotes = additionalNotes.text.toString()
             hillfort.visited = visitedSwitch.isChecked
             hillfort.dateVisited = dateVisited.text.toString()
@@ -96,7 +96,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 } else {
                     app.hillforts.create(hillfort.copy())
                 }
-                info("add Button Pressed: $hillfortTitle")
+                info("add Button Pressed: $cardHillfortTitle")
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             }

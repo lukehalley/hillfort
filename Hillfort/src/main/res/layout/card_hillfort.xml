@@ -23,16 +23,24 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/hillfortTitle"
+                android:id="@+id/cardHillfortTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/cardHillfortLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/cardHillfortDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
         </LinearLayout>
 
     </LinearLayout>

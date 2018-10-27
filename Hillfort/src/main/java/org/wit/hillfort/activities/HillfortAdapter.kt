@@ -1,5 +1,5 @@
 package org.wit.hillfort.activities
-
+import android.location.Geocoder
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.card_hillfort.view.*
 import org.wit.hillfort.R
 import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.models.HillfortModel
-import org.wit.hillfort.models.UserModel
 
 interface HillfortListener {
     fun onHillfortClick(hillfort: HillfortModel)
@@ -32,9 +31,15 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+
+
         fun bind(hillfort: HillfortModel, listener: HillfortListener) {
-            itemView.hillfortTitle.text = hillfort.title
-            itemView.description.text = hillfort.description
+
+
+
+            itemView.cardHillfortTitle.text = hillfort.title
+            itemView.cardHillfortDescription.text = hillfort.description
+//            itemView.cardHillfortLocation.text = hillfort.lat
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.firstImage))
             itemView.setOnClickListener { listener.onHillfortClick(hillfort) }
         }
