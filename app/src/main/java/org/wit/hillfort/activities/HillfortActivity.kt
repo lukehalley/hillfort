@@ -40,6 +40,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
         var edit = false
 
+
         if (intent.hasExtra("hillfort_edit")) {
             edit = true
             toolbarAdd.title = "Edit Hillfort"
@@ -53,9 +54,28 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 dateVisited.text = hillfort.dateVisited
                 dateVisited.visibility = View.VISIBLE
             }
-            hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.firstImage))
-            hillfortFirstImage.visibility = View.VISIBLE
-            chooseFirstImage.setText(R.string.change_hillfortFirstImage)
+            if (hillfort.firstImage.length != 0) {
+                info { "FIRST IS: " + hillfortFirstImage }
+                hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.firstImage))
+                hillfortFirstImage.visibility = View.VISIBLE
+                chooseFirstImage.setText(R.string.change_hillfortFirstImage)
+            }
+            if (hillfort.secondImage.length != 0) {
+                info { "SECOND IS: " + hillfortSecondImage }
+                hillfortSecondImage.setImageBitmap(readImageFromPath(this, hillfort.secondImage))
+                hillfortSecondImage.visibility = View.VISIBLE
+                chooseSecondImage.setText(R.string.change_hillfortSecondImage)
+            }
+            if (hillfort.thirdImage.length != 0) {
+                hillfortThirdImage.setImageBitmap(readImageFromPath(this, hillfort.thirdImage))
+                hillfortThirdImage.visibility = View.VISIBLE
+                chooseThirdImage.setText(R.string.change_hillfortThirdImage)
+            }
+            if (hillfort.fourthImage.length != 0) {
+                hillfortFourthImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
+                hillfortFourthImage.visibility = View.VISIBLE
+                chooseFourthImage.setText(R.string.change_hillfortFourthImage)
+            }
             btnAdd.setText(R.string.button_saveHillfort)
         }
 
@@ -105,14 +125,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             showImagePicker(this, FOURTH_IMAGE_REQUEST)
         }
 
-//        hillfortLocation.setOnClickListener {
-//            startActivityForResult(intentFor<HillfortMapsActivity>().putExtra("location", location), LOCATION_REQUEST)
-//        }
-
         hillfortLocation.setOnClickListener {
             val location = Location(52.245696, -7.139102, 15f)
             if (location.zoom != 0f) {
-                location.lat =  hillfort.lat
+                location.lat = hillfort.lat
                 location.lng = hillfort.lng
                 location.zoom = hillfort.zoom
             }
@@ -120,7 +136,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
 
         visitedSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
+            if (isChecked) {
                 val current = LocalDateTime.now()
                 val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
                 dateVisited.text = current.format(formatter).toString()
@@ -156,6 +172,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfortFirstImage.visibility = View.VISIBLE
                     chooseFirstImage.setText(R.string.change_hillfortFirstImage)
                     chooseSecondImage.visibility = View.VISIBLE
+                    chooseSecondImage.setText(R.string.button_addAnotherImage)
                 }
             }
             SECOND_IMAGE_REQUEST -> {
@@ -165,6 +182,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfortSecondImage.visibility = View.VISIBLE
                     chooseSecondImage.setText(R.string.change_hillfortSecondImage)
                     chooseThirdImage.visibility = View.VISIBLE
+                    chooseThirdImage.setText(R.string.button_addAnotherImage)
+
                 }
             }
             THIRD_IMAGE_REQUEST -> {
@@ -172,8 +191,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfort.thirdImage = data.getData().toString()
                     hillfortThirdImage.setImageBitmap(readImage(this, resultCode, data))
                     hillfortThirdImage.visibility = View.VISIBLE
-                    chooseSecondImage.setText(R.string.change_hillfortThirdImage)
+                    chooseThirdImage.setText(R.string.change_hillfortThirdImage)
                     chooseFourthImage.visibility = View.VISIBLE
+                    chooseFourthImage.setText(R.string.button_addAnotherImage)
                 }
             }
             FOURTH_IMAGE_REQUEST -> {
@@ -181,7 +201,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfort.fourthImage = data.getData().toString()
                     hillfortFourthImage.setImageBitmap(readImage(this, resultCode, data))
                     hillfortFourthImage.visibility = View.VISIBLE
-                    chooseFirstImage.setText(R.string.change_hillfortFourthImage)
+                    chooseFourthImage.setText(R.string.change_hillfortFourthImage)
                 }
             }
             LOCATION_REQUEST -> {

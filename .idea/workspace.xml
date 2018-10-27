@@ -9,7 +9,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="CURRENT USER" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="SECOND IS:" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
@@ -22,11 +22,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,69 +55,67 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#37#665#0" expanded="true" />
-                    <element signature="e#2143#2177#1" expanded="true" />
-                    <element signature="e#2206#2234#1" expanded="true" />
-                    <element signature="e#2687#2719#1" expanded="true" />
-                    <element signature="e#3150#3171#1" expanded="true" />
-                    <element signature="e#5804#5838#1" expanded="true" />
-                    <element signature="e#6281#6316#1" expanded="true" />
-                    <element signature="e#6754#6788#1" expanded="true" />
-                    <element signature="e#7230#7265#1" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ImageHelpers.kt" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#540#569#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HillfortJSONStore.kt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortJSONStore.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="549">
-                  <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
-                  <folding>
-                    <element signature="e#33#337#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="HillfortModel.kt" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortModel.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="14" column="33" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
+              <folding>
+                <element signature="e#37#665#0" expanded="true" />
+                <element signature="e#2260#2294#1" expanded="true" />
+                <element signature="e#2604#2639#1" expanded="true" />
+                <element signature="e#2899#2933#1" expanded="true" />
+                <element signature="e#3198#3233#1" expanded="true" />
+                <element signature="e#3276#3304#1" expanded="true" />
+                <element signature="e#3757#3789#1" expanded="true" />
+                <element signature="e#4220#4241#1" expanded="true" />
+                <element signature="e#6692#6726#1" expanded="true" />
+                <element signature="e#6838#6869#1" expanded="true" />
+                <element signature="e#7248#7283#1" expanded="true" />
+                <element signature="e#7393#7424#1" expanded="true" />
+                <element signature="e#7799#7833#1" expanded="true" />
+                <element signature="e#7945#7976#1" expanded="true" />
+                <element signature="e#8355#8390#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageHelpers.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+              <folding>
+                <element signature="e#540#569#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HillfortJSONStore.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortJSONStore.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="549">
+              <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+              <folding>
+                <element signature="e#33#337#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -146,6 +148,8 @@
       <find>HillfortListener</find>
       <find>HillfortModel</find>
       <find>item_add</find>
+      <find>change_hillfortSecondImage</find>
+      <find>Hill</find>
     </findStrings>
     <replaceStrings>
       <replace>Hillfort</replace>
@@ -2535,7 +2539,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/SettingsActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortSettingsActivity.kt" />
@@ -2545,8 +2548,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortLoginActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/models/HillfortJSONStore.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" />
       </list>
     </option>
   </component>
@@ -2607,6 +2611,17 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="hillfort" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -2783,13 +2798,13 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.25028312" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.19800995" />
-      <window_info anchor="bottom" id="Logcat" order="7" weight="0.3283582" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.19800995" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="7" visible="true" weight="0.3283582" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2172524" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.25948718" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2172524" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.25870648" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.32960597" />
@@ -2843,7 +2858,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -3058,18 +3073,14 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/pref_data_sync.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="33" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="33" />
+          <folding>
+            <element signature="e#254#280#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3189,30 +3200,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-          <folding>
-            <element signature="e#37#665#0" expanded="true" />
-            <element signature="e#2143#2177#1" expanded="true" />
-            <element signature="e#2206#2234#1" expanded="true" />
-            <element signature="e#2687#2719#1" expanded="true" />
-            <element signature="e#3150#3171#1" expanded="true" />
-            <element signature="e#5804#5838#1" expanded="true" />
-            <element signature="e#6281#6316#1" expanded="true" />
-            <element signature="e#6754#6788#1" expanded="true" />
-            <element signature="e#7230#7265#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/helpers/ImageHelpers.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        <state relative-caret-position="439">
+          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
           <folding>
             <element signature="e#540#569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
+          <folding>
+            <element signature="e#37#665#0" expanded="true" />
+            <element signature="e#2260#2294#1" expanded="true" />
+            <element signature="e#2604#2639#1" expanded="true" />
+            <element signature="e#2899#2933#1" expanded="true" />
+            <element signature="e#3198#3233#1" expanded="true" />
+            <element signature="e#3276#3304#1" expanded="true" />
+            <element signature="e#3757#3789#1" expanded="true" />
+            <element signature="e#4220#4241#1" expanded="true" />
+            <element signature="e#6692#6726#1" expanded="true" />
+            <element signature="e#6838#6869#1" expanded="true" />
+            <element signature="e#7248#7283#1" expanded="true" />
+            <element signature="e#7393#7424#1" expanded="true" />
+            <element signature="e#7799#7833#1" expanded="true" />
+            <element signature="e#7945#7976#1" expanded="true" />
+            <element signature="e#8355#8390#1" expanded="true" />
           </folding>
         </state>
       </provider>

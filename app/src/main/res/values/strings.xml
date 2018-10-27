@@ -13,8 +13,9 @@
     <string name="hint_EnterHillfortTitle">Please Fill In All Above Fields!</string>
     <string name="button_saveHillfort">Save Hillfort</string>
     <string name="button_addImage"> Add Image </string>
+    <string name="button_addAnotherImage"> Add Another Image </string>
     <string name="select_hillfortImage">Select Hillfort Image</string>
-    <string name="change_hillfortFirstImage">Change Hillfort Image</string>
+    <string name="change_hillfortFirstImage">Change First Hillfort Image</string>
     <string name="change_hillfortSecondImage">Change Second Hillfort Image</string>
     <string name="change_hillfortThirdImage">Change Third Hillfort Image</string>
     <string name="change_hillfortFourthImage">Change Fourth Hillfort Image</string>
