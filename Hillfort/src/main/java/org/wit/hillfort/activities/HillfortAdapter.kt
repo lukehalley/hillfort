@@ -1,22 +1,23 @@
 package org.wit.hillfort.activities
-
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.card_hillfort.view.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import org.wit.hillfort.R
 import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.models.HillfortModel
-import org.wit.hillfort.models.UserModel
 
 interface HillfortListener {
     fun onHillfortClick(hillfort: HillfortModel)
     fun onOptionsItemSelected(item: MenuItem?): Boolean
 }
 
-class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
+class HillfortAdapter(private var hillforts: List<HillfortModel>,
                                   private val listener: HillfortListener) : RecyclerView.Adapter<HillfortAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -30,13 +31,24 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
 
     override fun getItemCount(): Int = hillforts.size
 
-    class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), AnkoLogger {
 
         fun bind(hillfort: HillfortModel, listener: HillfortListener) {
-            itemView.hillfortTitle.text = hillfort.title
-            itemView.description.text = hillfort.description
+            itemView.cardHillfortTitle.text = hillfort.title
+            itemView.cardHillfortDescription.text = hillfort.description
+            info { "Address Is: " + hillfort.address }
+            itemView.cardHillfortLocation.text = "Address: " + hillfort.address
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.firstImage))
             itemView.setOnClickListener { listener.onHillfortClick(hillfort) }
+
+            if (hillfort.visited){
+                itemView.visitedIndicator.setBackgroundColor(Color.parseColor("#5db761"))
+                itemView.visitedIndicator.setText(R.string.isVisited)
+            } else {
+                itemView.visitedIndicator.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                itemView.visitedIndicator.setText(R.string.notVisited)
+            }
+
         }
     }
 }

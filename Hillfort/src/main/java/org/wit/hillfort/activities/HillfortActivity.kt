@@ -14,7 +14,6 @@ import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.helpers.showImagePicker
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
-import org.wit.hillfort.models.Location
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -46,8 +45,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             toolbarAdd.title = "Edit Hillfort"
             setSupportActionBar(toolbarAdd)
             hillfort = intent.extras.getParcelable<HillfortModel>("hillfort_edit")
-            hillfortTitle.setText(hillfort.title)
-            description.setText(hillfort.description)
+            cardHillfortTitle.setText(hillfort.title)
+            cardHillfortDescription.setText(hillfort.description)
             additionalNotes.setText(hillfort.addNotes)
             visitedSwitch.isChecked = hillfort.visited
             hillfortLocation.setText(R.string.button_changeLocation)
@@ -83,8 +82,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
 
         addHillfortBtn.setOnClickListener {
-            hillfort.title = hillfortTitle.text.toString()
-            hillfort.description = description.text.toString()
+            hillfort.title = cardHillfortTitle.text.toString()
+            hillfort.description = cardHillfortDescription.text.toString()
             hillfort.addNotes = additionalNotes.text.toString()
             hillfort.visited = visitedSwitch.isChecked
             hillfort.dateVisited = dateVisited.text.toString()
@@ -96,7 +95,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 } else {
                     app.hillforts.create(hillfort.copy())
                 }
-                info("add Button Pressed: $hillfortTitle")
+                info("add Button Pressed: $cardHillfortTitle")
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             }
@@ -129,7 +128,22 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
 
         hillfortLocation.setOnClickListener {
-            val location = Location(52.245696, -7.139102, 15f)
+            val location = HillfortModel(
+                    hillfort.id,
+                    hillfort.title,
+                    hillfort.description,
+                    hillfort.addNotes,
+                    hillfort.visited,
+                    hillfort.dateVisited,
+                    52.245696,
+                    -7.139102,
+                    15f,
+                    hillfort.address,
+                    hillfort.firstImage,
+                    hillfort.secondImage,
+                    hillfort.thirdImage,
+                    hillfort.fourthImage)
+//            val location = HillfortModel(52.245696, -7.139102, 15f)
             if (location.zoom != 0f) {
                 location.lat = hillfort.lat
                 location.lng = hillfort.lng
@@ -223,10 +237,11 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             LOCATION_REQUEST -> {
                 if (data != null) {
-                    val location = data.extras.getParcelable<Location>("location")
+                    val location = data.extras.getParcelable<HillfortModel>("location")
                     hillfort.lat = location.lat
                     hillfort.lng = location.lng
                     hillfort.zoom = location.zoom
+                    hillfort.address = location.address
                     hillfortLocation.setText(R.string.button_changeLocation)
                 }
             }

@@ -56,4 +56,6 @@
     <string name="confirmUserEditSave">Are you sure you want to edit your credentials?</string>
     <string name="title_Settings">Settings</string>
     <string name="unsavedPrompt">Are you sure you dont want to save this Hillfort?</string>
+    <string name="isVisited">Visited</string>
+    <string name="notVisited">Not Visited</string>
 </resources>
