@@ -60,7 +60,7 @@ class HillfortMapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.
         location.lat = marker.position.latitude
         location.lng = marker.position.longitude
         location.zoom = map.cameraPosition.zoom
-        val loc = LatLng(marker.position.latitude, marker.position.longitude)
+//        val loc = LatLng(marker.position.latitude, marker.position.longitude)
         val addresses = geocoder.getFromLocation(location.lat, location.lng, 1)
         location.address = addresses.get(0).getAddressLine(0)
     }

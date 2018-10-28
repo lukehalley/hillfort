@@ -1,5 +1,5 @@
 package org.wit.hillfort.activities
-import android.location.Geocoder
+import android.location.Location
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -15,7 +15,7 @@ interface HillfortListener {
     fun onOptionsItemSelected(item: MenuItem?): Boolean
 }
 
-class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
+class HillfortAdapter constructor(private var hillforts: List<HillfortModel>, locations: List<Location>,
                                   private val listener: HillfortListener) : RecyclerView.Adapter<HillfortAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -35,11 +35,9 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
 
         fun bind(hillfort: HillfortModel, listener: HillfortListener) {
 
-
-
             itemView.cardHillfortTitle.text = hillfort.title
             itemView.cardHillfortDescription.text = hillfort.description
-//            itemView.cardHillfortLocation.text = hillfort.lat
+//            itemView.cardHillfortLocation.text = location.address
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.firstImage))
             itemView.setOnClickListener { listener.onHillfortClick(hillfort) }
         }
