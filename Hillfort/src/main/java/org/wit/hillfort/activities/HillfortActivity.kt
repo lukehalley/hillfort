@@ -3,8 +3,11 @@ package org.wit.hillfort.activities
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
+import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -17,8 +20,12 @@ import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.helpers.showImagePicker
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
@@ -35,6 +42,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     val SECOND_CAMERA_IMAGE_REQUEST = 7
     val THIRD_CAMERA_IMAGE_REQUEST = 8
     val FOURTH_CAMERA_IMAGE_REQUEST = 9
+
+    var mCurrentPhotoPath: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,28 +72,29 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 dateVisited.text = hillfort.dateVisited
                 dateVisited.visibility = View.VISIBLE
             }
-            if (hillfort.fourthImage.isNotEmpty()) {
-                hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
+            if (hillfort.firstImage.isNotEmpty()) {
+                hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.firstImage))
                 hillfortFirstImage.visibility = View.VISIBLE
-                chooseFirstImageGallery.setText(R.string.change_hillfortFirstImage)
+                chooseFirstImageGallery.visibility = View.VISIBLE
+                chooseFirstImageCamera.visibility = View.VISIBLE
             }
             if (hillfort.secondImage.isNotEmpty()) {
                 hillfortSecondImage.setImageBitmap(readImageFromPath(this, hillfort.secondImage))
                 hillfortSecondImage.visibility = View.VISIBLE
                 chooseSecondImageGallery.visibility = View.VISIBLE
-                chooseSecondImageGallery.setText(R.string.change_hillfortSecondImage)
+                chooseSecondImageCamera.visibility = View.VISIBLE
             }
-            if (hillfort.fourthImage.isNotEmpty()) {
-                hillfortThirdImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
+            if (hillfort.thirdImage.isNotEmpty()) {
+                hillfortThirdImage.setImageBitmap(readImageFromPath(this, hillfort.thirdImage))
                 hillfortThirdImage.visibility = View.VISIBLE
                 chooseThirdImageGallery.visibility = View.VISIBLE
-                chooseThirdImageGallery.setText(R.string.change_hillfortThirdImage)
+                chooseThirdImageCamera.visibility = View.VISIBLE
             }
             if (hillfort.fourthImage.isNotEmpty()) {
                 hillfortFourthImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
                 hillfortFourthImage.visibility = View.VISIBLE
                 chooseFourthImageGallery.visibility = View.VISIBLE
-                chooseFourthImageGallery.setText(R.string.change_hillfortFourthImage)
+                chooseFourthImageCamera.visibility = View.VISIBLE
             }
             addHillfortBtn.setText(R.string.button_saveHillfort)
         }
@@ -139,22 +149,104 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         // Camera
         chooseFirstImageCamera.setOnClickListener {
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                // Ensure that there's a camera activity to handle the intent
                 takePictureIntent.resolveActivity(packageManager)?.also {
-                    startActivityForResult(takePictureIntent, FIRST_CAMERA_IMAGE_REQUEST)
+                    // Create the File where the photo should go
+                    val photoFile: File? = try {
+                        createImageFile()
+                    } catch (ex: IOException) {
+                        // Error occurred while creating the File
+                        null
+                    }
+                    // Continue only if the File was successfully created
+                    photoFile?.also {
+                        val photoURI: Uri = FileProvider.getUriForFile(
+                                this,
+                                "com.example.android.fileprovider",
+                                it
+                        )
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                        startActivityForResult(takePictureIntent, FIRST_CAMERA_IMAGE_REQUEST)
+                    }
                 }
             }
         }
 
         chooseSecondImageCamera.setOnClickListener {
-            showImagePicker(this, SECOND_CAMERA_IMAGE_REQUEST)
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                // Ensure that there's a camera activity to handle the intent
+                takePictureIntent.resolveActivity(packageManager)?.also {
+                    // Create the File where the photo should go
+                    val photoFile: File? = try {
+                        createImageFile()
+                    } catch (ex: IOException) {
+                        // Error occurred while creating the File
+                        null
+                    }
+                    // Continue only if the File was successfully created
+                    photoFile?.also {
+                        val photoURI: Uri = FileProvider.getUriForFile(
+                                this,
+                                "com.example.android.fileprovider",
+                                it
+                        )
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                        startActivityForResult(takePictureIntent, SECOND_CAMERA_IMAGE_REQUEST)
+                    }
+                }
+            }
         }
 
         chooseThirdImageCamera.setOnClickListener {
-            showImagePicker(this, THIRD_CAMERA_IMAGE_REQUEST)
+//            showImagePicker(this, THIRD_CAMERA_IMAGE_REQUEST)
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                // Ensure that there's a camera activity to handle the intent
+                takePictureIntent.resolveActivity(packageManager)?.also {
+                    // Create the File where the photo should go
+                    val photoFile: File? = try {
+                        createImageFile()
+                    } catch (ex: IOException) {
+                        // Error occurred while creating the File
+                        null
+                    }
+                    // Continue only if the File was successfully created
+                    photoFile?.also {
+                        val photoURI: Uri = FileProvider.getUriForFile(
+                                this,
+                                "com.example.android.fileprovider",
+                                it
+                        )
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                        startActivityForResult(takePictureIntent, THIRD_CAMERA_IMAGE_REQUEST)
+                    }
+                }
+            }
         }
 
         chooseFourthImageCamera.setOnClickListener {
-            showImagePicker(this, FOURTH_CAMERA_IMAGE_REQUEST)
+//            showImagePicker(this, FOURTH_CAMERA_IMAGE_REQUEST)
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                // Ensure that there's a camera activity to handle the intent
+                takePictureIntent.resolveActivity(packageManager)?.also {
+                    // Create the File where the photo should go
+                    val photoFile: File? = try {
+                        createImageFile()
+                    } catch (ex: IOException) {
+                        // Error occurred while creating the File
+                        null
+                    }
+                    // Continue only if the File was successfully created
+                    photoFile?.also {
+                        val photoURI: Uri = FileProvider.getUriForFile(
+                                this,
+                                "com.example.android.fileprovider",
+                                it
+                        )
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                        startActivityForResult(takePictureIntent, FOURTH_CAMERA_IMAGE_REQUEST)
+                    }
+                }
+            }
         }
 
         hillfortLocation.setOnClickListener {
@@ -339,23 +431,20 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }.show()
     }
 
-//    private fun dispatchTakePictureIntent() {
-//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-//            takePictureIntent.resolveActivity(packageManager)?.also {
-//                startActivityForResult(takePictureIntent, FIRST_CAMERA_IMAGE_REQUEST)
-//            }
-//        }
-//    }
-
-//    override fun onNavigateUp() {
-//        alert(R.string.unsavedPrompt) {
-//            yesButton {
-//                finish()
-//                super.onNavigateUp()
-//            }
-//            noButton {}
-//        }.show()
-//    }
+    @Throws(IOException::class)
+    private fun createImageFile(): File {
+        // Create an image file name
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir: File = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(
+                "JPEG_${timeStamp}_", /* prefix */
+                ".jpg", /* suffix */
+                storageDir /* directory */
+        ).apply {
+            // Save a file: path for use with ACTION_VIEW intents
+            mCurrentPhotoPath = absolutePath
+        }
+    }
 
 }
 
