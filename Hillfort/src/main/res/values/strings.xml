@@ -12,7 +12,7 @@
     <string name="menu_cancelHillfort">Cancel</string>
     <string name="hint_EnterHillfortTitle">Please Fill In All Above Fields!</string>
     <string name="button_saveHillfort">Save Hillfort</string>
-    <string name="button_addImage"> Add Image </string>
+    <string name="button_addImageFromGallery"> Gallery </string>
     <string name="button_addAnotherImage"> Add Another Image </string>
     <string name="select_hillfortImage">Select Hillfort Image</string>
     <string name="change_hillfortFirstImage">Change First Hillfort Image</string>
@@ -58,4 +58,5 @@
     <string name="unsavedPrompt">Are you sure you dont want to save this Hillfort?</string>
     <string name="isVisited">Visited</string>
     <string name="notVisited">Not Visited</string>
+    <string name="button_addImageFromCamera">Camera</string>
 </resources>

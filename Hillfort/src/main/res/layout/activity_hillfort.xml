@@ -107,10 +107,10 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dip"
                     android:layout_marginTop="10dip"
-                    android:textStyle="italic"
-                    android:visibility="gone"
                     android:layout_marginRight="10dip"
-                    android:text="@string/date_Visited" />
+                    android:text="@string/date_Visited"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
 
                 <View
                     android:layout_width="match_parent"
@@ -139,18 +139,55 @@
                     android:visibility="gone"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-                <Button
-                    android:id="@+id/chooseFirstImage"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseFirstImageGallery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/gallery"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromGallery"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseFirstImageCamera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/camera"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromCamera"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
 
                 <ImageView
                     android:id="@+id/hillfortSecondImage"
@@ -162,19 +199,54 @@
                     android:visibility="gone"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-                <Button
-                    android:id="@+id/chooseSecondImage"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
-                    android:visibility="gone"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseSecondImageGallery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/gallery"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromGallery"
+                            android:textColor="@color/colorPrimary"
+                            android:visibility="gone"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseSecondImageCamera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/camera"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromCamera"
+                            android:textColor="@color/colorPrimary"
+                            android:visibility="gone"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/hillfortThirdImage"
@@ -186,19 +258,55 @@
                     android:visibility="gone"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-                <Button
-                    android:id="@+id/chooseThirdImage"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
-                    android:visibility="gone"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseThirdImageGallery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/gallery"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromGallery"
+                            android:textColor="@color/colorPrimary"
+                            android:visibility="gone"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseThirdImageCamera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/camera"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromCamera"
+                            android:textColor="@color/colorPrimary"
+                            android:visibility="gone"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
 
                 <ImageView
                     android:id="@+id/hillfortFourthImage"
@@ -210,19 +318,55 @@
                     android:visibility="gone"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-                <Button
-                    android:id="@+id/chooseFourthImage"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
-                    android:visibility="gone"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseFourthImageGallery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/gallery"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromGallery"
+                            android:textColor="@color/colorPrimary"
+                            android:visibility="gone"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/chooseFourthImageCamera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/colorAccent"
+                            android:drawableLeft="@drawable/camera"
+                            android:paddingLeft="22dp"
+                            android:paddingRight="22dp"
+                            android:text="@string/button_addImageFromCamera"
+                            android:textColor="@color/colorPrimary"
+                            android:visibility="gone"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
 
                 <View
                     android:layout_width="match_parent"
@@ -286,8 +430,8 @@
                     android:stateListAnimator="@null"
                     android:text="@string/button_deleteHillfort"
                     android:textColor="@color/colorPrimary"
-                    android:visibility="gone"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:visibility="gone" />
 
             </LinearLayout>
         </ScrollView>

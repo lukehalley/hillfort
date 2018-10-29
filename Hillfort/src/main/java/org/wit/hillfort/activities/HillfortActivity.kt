@@ -1,7 +1,10 @@
 package org.wit.hillfort.activities
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -22,11 +25,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
     var hillfort = HillfortModel()
     lateinit var app: MainApp
-    val IMAGE_REQUEST = 1
-    val LOCATION_REQUEST = 2
-    val SECOND_IMAGE_REQUEST = 3
-    val THIRD_IMAGE_REQUEST = 4
-    val FOURTH_IMAGE_REQUEST = 5
+    val LOCATION_REQUEST = 1
+    val FIRST_GALLERY_IMAGE_REQUEST = 2
+    val SECOND_GALLERY_IMAGE_REQUEST = 3
+    val THIRD_GALLERY_IMAGE_REQUEST = 4
+    val FOURTH_GALLERY_IMAGE_REQUEST = 5
+
+    val FIRST_CAMERA_IMAGE_REQUEST = 6
+    val SECOND_CAMERA_IMAGE_REQUEST = 7
+    val THIRD_CAMERA_IMAGE_REQUEST = 8
+    val FOURTH_CAMERA_IMAGE_REQUEST = 9
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,28 +63,28 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 dateVisited.text = hillfort.dateVisited
                 dateVisited.visibility = View.VISIBLE
             }
-            if (hillfort.firstImage.isNotEmpty()) {
-                hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.firstImage))
+            if (hillfort.fourthImage.isNotEmpty()) {
+                hillfortFirstImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
                 hillfortFirstImage.visibility = View.VISIBLE
-                chooseFirstImage.setText(R.string.change_hillfortFirstImage)
+                chooseFirstImageGallery.setText(R.string.change_hillfortFirstImage)
             }
             if (hillfort.secondImage.isNotEmpty()) {
                 hillfortSecondImage.setImageBitmap(readImageFromPath(this, hillfort.secondImage))
                 hillfortSecondImage.visibility = View.VISIBLE
-                chooseSecondImage.visibility = View.VISIBLE
-                chooseSecondImage.setText(R.string.change_hillfortSecondImage)
+                chooseSecondImageGallery.visibility = View.VISIBLE
+                chooseSecondImageGallery.setText(R.string.change_hillfortSecondImage)
             }
-            if (hillfort.thirdImage.isNotEmpty()) {
-                hillfortThirdImage.setImageBitmap(readImageFromPath(this, hillfort.thirdImage))
+            if (hillfort.fourthImage.isNotEmpty()) {
+                hillfortThirdImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
                 hillfortThirdImage.visibility = View.VISIBLE
-                chooseThirdImage.visibility = View.VISIBLE
-                chooseThirdImage.setText(R.string.change_hillfortThirdImage)
+                chooseThirdImageGallery.visibility = View.VISIBLE
+                chooseThirdImageGallery.setText(R.string.change_hillfortThirdImage)
             }
             if (hillfort.fourthImage.isNotEmpty()) {
                 hillfortFourthImage.setImageBitmap(readImageFromPath(this, hillfort.fourthImage))
                 hillfortFourthImage.visibility = View.VISIBLE
-                chooseFourthImage.visibility = View.VISIBLE
-                chooseFourthImage.setText(R.string.change_hillfortFourthImage)
+                chooseFourthImageGallery.visibility = View.VISIBLE
+                chooseFourthImageGallery.setText(R.string.change_hillfortFourthImage)
             }
             addHillfortBtn.setText(R.string.button_saveHillfort)
         }
@@ -111,20 +119,42 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }.show()
         }
 
-        chooseFirstImage.setOnClickListener {
-            showImagePicker(this, IMAGE_REQUEST)
+        // Gallery
+        chooseFirstImageGallery.setOnClickListener {
+            showImagePicker(this, FIRST_GALLERY_IMAGE_REQUEST)
         }
 
-        chooseSecondImage.setOnClickListener {
-            showImagePicker(this, SECOND_IMAGE_REQUEST)
+        chooseSecondImageGallery.setOnClickListener {
+            showImagePicker(this, SECOND_GALLERY_IMAGE_REQUEST)
         }
 
-        chooseThirdImage.setOnClickListener {
-            showImagePicker(this, THIRD_IMAGE_REQUEST)
+        chooseThirdImageGallery.setOnClickListener {
+            showImagePicker(this, THIRD_GALLERY_IMAGE_REQUEST)
         }
 
-        chooseFourthImage.setOnClickListener {
-            showImagePicker(this, FOURTH_IMAGE_REQUEST)
+        chooseFourthImageGallery.setOnClickListener {
+            showImagePicker(this, FOURTH_GALLERY_IMAGE_REQUEST)
+        }
+
+        // Camera
+        chooseFirstImageCamera.setOnClickListener {
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                takePictureIntent.resolveActivity(packageManager)?.also {
+                    startActivityForResult(takePictureIntent, FIRST_CAMERA_IMAGE_REQUEST)
+                }
+            }
+        }
+
+        chooseSecondImageCamera.setOnClickListener {
+            showImagePicker(this, SECOND_CAMERA_IMAGE_REQUEST)
+        }
+
+        chooseThirdImageCamera.setOnClickListener {
+            showImagePicker(this, THIRD_CAMERA_IMAGE_REQUEST)
+        }
+
+        chooseFourthImageCamera.setOnClickListener {
+            showImagePicker(this, FOURTH_CAMERA_IMAGE_REQUEST)
         }
 
         hillfortLocation.setOnClickListener {
@@ -139,11 +169,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     -7.139102,
                     15f,
                     hillfort.address,
-                    hillfort.firstImage,
+                    hillfort.fourthImage,
                     hillfort.secondImage,
-                    hillfort.thirdImage,
+                    hillfort.fourthImage,
                     hillfort.fourthImage)
-//            val location = HillfortModel(52.245696, -7.139102, 15f)
             if (location.zoom != 0f) {
                 location.lat = hillfort.lat
                 location.lng = hillfort.lng
@@ -196,43 +225,92 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            IMAGE_REQUEST -> {
+            FIRST_GALLERY_IMAGE_REQUEST -> {
                 if (data != null) {
-                    hillfort.firstImage = data.getData().toString()
+                    hillfort.fourthImage = data.getData().toString()
                     hillfortFirstImage.setImageBitmap(readImage(this, resultCode, data))
                     hillfortFirstImage.visibility = View.VISIBLE
-                    chooseFirstImage.setText(R.string.change_hillfortFirstImage)
-                    chooseSecondImage.visibility = View.VISIBLE
-                    chooseSecondImage.setText(R.string.button_addAnotherImage)
+                    chooseFirstImageCamera.isClickable = false
+                    chooseFirstImageCamera.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseSecondImageGallery.visibility = View.VISIBLE
+                    chooseSecondImageCamera.visibility = View.VISIBLE
                 }
             }
-            SECOND_IMAGE_REQUEST -> {
+            SECOND_GALLERY_IMAGE_REQUEST -> {
                 if (data != null) {
                     hillfort.secondImage = data.getData().toString()
                     hillfortSecondImage.setImageBitmap(readImage(this, resultCode, data))
                     hillfortSecondImage.visibility = View.VISIBLE
-                    chooseSecondImage.setText(R.string.change_hillfortSecondImage)
-                    chooseThirdImage.visibility = View.VISIBLE
-                    chooseThirdImage.setText(R.string.button_addAnotherImage)
-
+                    chooseSecondImageCamera.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseSecondImageCamera.isClickable = false
+                    chooseThirdImageGallery.visibility = View.VISIBLE
+                    chooseThirdImageCamera.visibility = View.VISIBLE
                 }
             }
-            THIRD_IMAGE_REQUEST -> {
+            THIRD_GALLERY_IMAGE_REQUEST -> {
                 if (data != null) {
-                    hillfort.thirdImage = data.getData().toString()
+                    hillfort.fourthImage = data.getData().toString()
                     hillfortThirdImage.setImageBitmap(readImage(this, resultCode, data))
                     hillfortThirdImage.visibility = View.VISIBLE
-                    chooseThirdImage.setText(R.string.change_hillfortThirdImage)
-                    chooseFourthImage.visibility = View.VISIBLE
-                    chooseFourthImage.setText(R.string.button_addAnotherImage)
+                    chooseThirdImageCamera.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseThirdImageCamera.isClickable = false
+                    chooseFourthImageGallery.visibility = View.VISIBLE
+                    chooseFourthImageCamera.visibility = View.VISIBLE
                 }
             }
-            FOURTH_IMAGE_REQUEST -> {
+            FOURTH_GALLERY_IMAGE_REQUEST -> {
                 if (data != null) {
                     hillfort.fourthImage = data.getData().toString()
                     hillfortFourthImage.setImageBitmap(readImage(this, resultCode, data))
+                    chooseFourthImageCamera.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseFourthImageCamera.isClickable = false
                     hillfortFourthImage.visibility = View.VISIBLE
-                    chooseFourthImage.setText(R.string.change_hillfortFourthImage)
+                }
+            }
+            FIRST_CAMERA_IMAGE_REQUEST -> {
+                if (data != null) {
+                    val imageBitmap = data.extras.get("data") as Bitmap
+                    hillfort.fourthImage = imageBitmap.toString()
+                    hillfortFirstImage.setImageBitmap(imageBitmap)
+                    chooseFirstImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseFirstImageGallery.isClickable = false
+                    hillfortFirstImage.visibility = View.VISIBLE
+                    chooseSecondImageGallery.visibility = View.VISIBLE
+                    chooseSecondImageCamera.visibility = View.VISIBLE
+                }
+            }
+            SECOND_CAMERA_IMAGE_REQUEST -> {
+                if (data != null) {
+                    val imageBitmap = data.extras.get("data") as Bitmap
+                    hillfort.secondImage = imageBitmap.toString()
+                    hillfortSecondImage.setImageBitmap(imageBitmap)
+                    chooseSecondImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseSecondImageGallery.isClickable = false
+                    hillfortSecondImage.visibility = View.VISIBLE
+                    chooseThirdImageGallery.visibility = View.VISIBLE
+                    chooseThirdImageCamera.visibility = View.VISIBLE
+                }
+            }
+            THIRD_CAMERA_IMAGE_REQUEST -> {
+                if (data != null) {
+                    val imageBitmap = data.extras.get("data") as Bitmap
+                    hillfort.fourthImage = imageBitmap.toString()
+                    hillfortThirdImage.setImageBitmap(imageBitmap)
+                    chooseThirdImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseThirdImageGallery.isClickable = false
+                    hillfortThirdImage.visibility = View.VISIBLE
+                    chooseFourthImageGallery.visibility = View.VISIBLE
+                    chooseFourthImageCamera.visibility = View.VISIBLE
+                }
+            }
+            FOURTH_CAMERA_IMAGE_REQUEST -> {
+                if (data != null) {
+                    val imageBitmap = data.extras.get("data") as Bitmap
+                    hillfort.fourthImage = imageBitmap.toString()
+                    hillfortFourthImage.setImageBitmap(imageBitmap)
+                    chooseFourthImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    chooseFourthImageGallery.isClickable = false
+                    hillfortFourthImage.visibility = View.VISIBLE
                 }
             }
             LOCATION_REQUEST -> {
@@ -257,6 +335,14 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             noButton {}
         }.show()
     }
+
+//    private fun dispatchTakePictureIntent() {
+//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+//            takePictureIntent.resolveActivity(packageManager)?.also {
+//                startActivityForResult(takePictureIntent, FIRST_CAMERA_IMAGE_REQUEST)
+//            }
+//        }
+//    }
 
 //    override fun onNavigateUp() {
 //        alert(R.string.unsavedPrompt) {
