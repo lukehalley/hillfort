@@ -10,7 +10,7 @@ import org.wit.hillfort.helpers.read
 import org.wit.hillfort.helpers.write
 import java.util.*
 
-val JSON_FILE = "hillforts.json"
+val HILLFORT_JSON_FILE = "hillforts.json"
 val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
 val listType = object : TypeToken<java.util.ArrayList<HillfortModel>>() {}.type
 
@@ -25,7 +25,7 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
 
     constructor (context: Context) {
         this.context = context
-        if (exists(context, USER_JSON_FILE)) {
+        if (exists(context, HILLFORT_JSON_FILE)) {
             deserialize()
         }
     }
@@ -67,11 +67,11 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
 
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(hillforts, listType)
-        write(context, USER_JSON_FILE, jsonString)
+        write(context, HILLFORT_JSON_FILE, jsonString)
     }
 
     private fun deserialize() {
-        val jsonString = read(context, USER_JSON_FILE)
+        val jsonString = read(context, HILLFORT_JSON_FILE)
         hillforts = Gson().fromJson(jsonString, listType)
     }
 }

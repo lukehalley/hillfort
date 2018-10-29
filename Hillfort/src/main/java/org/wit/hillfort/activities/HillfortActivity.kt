@@ -169,9 +169,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     -7.139102,
                     15f,
                     hillfort.address,
-                    hillfort.fourthImage,
+                    hillfort.firstImage,
                     hillfort.secondImage,
-                    hillfort.fourthImage,
+                    hillfort.thirdImage,
                     hillfort.fourthImage)
             if (location.zoom != 0f) {
                 location.lat = hillfort.lat
@@ -225,9 +225,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
+            // GALLERY
             FIRST_GALLERY_IMAGE_REQUEST -> {
                 if (data != null) {
-                    hillfort.fourthImage = data.getData().toString()
+                    hillfort.firstImage = data.getData().toString()
                     hillfortFirstImage.setImageBitmap(readImage(this, resultCode, data))
                     hillfortFirstImage.visibility = View.VISIBLE
                     chooseFirstImageCamera.isClickable = false
@@ -249,7 +250,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             THIRD_GALLERY_IMAGE_REQUEST -> {
                 if (data != null) {
-                    hillfort.fourthImage = data.getData().toString()
+                    hillfort.thirdImage = data.getData().toString()
                     hillfortThirdImage.setImageBitmap(readImage(this, resultCode, data))
                     hillfortThirdImage.visibility = View.VISIBLE
                     chooseThirdImageCamera.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
@@ -267,10 +268,12 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfortFourthImage.visibility = View.VISIBLE
                 }
             }
+
+            // CAMERA
             FIRST_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
                     val imageBitmap = data.extras.get("data") as Bitmap
-                    hillfort.fourthImage = imageBitmap.toString()
+                    hillfort.firstImage = imageBitmap.toString()
                     hillfortFirstImage.setImageBitmap(imageBitmap)
                     chooseFirstImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseFirstImageGallery.isClickable = false
@@ -294,7 +297,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             THIRD_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
                     val imageBitmap = data.extras.get("data") as Bitmap
-                    hillfort.fourthImage = imageBitmap.toString()
+                    hillfort.thirdImage = imageBitmap.toString()
                     hillfortThirdImage.setImageBitmap(imageBitmap)
                     chooseThirdImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseThirdImageGallery.isClickable = false
