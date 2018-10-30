@@ -363,14 +363,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             // CAMERA
             FIRST_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
-                    val f = File(mCurrentPhotoPath)
-                    Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->
-                        mediaScanIntent.data = Uri.fromFile(f)
-                        sendBroadcast(mediaScanIntent)
-                    }
                     if (resultCode == Activity.RESULT_OK) {
                         hillfortFirstImage.setImageBitmap(decodeBitmap())
-                        hillfort.firstImage = Uri.fromFile(f).toString()
+                        hillfort.firstImage = cameraPicSaveAndGet()
                     }
                     chooseFirstImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseFirstImageGallery.isClickable = false
@@ -380,11 +375,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 }
             }
             SECOND_CAMERA_IMAGE_REQUEST -> {
-                if (data != null) {
-                    if (resultCode == Activity.RESULT_OK) {
-                        hillfort.secondImage = mCurrentPhotoPath
-                        hillfortSecondImage.setImageBitmap(decodeBitmap())
-                    }
+                if (data != null && resultCode == Activity.RESULT_OK) {
+                    hillfortSecondImage.setImageBitmap(decodeBitmap())
+                    hillfort.secondImage = cameraPicSaveAndGet()
                     chooseSecondImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseSecondImageGallery.isClickable = false
                     hillfortSecondImage.visibility = View.VISIBLE
@@ -393,11 +386,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 }
             }
             THIRD_CAMERA_IMAGE_REQUEST -> {
-                if (data != null) {
-                    if (resultCode == Activity.RESULT_OK) {
-                        hillfort.thirdImage = mCurrentPhotoPath
-                        hillfortThirdImage.setImageBitmap(decodeBitmap())
-                    }
+                if (data != null && resultCode == Activity.RESULT_OK) {
+                    hillfortThirdImage.setImageBitmap(decodeBitmap())
+                    hillfort.thirdImage = cameraPicSaveAndGet()
                     chooseThirdImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseThirdImageGallery.isClickable = false
                     hillfortThirdImage.visibility = View.VISIBLE
@@ -406,10 +397,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 }
             }
             FOURTH_CAMERA_IMAGE_REQUEST -> {
-                if (data != null) {
-                    if (resultCode == Activity.RESULT_OK) {
-                        hillfortFourthImage.setImageBitmap(decodeBitmap())
-                    }
+                if (data != null && resultCode == Activity.RESULT_OK) {
+                    hillfortFourthImage.setImageBitmap(decodeBitmap())
+                    hillfort.fourthImage = cameraPicSaveAndGet()
                     chooseFourthImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseFourthImageGallery.isClickable = false
                     hillfortFourthImage.visibility = View.VISIBLE
@@ -454,9 +444,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     }
 
     fun decodeBitmap(): Bitmap {
-
         return BitmapFactory.decodeFile(mCurrentPhotoPath)
+    }
 
+    fun cameraPicSaveAndGet(): String {
+        val f = File(mCurrentPhotoPath)
+        Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->
+            mediaScanIntent.data = Uri.fromFile(f)
+            sendBroadcast(mediaScanIntent)
+        }
+        return Uri.fromFile(f).toString()
     }
 
 }
