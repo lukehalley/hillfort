@@ -364,9 +364,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             FIRST_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
                     if (resultCode == Activity.RESULT_OK) {
-                        val uri = intent.data
-                        val bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
-                        hillfort.firstImage = bitmap.toString()
+                        info { "DATA BITMAP: " + data.extras.get("data") as Bitmap }
+                        hillfort.firstImage = mCurrentPhotoPath
                         hillfortFirstImage.setImageBitmap(decodeBitmap())
                     }
                     chooseFirstImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
