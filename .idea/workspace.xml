@@ -54,27 +54,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="558">
-              <caret line="401" column="64" lean-forward="true" selection-start-line="401" selection-start-column="64" selection-end-line="401" selection-end-column="64" />
+              <caret line="401" column="64" selection-start-line="401" selection-start-column="64" selection-end-line="401" selection-end-column="64" />
               <folding>
                 <element signature="e#37#987#0" expanded="true" />
-                <element signature="e#2410#2440#1" expanded="true" />
-                <element signature="e#4121#4149#1" expanded="true" />
-                <element signature="e#4626#4658#1" expanded="true" />
-                <element signature="e#5101#5122#1" expanded="true" />
-                <element signature="e#12346#12368#1" expanded="true" />
-                <element signature="e#12594#12615#1" expanded="true" />
-                <element signature="e#18519#18549#1" expanded="true" />
-                <element signature="e#18649#18671#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hillforts.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hillforts.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../AndroidStudio/DeviceExplorer/google-pixel_2-FA79L1A04658/data/data/org.wit.hillfort/files/hillforts.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -3210,7 +3202,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-69" y="-1080" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -3638,28 +3629,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="401" column="64" selection-start-line="401" selection-start-column="64" selection-end-line="401" selection-end-column="64" />
+          <folding>
+            <element signature="e#37#987#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../AndroidStudio/DeviceExplorer/google-pixel_2-FA79L1A04658/data/data/org.wit.hillfort/files/hillforts.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="401" column="64" lean-forward="true" selection-start-line="401" selection-start-column="64" selection-end-line="401" selection-end-column="64" />
-          <folding>
-            <element signature="e#37#987#0" expanded="true" />
-            <element signature="e#2410#2440#1" expanded="true" />
-            <element signature="e#4121#4149#1" expanded="true" />
-            <element signature="e#4626#4658#1" expanded="true" />
-            <element signature="e#5101#5122#1" expanded="true" />
-            <element signature="e#12346#12368#1" expanded="true" />
-            <element signature="e#12594#12615#1" expanded="true" />
-            <element signature="e#18519#18549#1" expanded="true" />
-            <element signature="e#18649#18671#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
