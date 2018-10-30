@@ -363,10 +363,14 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             // CAMERA
             FIRST_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
+                    val f = File(mCurrentPhotoPath)
+                    Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->
+                        mediaScanIntent.data = Uri.fromFile(f)
+                        sendBroadcast(mediaScanIntent)
+                    }
                     if (resultCode == Activity.RESULT_OK) {
-                        info { "DATA BITMAP: " + data.extras.get("data") as Bitmap }
-                        hillfort.firstImage = mCurrentPhotoPath
                         hillfortFirstImage.setImageBitmap(decodeBitmap())
+                        hillfort.firstImage = Uri.fromFile(f).toString()
                     }
                     chooseFirstImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseFirstImageGallery.isClickable = false
