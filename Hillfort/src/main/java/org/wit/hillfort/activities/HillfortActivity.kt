@@ -1,7 +1,9 @@
 package org.wit.hillfort.activities
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -162,8 +164,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     photoFile?.also {
                         val photoURI: Uri = FileProvider.getUriForFile(
                                 this,
-                                "com.example.android.fileprovider",
-                                it
+                                "org.wit.hillfort.fileprovider", it
                         )
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                         startActivityForResult(takePictureIntent, FIRST_CAMERA_IMAGE_REQUEST)
@@ -187,7 +188,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     photoFile?.also {
                         val photoURI: Uri = FileProvider.getUriForFile(
                                 this,
-                                "com.example.android.fileprovider",
+                                "org.wit.hillfort.fileprovider",
                                 it
                         )
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
@@ -198,7 +199,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
 
         chooseThirdImageCamera.setOnClickListener {
-//            showImagePicker(this, THIRD_CAMERA_IMAGE_REQUEST)
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
                 // Ensure that there's a camera activity to handle the intent
                 takePictureIntent.resolveActivity(packageManager)?.also {
@@ -213,7 +213,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     photoFile?.also {
                         val photoURI: Uri = FileProvider.getUriForFile(
                                 this,
-                                "com.example.android.fileprovider",
+                                "org.wit.hillfort.fileprovider",
                                 it
                         )
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
@@ -224,7 +224,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
 
         chooseFourthImageCamera.setOnClickListener {
-//            showImagePicker(this, FOURTH_CAMERA_IMAGE_REQUEST)
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
                 // Ensure that there's a camera activity to handle the intent
                 takePictureIntent.resolveActivity(packageManager)?.also {
@@ -239,7 +238,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     photoFile?.also {
                         val photoURI: Uri = FileProvider.getUriForFile(
                                 this,
-                                "com.example.android.fileprovider",
+                                "org.wit.hillfort.fileprovider",
                                 it
                         )
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
@@ -364,9 +363,12 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             // CAMERA
             FIRST_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
-                    val imageBitmap = data.extras.get("data") as Bitmap
-                    hillfort.firstImage = imageBitmap.toString()
-                    hillfortFirstImage.setImageBitmap(imageBitmap)
+                    if (resultCode == Activity.RESULT_OK) {
+                        val uri = intent.data
+                        val bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                        hillfort.firstImage = bitmap.toString()
+                        hillfortFirstImage.setImageBitmap(decodeBitmap())
+                    }
                     chooseFirstImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseFirstImageGallery.isClickable = false
                     hillfortFirstImage.visibility = View.VISIBLE
@@ -376,9 +378,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             SECOND_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
-                    val imageBitmap = data.extras.get("data") as Bitmap
-                    hillfort.secondImage = imageBitmap.toString()
-                    hillfortSecondImage.setImageBitmap(imageBitmap)
+                    if (resultCode == Activity.RESULT_OK) {
+                        hillfort.secondImage = mCurrentPhotoPath
+                        hillfortSecondImage.setImageBitmap(decodeBitmap())
+                    }
                     chooseSecondImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseSecondImageGallery.isClickable = false
                     hillfortSecondImage.visibility = View.VISIBLE
@@ -388,9 +391,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             THIRD_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
-                    val imageBitmap = data.extras.get("data") as Bitmap
-                    hillfort.thirdImage = imageBitmap.toString()
-                    hillfortThirdImage.setImageBitmap(imageBitmap)
+                    if (resultCode == Activity.RESULT_OK) {
+                        hillfort.thirdImage = mCurrentPhotoPath
+                        hillfortThirdImage.setImageBitmap(decodeBitmap())
+                    }
                     chooseThirdImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseThirdImageGallery.isClickable = false
                     hillfortThirdImage.visibility = View.VISIBLE
@@ -400,9 +404,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             FOURTH_CAMERA_IMAGE_REQUEST -> {
                 if (data != null) {
-                    val imageBitmap = data.extras.get("data") as Bitmap
-                    hillfort.fourthImage = imageBitmap.toString()
-                    hillfortFourthImage.setImageBitmap(imageBitmap)
+                    if (resultCode == Activity.RESULT_OK) {
+                        hillfortFourthImage.setImageBitmap(decodeBitmap())
+                    }
                     chooseFourthImageGallery.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                     chooseFourthImageGallery.isClickable = false
                     hillfortFourthImage.visibility = View.VISIBLE
@@ -444,6 +448,12 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             // Save a file: path for use with ACTION_VIEW intents
             mCurrentPhotoPath = absolutePath
         }
+    }
+
+    fun decodeBitmap(): Bitmap {
+
+        return BitmapFactory.decodeFile(mCurrentPhotoPath)
+
     }
 
 }
