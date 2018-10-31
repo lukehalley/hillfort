@@ -51,7 +51,7 @@
     <string name="button_SaveEditUser">Save</string>
     <string name="changeUserEmail">Email</string>
     <string name="changePassword">Password</string>
-    <string name="hillfortCount">Hillfort Count: N/A</string>
+    <string name="hillfortCountNA">Hillfort Count: N/A</string>
     <string name="hillfortVisitedCount">Hillforts Visited: N/A</string>
     <string name="confirmUserEditSave">Are you sure you want to edit your credentials?</string>
     <string name="title_Settings">Settings</string>
@@ -61,4 +61,5 @@
     <string name="button_addImageFromCamera">Camera</string>
     <string name="changePasswordConfirm">Confirm New Password</string>
     <string name="passwordConfirm">Confirm Password</string>
+    <string name="hillfortStatsTitle">Stats</string>
 </resources>

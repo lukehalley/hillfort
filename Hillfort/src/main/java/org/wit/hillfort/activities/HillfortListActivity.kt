@@ -74,6 +74,15 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
     }
 
     fun showHillforts(hillforts: List<HillfortModel>) {
+        val mypreference = HillfortSharedPreferences(this)
+        mypreference.setCurrentHillfortCount(hillforts.size)
+        var visCounted = 0
+        hillforts.forEach {
+            if (it.visited){
+                visCounted++
+            }
+        }
+        mypreference.setCurrentVisitHillfortCount(visCounted)
         recyclerView.adapter = HillfortAdapter(hillforts, this)
         recyclerView.adapter?.notifyDataSetChanged()
     }

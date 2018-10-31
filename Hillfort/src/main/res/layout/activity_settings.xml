@@ -150,12 +150,23 @@
                     android:background="@android:color/darker_gray" />
 
                 <TextView
+                    android:id="@+id/hillfortStats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    android:text="@string/hillfortStatsTitle"
+                    android:textAlignment="viewStart"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/hillfortCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:padding="8dp"
-                    android:text="@string/hillfortCount"
+                    android:text="@string/hillfortCountNA"
                     android:textSize="20sp"
                     android:textStyle="normal" />
 
