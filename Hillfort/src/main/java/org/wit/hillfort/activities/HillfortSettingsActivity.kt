@@ -20,28 +20,38 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
         toolbarSettings.title = "Settings"
         setSupportActionBar(toolbarSettings)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        val mypreference = HillfortSharedPreferences(this)
+        val currEmail = mypreference.getCurrentUserEmail()
+        val currPass = mypreference.getCurrentUserPassword()
         app = application as MainApp
-
+        var users = app.users.findAll()
         user = intent.extras.getParcelable<UserModel>("user_edit")
-        info { "USER INFO " + user.name +  user.email + user.password}
-        editUserName.setText(user.name)
-        editUserEmail.setText(user.email)
-        editUserPassword.setText(user.password)
+        editUserEmail.setText(currEmail)
+        editUserPassword.setText(currPass)
+        var foundUser: UserModel? = users.find { p -> p.email == currEmail }
         saveEditUser.setOnClickListener {
-            user.name = editUserName.text.toString()
+            if (foundUser != null) {
+                user.id = foundUser.id
+                user.name = foundUser.name
+            }
             user.email = editUserEmail.text.toString()
             user.password = editUserPassword.text.toString()
-            if (user.name.isEmpty() or user.email.isEmpty() or user.password.isEmpty()) {
+            if (user.email.isEmpty() or user.password.isEmpty()) {
                 toast(R.string.hint_EnterHillfortTitle)
             } else {
-                alert(R.string.confirmUserEditSave) {
-                    yesButton {
-                        app.users.update(user)
-                        finish()
-                    }
-                    noButton {}
-                }.show()
+                if (editUserPassword.text.toString() == editUserPasswordConfirm.text.toString()) {
+                    alert(R.string.confirmUserEditSave) {
+                        yesButton {
+                            mypreference.setCurrentUserEmail(editUserEmail.text.toString())
+                            mypreference.setCurrentUserPassword(editUserPassword.text.toString())
+                            app.users.update(user)
+                            finish()
+                        }
+                        noButton {}
+                    }.show()
+                } else {
+                    toast("Passwords Do Not Match!")
+                }
             }
 
         }

@@ -34,10 +34,14 @@ class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
                 if (user.name.isEmpty() or user.email.isEmpty() or user.password.isEmpty()) {
                     toast(R.string.hint_EnterHillfortTitle)
                 } else {
-                    app.users.create(user.copy())
-                    setResult(AppCompatActivity.RESULT_OK)
-                    toast(R.string.hint_SucessfullRegister)
-                    finish()
+                    if (enteredPassword.text.toString() == enteredPasswordConfirm.text.toString()) {
+                        app.users.create(user.copy())
+                        setResult(AppCompatActivity.RESULT_OK)
+                        toast(R.string.hint_SucessfullRegister)
+                        finish()
+                    } else {
+                        toast("Passwords Do Not Match!")
+                    }
                 }
             } else {
                 toast(R.string.err_UserExists)

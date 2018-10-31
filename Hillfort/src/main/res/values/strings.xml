@@ -59,4 +59,6 @@
     <string name="isVisited">Visited</string>
     <string name="notVisited">Not Visited</string>
     <string name="button_addImageFromCamera">Camera</string>
+    <string name="changePasswordConfirm">Confirm New Password</string>
+    <string name="passwordConfirm">Confirm Password</string>
 </resources>
