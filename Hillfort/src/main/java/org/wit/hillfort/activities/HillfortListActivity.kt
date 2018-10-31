@@ -40,6 +40,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
         var user = UserModel()
         when (item?.itemId) {
             R.id.item_add -> startActivityForResult<HillfortActivity>(0)
