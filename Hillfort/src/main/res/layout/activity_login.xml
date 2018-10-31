@@ -86,4 +86,15 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/loginCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="188dp"
+        android:text="Not Set"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
 </RelativeLayout>

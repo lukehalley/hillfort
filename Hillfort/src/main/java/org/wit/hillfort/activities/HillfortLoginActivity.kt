@@ -15,11 +15,14 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        val mypreference = HillfortSharedPreferences(this)
 
         loginButton.setOnClickListener {
             var users = app.users.findAll()
             if (enteredEmail.text.toString() in users.toString() && enteredPassword.text.toString() in users.toString()) {
                 info { "Logged In!" }
+                mypreference.setCurrentUserEmail(enteredEmail.text.toString())
+                mypreference.setCurrentUserPassword(enteredPassword.text.toString())
                 startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", enteredEmail.text.toString()), 0)
             } else if (enteredEmail.text.toString().equals("admin")) {
                 info { "Logged In As Admin!" }

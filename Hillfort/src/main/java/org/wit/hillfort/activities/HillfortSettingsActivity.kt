@@ -20,23 +20,24 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
         toolbarSettings.title = "Settings"
         setSupportActionBar(toolbarSettings)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val mypreference = HillfortSharedPreferences(this)
 
         app = application as MainApp
 
         user = intent.extras.getParcelable<UserModel>("user_edit")
         info { "USER INFO " + user.name +  user.email + user.password}
-        editUserName.setText(user.name)
-        editUserEmail.setText(user.email)
-        editUserPassword.setText(user.password)
+        editUserEmail.setText(mypreference.getCurrentUserEmail())
+        editUserPassword.setText(mypreference.getCurrentUserPassword())
         saveEditUser.setOnClickListener {
-            user.name = editUserName.text.toString()
+            user.name = user.name
             user.email = editUserEmail.text.toString()
             user.password = editUserPassword.text.toString()
-            if (user.name.isEmpty() or user.email.isEmpty() or user.password.isEmpty()) {
+            if (user.email.isEmpty() or user.password.isEmpty()) {
                 toast(R.string.hint_EnterHillfortTitle)
             } else {
                 alert(R.string.confirmUserEditSave) {
                     yesButton {
+                        info { "UPDATING USE TO: " +  user}
                         app.users.update(user)
                         finish()
                     }
