@@ -5,11 +5,21 @@ import android.content.Context
 class HillfortSharedPreferences(context: Context){
 
     val PREFERENCE_NAME = "CurrentUser"
-
+    val PREF_VAL_USER_NAME = "CurrentUserName"
     val PREF_VAL_USER_EMAIL = "CurrentUserEmail"
     val PREF_VAL_USER_PASSWORD = "CurrentUserPassword"
 
     val preference = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
+
+    fun getCurrentUserName() : String {
+        return preference.getString(PREF_VAL_USER_NAME, "NameNA")
+    }
+
+    fun setCurrentUserName(name : String){
+        val editor = preference.edit()
+        editor.putString(PREF_VAL_USER_EMAIL, name)
+        editor.apply()
+    }
 
     fun getCurrentUserEmail() : String {
         return preference.getString(PREF_VAL_USER_EMAIL, "EmailNA")

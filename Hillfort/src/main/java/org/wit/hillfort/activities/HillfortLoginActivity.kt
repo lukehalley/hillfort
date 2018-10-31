@@ -6,37 +6,33 @@ import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.*
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
+import org.wit.hillfort.models.UserModel
 
 class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
-
     lateinit var app: MainApp
-
     override fun onCreate(savedInstanceState: Bundle?) {
         app = application as MainApp
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val mypreference = HillfortSharedPreferences(this)
-
         loginButton.setOnClickListener {
             var users = app.users.findAll()
-            if (enteredEmail.text.toString() in users.toString() && enteredPassword.text.toString() in users.toString()) {
-                info { "Logged In!" }
-                mypreference.setCurrentUserEmail(enteredEmail.text.toString())
-                mypreference.setCurrentUserPassword(enteredPassword.text.toString())
-                startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", enteredEmail.text.toString()), 0)
-            } else if (enteredEmail.text.toString().equals("admin")) {
-                info { "Logged In As Admin!" }
-                startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", "admin"), 0)
+            var foundUser: UserModel? = users.find { p -> p.email == enteredEmail.text.toString() }
+            if (foundUser != null) {
+                if (enteredEmail.text.toString() == foundUser.email && enteredPassword.text.toString() == foundUser.password) {
+                    mypreference.setCurrentUserName(foundUser.name)
+                    mypreference.setCurrentUserEmail(foundUser.email)
+                    mypreference.setCurrentUserPassword(foundUser.password)
+                    startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", enteredEmail.text.toString()), 0)
+                } else {
+                    toast(R.string.toast_InvalidCreds)
+                }
             } else {
-                toast(R.string.toast_InvalidCreds)
+                error { "foundUser is null" }
             }
         }
-
         navToRegisterButton.setOnClickListener {
             startActivityForResult<HillfortRegisterActivity>(0)
         }
-
     }
-
-
 }

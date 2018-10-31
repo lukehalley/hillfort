@@ -32,8 +32,8 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
         saveEditUser.setOnClickListener {
             if (foundUser != null) {
                 user.id = foundUser.id
+                user.name = foundUser.name
             }
-            user.name = user.name
             user.email = editUserEmail.text.toString()
             user.password = editUserPassword.text.toString()
             if (user.email.isEmpty() or user.password.isEmpty()) {
@@ -42,9 +42,9 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
                 if (editUserPassword.text.toString() == editUserPasswordConfirm.text.toString()) {
                     alert(R.string.confirmUserEditSave) {
                         yesButton {
-                            app.users.update(user)
                             mypreference.setCurrentUserEmail(editUserEmail.text.toString())
                             mypreference.setCurrentUserPassword(editUserPassword.text.toString())
+                            app.users.update(user)
                             finish()
                         }
                         noButton {}
