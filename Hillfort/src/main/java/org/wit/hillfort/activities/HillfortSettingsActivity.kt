@@ -39,15 +39,19 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
             if (user.email.isEmpty() or user.password.isEmpty()) {
                 toast(R.string.hint_EnterHillfortTitle)
             } else {
-                alert(R.string.confirmUserEditSave) {
-                    yesButton {
-                        app.users.update(user)
-                        mypreference.setCurrentUserEmail(editUserEmail.text.toString())
-                        mypreference.setCurrentUserPassword(editUserPassword.text.toString())
-                        finish()
-                    }
-                    noButton {}
-                }.show()
+                if (editUserPassword.text.toString() == editUserPasswordConfirm.text.toString()) {
+                    alert(R.string.confirmUserEditSave) {
+                        yesButton {
+                            app.users.update(user)
+                            mypreference.setCurrentUserEmail(editUserEmail.text.toString())
+                            mypreference.setCurrentUserPassword(editUserPassword.text.toString())
+                            finish()
+                        }
+                        noButton {}
+                    }.show()
+                } else {
+                    toast("Passwords Do Not Match!")
+                }
             }
 
         }
