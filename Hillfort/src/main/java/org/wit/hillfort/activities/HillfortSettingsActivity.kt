@@ -23,11 +23,15 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
         val mypreference = HillfortSharedPreferences(this)
         val currEmail = mypreference.getCurrentUserEmail()
         val currPass = mypreference.getCurrentUserPassword()
+        val currHillCnt = mypreference.getCurrentHillfortCount()
+        val currHillVisCnt = mypreference.getCurrentVisitHillfortCount()
         app = application as MainApp
         var users = app.users.findAll()
         user = intent.extras.getParcelable<UserModel>("user_edit")
         editUserEmail.setText(currEmail)
         editUserPassword.setText(currPass)
+        hillfortCount.text = "Number of Hillforts: " + currHillCnt.toString()
+        hillfortVisitedCount.text = "Number of Hillforts Visited: " + currHillVisCnt.toString()
         var foundUser: UserModel? = users.find { p -> p.email == currEmail }
         saveEditUser.setOnClickListener {
             if (foundUser != null) {
