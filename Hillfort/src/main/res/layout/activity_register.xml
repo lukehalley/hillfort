@@ -49,6 +49,7 @@
             android:hint="@string/name"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:drawableRight="@drawable/person_outline"
             android:inputType="textPersonName|textCapWords" />
 
         <EditText
@@ -58,6 +59,7 @@
             android:hint="@string/email"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:drawableRight="@drawable/email_outline"
             android:inputType="textWebEmailAddress" />
 
         <EditText
@@ -67,6 +69,7 @@
             android:hint="@string/password"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:drawableRight="@drawable/lock_outline"
             android:inputType="textPassword" />
 
         <EditText
@@ -76,6 +79,7 @@
             android:hint="@string/passwordConfirm"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:drawableRight="@drawable/lock_outline"
             android:inputType="textPassword" />
 
         <Button

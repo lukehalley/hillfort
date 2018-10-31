@@ -73,6 +73,7 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
+                    android:drawableRight="@drawable/email_outline"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
@@ -100,6 +101,7 @@
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
+                    android:drawableRight="@drawable/lock_outline"
                     android:textSize="16sp" />
 
                 <TextView
@@ -120,8 +122,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
-                    android:hint="@string/password"
+                    android:hint="@string/passwordConfirm"
                     android:inputType="textPassword"
+                    android:drawableRight="@drawable/lock_outline"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
