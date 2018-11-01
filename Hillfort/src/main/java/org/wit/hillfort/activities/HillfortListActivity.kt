@@ -2,6 +2,9 @@ package org.wit.hillfort.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.view.GravityCompat
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
@@ -14,8 +17,6 @@ import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.models.UserModel
 
-
-
 class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
     lateinit var app: MainApp
@@ -25,6 +26,12 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         app = application as MainApp
         toolbarMain.title = title
         setSupportActionBar(toolbarMain)
+
+        val actionbar: ActionBar? = supportActionBar
+        actionbar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_menu)
+        }
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
@@ -42,7 +49,12 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
+        var mDrawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+
         var user = UserModel()
+        when (item?.itemId) {
+            android.R.id.home -> mDrawerLayout.openDrawer(GravityCompat.START)
+        }
         when (item?.itemId) {
             R.id.item_add -> startActivityForResult<HillfortActivity>(0)
         }
@@ -86,7 +98,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         mypreference.setCurrentHillfortCount(hillforts.size)
         var visCounted = 0
         hillforts.forEach {
-            if (it.visited){
+            if (it.visited) {
                 visCounted++
             }
         }
