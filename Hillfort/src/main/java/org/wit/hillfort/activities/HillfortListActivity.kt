@@ -6,12 +6,15 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.jetbrains.anko.*
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.models.UserModel
+
+
 
 class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
@@ -26,12 +29,10 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
         loadHillforts()
-        val intent = intent
-        val currentUser = intent.getStringExtra("loggedInUser")
-        info { "CURRENT USER: $currentUser" }
         addHillfortFab.setOnClickListener() {
             startActivityForResult<HillfortActivity>(0)
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -75,6 +76,11 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
     fun showHillforts(hillforts: List<HillfortModel>) {
         val mypreference = HillfortSharedPreferences(this)
+        val userName = mypreference.getCurrentUserName()
+        val parentView = nav_view.getHeaderView(0)
+        val navHeaderText = parentView.findViewById(R.id.current_user_nav_header) as TextView
+        toast(userName)
+        navHeaderText.text = userName
         mypreference.setCurrentHillfortCount(hillforts.size)
         var visCounted = 0
         hillforts.forEach {
