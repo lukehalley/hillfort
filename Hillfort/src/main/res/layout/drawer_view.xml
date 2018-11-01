@@ -4,20 +4,16 @@
     android:layout_width="match_parent">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_addHillfort"
             android:icon="@drawable/add_white"
-            android:title="Add" />
+            android:title="@string/title_HillfortAdd" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/add_white"
-            android:title="gallery" />
+            android:id="@+id/nav_Settings"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/settingsTitle" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/add_white"
-            android:title="slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/add_white"
-            android:title="tools" />
+            android:id="@+id/nav_Logout"
+            android:icon="@drawable/logout"
+            android:title="@string/logoutTitle" />
     </group>
 </menu>

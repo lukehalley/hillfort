@@ -8,7 +8,6 @@
     android:fitsSystemWindows="true"
     tools:context="org.wit.hillfort.activities.HillfortListActivity">
 
-    <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -48,7 +47,7 @@
     <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="205dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"

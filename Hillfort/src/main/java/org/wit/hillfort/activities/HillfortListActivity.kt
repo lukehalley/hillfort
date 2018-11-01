@@ -2,6 +2,7 @@ package org.wit.hillfort.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
@@ -40,6 +41,31 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
             startActivityForResult<HillfortActivity>(0)
         }
 
+        var mDrawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            menuItem.isChecked = true
+            var user = UserModel()
+            when (menuItem?.itemId) {
+                R.id.nav_addHillfort -> startActivityForResult<HillfortActivity>(0)
+            }
+            when (menuItem?.itemId) {
+                R.id.nav_Settings -> startActivityForResult(intentFor<HillfortSettingsActivity>().putExtra("user_edit", user), 0)
+            }
+            when (menuItem?.itemId) {
+                R.id.nav_Logout ->
+                    alert(R.string.logoutPrompt) {
+                        yesButton {
+                            finish()
+                        }
+                        noButton {}
+                    }.show()
+            }
+            mDrawerLayout.closeDrawers()
+            true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
