@@ -14,17 +14,17 @@ class HillfortSharedPreferences(context: Context){
     val preference = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
     fun getCurrentUserName() : String {
-        return preference.getString(PREF_VAL_USER_NAME, "NameNA")
+        return preference.getString(PREF_VAL_USER_NAME, "Name NA")
     }
 
     fun setCurrentUserName(name : String){
         val editor = preference.edit()
-        editor.putString(PREF_VAL_USER_EMAIL, name)
+        editor.putString(PREF_VAL_USER_NAME, name)
         editor.apply()
     }
 
     fun getCurrentUserEmail() : String {
-        return preference.getString(PREF_VAL_USER_EMAIL, "EmailNA")
+        return preference.getString(PREF_VAL_USER_EMAIL, "Email NA")
     }
 
     fun setCurrentUserEmail(email : String){
@@ -34,7 +34,7 @@ class HillfortSharedPreferences(context: Context){
     }
 
     fun getCurrentUserPassword() : String {
-        return preference.getString(PREF_VAL_USER_PASSWORD, "PasswordNA")
+        return preference.getString(PREF_VAL_USER_PASSWORD, "Password NA")
     }
 
     fun setCurrentUserPassword(password : String){
