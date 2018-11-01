@@ -77,10 +77,12 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
     fun showHillforts(hillforts: List<HillfortModel>) {
         val mypreference = HillfortSharedPreferences(this)
         val userName = mypreference.getCurrentUserName()
+        val userEmail = mypreference.getCurrentUserEmail()
         val parentView = nav_view.getHeaderView(0)
-        val navHeaderText = parentView.findViewById(R.id.current_user_nav_header) as TextView
-        toast(userName)
-        navHeaderText.text = userName
+        val navHeaderUser = parentView.findViewById(R.id.current_user_nav_header) as TextView
+        val navHeaderEmail = parentView.findViewById(R.id.current_email_nav_header) as TextView
+        navHeaderUser.text = userName
+        navHeaderEmail.text = userEmail
         mypreference.setCurrentHillfortCount(hillforts.size)
         var visCounted = 0
         hillforts.forEach {
