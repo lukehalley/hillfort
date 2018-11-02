@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.wit.hillfort">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <application
+        android:name=".main.MainApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:exported="false"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="org.wit.hillfort.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+            </meta-data>
+        </provider>
+
+        <activity android:name=".activities.HillfortSplashscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA7rn6Aaj8O8IZhIM3LTrmT-O3-xqjcd9A" />
+
+        <activity
+            android:name=".activities.HillfortMapsActivity"
+            android:label="@string/title_activityMaps" />
+        <activity
+            android:name=".activities.HillfortListActivity"
+            android:label="@string/title_HillfortList" />
+        <activity
+            android:name=".activities.HillfortActivity"
+            android:label="@string/title_HillfortAdd"
+            android:parentActivityName=".activities.HillfortListActivity" />
+        <activity
+            android:name=".activities.HillfortLoginActivity"
+            android:label="@string/title_HillfortLogin" />
+        <activity
+            android:name=".activities.HillfortRegisterActivity"
+            android:label="@string/title_Register"
+            android:parentActivityName=".activities.HillfortLoginActivity" />
+        <activity
+            android:name=".activities.HillfortSettingsActivity"
+            android:label="@string/title_Settings"
+            android:parentActivityName=".activities.HillfortListActivity" />
+    </application>
+
+</manifest>
