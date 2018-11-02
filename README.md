@@ -41,7 +41,7 @@ Then [open the project in Android Studio](https://github.com/dogriffiths/HeadFir
   <img src="https://i.imgur.com/LiOBGk0.png">
 </p>
 
-Lastly navigate to the file located:
+navigate to the file located:
 
 `Hillfort/src/main/AndroidManifest.xml`
 
