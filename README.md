@@ -11,7 +11,7 @@
 
 ## Demo
 
-<div style="width:100%;height:0px;position:relative;padding-bottom:177.778%;"><iframe src="https://streamable.com/s/9h6u2/ymztth" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+[![Demo Vid](https://i.imgur.com/5MJInUO.jpg)](https://streamable.com/9h6u2#)
 
 ## Screenshots
 
