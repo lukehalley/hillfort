@@ -43,7 +43,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA7rn6Aaj8O8IZhIM3LTrmT-O3-xqjcd9A" />
+            android:value="YOUR-API-KEY-HERE" />
 
         <activity
             android:name=".activities.HillfortMapsActivity"
