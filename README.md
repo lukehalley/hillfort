@@ -11,9 +11,9 @@
 
 ## Demo
 
-![Demo](https://media.giphy.com/media/63LNxgT7pn0Ma9NRHh/giphy.gif)
-
-
+<p align="center">
+  ![Demo](https://media.giphy.com/media/63LNxgT7pn0Ma9NRHh/giphy.gif)
+</p>
 
 ## Screenshots
 
