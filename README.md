@@ -38,7 +38,7 @@ First clone the repo at the master branch down to your machine.
 Then [open the project in Android Studio](https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-to-open-a-project-in-Android-Studio)
 
 <p align="center">
-  <img src="https://imgur.com/3f96e9ad-06f9-4872-9780-08ae1e42c2f9">
+  <img src="https://i.imgur.com/LiOBGk0.png">
 </p>
 
 Lastly navigate to the file located:
