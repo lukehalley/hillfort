@@ -8,7 +8,11 @@
 </h1>
 
 <h4 align="center">An android application built with Kotlin for my 4th Year, Semester 1 "Mobile App Dev" module for our first assignment.</a></h4>
-  
+
+## Demo
+
+## Screenshots
+
 <p align="center">
   <img src="http://i.imgur.com/UGPa7oW.jpg">
 </p>
