@@ -29,6 +29,33 @@
   <img src="https://image.ibb.co/h3LtL0/3.jpg">
 </p>
 
+## Setup
+
+First clone the repo at the master branch down to your machine.
+
+`git clone https://github.com/lukehalley/hillfort.git`
+
+Then [open the project in Android Studio](https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-to-open-a-project-in-Android-Studio)
+
+<p align="center">
+  <img src="https://imgur.com/3f96e9ad-06f9-4872-9780-08ae1e42c2f9">
+</p>
+
+Lastly navigate to the file located:
+
+`Hillfort/src/main/AndroidManifest.xml`
+
+and find the following lines:
+
+`<meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR-API-KEY-HERE" />`
+
+replace `YOUR-API-KEY-HERE` with you Google Maps API.
+
+If you do not know how to get a Google Maps API [here is a tutorial by Google](https://developers.google.com/maps/documentation/android-sdk/signup)
+
+Finally connect your device or start a emulator and run the app! 😃
 
 ## Key Features
 
