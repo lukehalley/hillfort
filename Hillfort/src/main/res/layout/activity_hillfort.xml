@@ -389,6 +389,16 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/addressPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="17dp"
+                    android:text="No Address Set"
+                    android:textAlignment="center"
+                    android:textAllCaps="false" />
+
                 <Button
                     android:id="@+id/hillfortLocation"
                     android:layout_width="match_parent"
