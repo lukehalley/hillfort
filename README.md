@@ -8,6 +8,19 @@
 </h1>
 
 <h4 align="center">An android application built with Kotlin for my 4th Year, Semester 1 "Mobile App Dev" module as part of an our first assignment.</a></h4>
+  
+<p align="center">
+  <img src="https://image.ibb.co/kgfhDL/1.jpg">
+</p>
+
+<p align="center">
+  <img src="https://image.ibb.co/maSjSf/2.jpg">
+</p>
+
+<p align="center">
+  <img src="https://image.ibb.co/h3LtL0/3.jpg">
+</p>
+
 
 ## Key Features
 
