@@ -11,7 +11,9 @@
 
 ## Demo
 
-[![Demo Vid](https://i.imgur.com/5MJInUO.jpg)](https://streamable.com/9h6u2#)
+![Demo](https://media.giphy.com/media/63LNxgT7pn0Ma9NRHh/giphy.gif)
+
+
 
 ## Screenshots
 
