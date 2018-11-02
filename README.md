@@ -12,7 +12,7 @@
 ## Demo
 
 <p align="center">
-  ![Demo](https://media.giphy.com/media/63LNxgT7pn0Ma9NRHh/giphy.gif)
+  <img src="https://media.giphy.com/media/63LNxgT7pn0Ma9NRHh/giphy.gif">
 </p>
 
 ## Screenshots
