@@ -13,7 +13,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import org.wit.hillfort.R
 import org.wit.hillfort.models.HillfortModel
 
@@ -63,7 +62,6 @@ class HillfortMapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.
         location.zoom = map.cameraPosition.zoom
         val addresses = geocoder.getFromLocation(location.lat, location.lng, 1)
         location.address = addresses.get(0).getAddressLine(0)
-        info { "Setting location to: " + location.address}
         marker.snippet = "GPS : " + location.address
     }
 

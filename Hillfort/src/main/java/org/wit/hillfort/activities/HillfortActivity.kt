@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -69,6 +70,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             additionalNotes.setText(hillfort.addNotes)
             visitedSwitch.isChecked = hillfort.visited
             hillfortLocation.setText(R.string.button_changeLocation)
+            addressPreview.text = hillfort.address
             deleteHillfortBtn.visibility = View.VISIBLE
             if (hillfort.visited) {
                 dateVisited.text = hillfort.dateVisited
@@ -413,6 +415,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfort.zoom = location.zoom
                     hillfort.address = location.address
                     hillfortLocation.setText(R.string.button_changeLocation)
+                    val geocoder = Geocoder(this)
+                    val addresses = geocoder.getFromLocation(location.lat, location.lng, 1)
+                    addressPreview.text = addresses[0].getAddressLine(0)
                 }
             }
         }
