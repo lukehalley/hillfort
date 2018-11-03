@@ -60,7 +60,7 @@ Finally connect your device or start an emulator and run the app! 😃
 ## Key Features
 
 * Splashscreen
-* Persitance for both Hilloforts and Users using JSON
+* Persitance for both Hillforts and Users using JSON
 * Register and Login
   - Using a "User" module with the details of user strored locally on the device with a JSON file.
   - Password requires a double entry to ensure change is correct)
