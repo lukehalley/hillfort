@@ -63,7 +63,7 @@ Finally connect your device or start an emulator and run the app! 😃
 * Persitance for both Hillforts and Users using JSON
 * Register and Login
   - Using a "User" module with the details of user strored locally on the device with a JSON file.
-  - Password requires a double entry to ensure change is correct)
+  - Password requires a double entry (to ensure change is correct)
   - Empty field checking
 * Material Design
   - Flat and bright colours
