@@ -51,7 +51,7 @@ and find the following lines:
             android:name="com.google.android.geo.API_KEY"
             android:value="YOUR-API-KEY-HERE" />`
 
-replace `YOUR-API-KEY-HERE` with you Google Maps API.
+replace `YOUR-API-KEY-HERE` with your Google Maps API.
 
 If you do not know how to get a Google Maps API [here is a tutorial by Google](https://developers.google.com/maps/documentation/android-sdk/signup)
 
