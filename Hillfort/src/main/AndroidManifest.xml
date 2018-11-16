@@ -43,7 +43,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/testKey" />
+            android:value="@string/mapsKey" />
 
         <activity
             android:name=".activities.HillfortMapsActivity"
@@ -66,6 +66,9 @@
             android:name=".activities.HillfortSettingsActivity"
             android:label="@string/title_Settings"
             android:parentActivityName=".activities.HillfortListActivity" />
+        <activity
+            android:name=".activities.HillfortAllMapsActivity"
+            android:label="@string/title_Settings" />
     </application>
 
 </manifest>

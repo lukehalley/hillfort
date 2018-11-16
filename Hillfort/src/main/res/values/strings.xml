@@ -64,4 +64,6 @@
     <string name="passwordConfirm">Confirm Password</string>
     <string name="hillfortStatsTitle">Stats</string>
     <string name="noUser">No User</string>
+    <string name="allHillforts">All Hillforts</string>
+
 </resources>
