@@ -68,7 +68,7 @@
             android:parentActivityName=".activities.HillfortListActivity" />
         <activity
             android:name=".activities.HillfortAllMapsActivity"
-            android:label="@string/title_Settings" />
+            android:label="@string/title_allHillfortMaps" />
     </application>
 
 </manifest>

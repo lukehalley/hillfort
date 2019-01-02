@@ -17,7 +17,6 @@ import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.models.UserModel
-import org.wit.placemark.activities.PlacemarkAllMapsActivity
 
 class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
@@ -83,7 +82,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
             android.R.id.home -> mDrawerLayout.openDrawer(GravityCompat.START)
         }
         when (item?.itemId) {
-            R.id.all_Hillforts -> startActivityForResult<PlacemarkAllMapsActivity>(0)
+            R.id.all_Hillforts -> startActivityForResult<HillfortAllMapsActivity>(0)
         }
         when (item?.itemId) {
             R.id.item_add -> startActivityForResult<HillfortActivity>(0)
