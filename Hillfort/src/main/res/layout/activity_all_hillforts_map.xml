@@ -22,6 +22,8 @@
             app:titleTextColor="@color/colorPrimary" />
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_hillfort_maps" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_hillfort_maps" />
 
 </android.support.design.widget.CoordinatorLayout>

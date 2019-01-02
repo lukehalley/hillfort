@@ -4,19 +4,19 @@
     android:layout_width="match_parent">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_addHillfort"
+            android:id="@+id/drawerNav_addHillfort"
             android:icon="@drawable/add_white"
             android:title="@string/title_HillfortAdd" />
         <item
-            android:id="@+id/all_Hillforts"
+            android:id="@+id/drawerNav_AllHillforts"
             android:icon="@drawable/map"
-            android:title="@string/allHillforts" />
+            android:title="@string/allmapsTitle" />
         <item
-            android:id="@+id/nav_Settings"
+            android:id="@+id/drawerNav_Settings"
             android:icon="@drawable/ic_settings_white_24dp"
             android:title="@string/settingsTitle" />
         <item
-            android:id="@+id/nav_Logout"
+            android:id="@+id/drawerNav_Logout"
             android:icon="@drawable/logout"
             android:title="@string/logoutTitle" />
     </group>
