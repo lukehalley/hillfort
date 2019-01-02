@@ -15,7 +15,11 @@ class HillfortAllMapsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_hillforts_map)
         setSupportActionBar(toolbarAllHillforts)
-        mapView.onCreate(savedInstanceState);
+        mapView.onCreate(savedInstanceState)
+        mapView.getMapAsync {
+            map = it
+            configureMap()
+        }
     }
 
     override fun onDestroy() {
@@ -41,5 +45,9 @@ class HillfortAllMapsActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
         mapView.onSaveInstanceState(outState)
+    }
+
+    fun configureMap() {
+        map.uiSettings.isZoomControlsEnabled = true
     }
 }
