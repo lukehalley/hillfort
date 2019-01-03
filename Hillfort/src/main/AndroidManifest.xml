@@ -69,7 +69,7 @@
         <activity
             android:name=".activities.HillfortAllMapsActivity"
             android:label="@string/title_allHillfortMaps"
-            android:parentActivityName=".activities.HillfortListActivity"gi/>
+            android:parentActivityName=".activities.HillfortListActivity"/>
     </application>
 
 </manifest>

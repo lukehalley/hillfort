@@ -100,6 +100,32 @@
                     android:text="@string/radio_Visited"
                     android:textSize="15dp" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/darker_gray" />
+
+                <RatingBar
+                    android:id="@+id/hillfortRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="20dip"
+                    android:layout_marginRight="10dip" />
+
+                <TextView
+                    android:id="@+id/hillfortRatingTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:text="@string/hillfortRating"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
                 <TextView
                     android:id="@+id/dateVisited"
                     android:layout_width="wrap_content"

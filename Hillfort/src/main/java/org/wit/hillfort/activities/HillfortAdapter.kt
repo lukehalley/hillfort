@@ -38,7 +38,14 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>,
             itemView.cardHillfortLocation.text = "Address: " + hillfort.address
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, hillfort.firstImage))
             itemView.setOnClickListener { listener.onHillfortClick(hillfort) }
-
+            if (hillfort.rating > 0) {
+                itemView.starRatingIcon.visibility = View.VISIBLE
+                itemView.cardRatingNumber.visibility = View.VISIBLE
+                itemView.cardRatingNumber.text = hillfort.rating.toString()
+            } else {
+                itemView.starRatingIcon.visibility = View.INVISIBLE
+                itemView.cardRatingNumber.visibility = View.INVISIBLE
+            }
             if (hillfort.visited){
                 itemView.visitedIndicator.setBackgroundColor(Color.parseColor("#5db761"))
                 itemView.visitedIndicator.setText(R.string.isVisited)

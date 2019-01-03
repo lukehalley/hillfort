@@ -68,9 +68,13 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             cardHillfortDescription.setText(hillfort.description)
             additionalNotes.setText(hillfort.addNotes)
             visitedSwitch.isChecked = hillfort.visited
+            hillfortRating.rating = hillfort.rating
             hillfortLocation.setText(R.string.button_changeLocation)
             addressPreview.text = hillfort.address
             deleteHillfortBtn.visibility = View.VISIBLE
+            if (hillfort.rating < 0.5) {
+                toast(R.string.hint_PleaseRateHillfort)
+            }
             if (hillfort.visited) {
                 dateVisited.text = hillfort.dateVisited
                 dateVisited.visibility = View.VISIBLE
@@ -107,15 +111,17 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfort.description = cardHillfortDescription.text.toString()
             hillfort.addNotes = additionalNotes.text.toString()
             hillfort.visited = visitedSwitch.isChecked
+            hillfort.rating = hillfortRating.rating
+            info { "RATING: " + hillfort.rating }
             hillfort.dateVisited = dateVisited.text.toString()
-
             var allHillforts = app.hillforts.findAll()
             val currentHill= allHillforts.find{ it.title == cardHillfortTitle.text.toString() }
-
             if (hillfort.title.isEmpty() or hillfort.description.isEmpty()) {
                 toast(R.string.hint_EnterHillfortTitle)
             } else if (currentHill != null && !intent.hasExtra("hillfort_edit")) {
                 toast(R.string.hint_HillfortAlreadyExists)
+            } else if (hillfort.rating < 0.5) {
+                toast(R.string.hint_PleaseRateHillfort)
             } else {
                 if (edit) {
                     app.hillforts.update(hillfort.copy())
@@ -262,6 +268,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfort.description,
                     hillfort.addNotes,
                     hillfort.visited,
+                    hillfort.rating,
                     hillfort.dateVisited,
                     52.245696,
                     -7.139102,

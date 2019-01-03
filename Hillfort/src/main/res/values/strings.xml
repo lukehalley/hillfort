@@ -68,4 +68,6 @@
     <string name="hillfortStatsTitle">Stats</string>
     <string name="noUser">No User</string>
     <string name="hint_HillfortAlreadyExists">"Hillfort Already Exists!"</string>
+    <string name="hillfortRating">Hillfort Rating</string>
+    <string name="hint_PleaseRateHillfort">Please Rate The Hillfort!</string>
 </resources>
