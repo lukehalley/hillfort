@@ -36,8 +36,6 @@ import java.util.*
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
-
-
     var hillfort = HillfortModel()
     lateinit var app: MainApp
     val LOCATION_REQUEST = 1
@@ -74,6 +72,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             cardHillfortDescription.setText(hillfort.description)
             additionalNotes.setText(hillfort.addNotes)
             visitedSwitch.isChecked = hillfort.visited
+            favouritedButton.isChecked = hillfort.favourited
             hillfortRating.rating = hillfort.rating
             hillfortLocation.setText(R.string.button_changeLocation)
             addressPreview.text = hillfort.address
@@ -150,16 +149,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }.show()
         }
 
-        var scaleAnimation = ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f)
-        scaleAnimation.duration = 500
-        var bounceInterpolator = BounceInterpolator()
-        scaleAnimation.interpolator = bounceInterpolator
 
-        button_favorite.setOnCheckedChangeListener { btn, p1 -> btn?.startAnimation(scaleAnimation); }
-
-        button_favorite.setOnClickListener {
-            info { "CLICK 66" }
-        }
 
         // Gallery
         chooseFirstImageGallery.setOnClickListener {
@@ -241,11 +231,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     }
                     // Continue only if the File was successfully created
                     photoFile?.also {
-                        val photoURI: Uri = FileProvider.getUriForFile(
-                                this,
-                                "org.wit.hillfort.fileprovider",
-                                it
-                        )
+                        val photoURI: Uri = FileProvider.getUriForFile(this, "org.wit.hillfort.fileprovider", it)
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                         startActivityForResult(takePictureIntent, THIRD_CAMERA_IMAGE_REQUEST)
                     }
@@ -285,6 +271,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     hillfort.description,
                     hillfort.addNotes,
                     hillfort.visited,
+                    hillfort.favourited,
                     hillfort.rating,
                     hillfort.dateVisited,
                     52.245696,
@@ -303,7 +290,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             startActivityForResult(intentFor<HillfortMapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
 
-        visitedSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+        visitedSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 val current = LocalDateTime.now()
                 val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
@@ -313,6 +300,27 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 dateVisited.visibility = View.INVISIBLE
             }
         }
+
+        val scaleAnimation = ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f)
+        scaleAnimation.duration = 500
+        val bounceInterpolator = BounceInterpolator()
+        scaleAnimation.interpolator = bounceInterpolator
+
+        favouritedButton.setOnCheckedChangeListener { btn, isFavorited ->
+            if (isFavorited) {
+                btn?.startAnimation(scaleAnimation)
+                hillfort.favourited = true
+            } else {
+                hillfort.favourited = false
+            }
+
+        }
+
+//        button_favorite.setOnClickListener {
+//            info { "CLICK 66" }
+//        }
+
+
 
     }
 
