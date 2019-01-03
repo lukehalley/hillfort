@@ -15,6 +15,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.BounceInterpolator
+import android.view.animation.ScaleAnimation
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.*
 import org.wit.hillfort.R
@@ -33,6 +36,8 @@ import java.util.*
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
+
+
     var hillfort = HillfortModel()
     lateinit var app: MainApp
     val LOCATION_REQUEST = 1
@@ -49,6 +54,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     var mCurrentPhotoPath: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort)
         toolbarAdd.title = title
@@ -142,6 +148,17 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 }
                 noButton {}
             }.show()
+        }
+
+        var scaleAnimation = ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f)
+        scaleAnimation.duration = 500
+        var bounceInterpolator = BounceInterpolator()
+        scaleAnimation.interpolator = bounceInterpolator
+
+        button_favorite.setOnCheckedChangeListener { btn, p1 -> btn?.startAnimation(scaleAnimation); }
+
+        button_favorite.setOnClickListener {
+            info { "CLICK 66" }
         }
 
         // Gallery
