@@ -49,13 +49,16 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
             menuItem.isChecked = true
             var user = UserModel()
             when (menuItem?.itemId) {
-                R.id.nav_addHillfort -> startActivityForResult<HillfortActivity>(0)
+                R.id.drawerNav_addHillfort -> startActivityForResult<HillfortActivity>(0)
             }
             when (menuItem?.itemId) {
-                R.id.nav_Settings -> startActivityForResult(intentFor<HillfortSettingsActivity>().putExtra("user_edit", user), 0)
+                R.id.drawerNav_AllHillforts -> startActivityForResult<HillfortAllMapsActivity>(0)
             }
             when (menuItem?.itemId) {
-                R.id.nav_Logout ->
+                R.id.drawerNav_Settings -> startActivityForResult(intentFor<HillfortSettingsActivity>().putExtra("user_edit", user), 0)
+            }
+            when (menuItem?.itemId) {
+                R.id.drawerNav_Logout ->
                     alert(R.string.logoutPrompt) {
                         yesButton {
                             finish()

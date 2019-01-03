@@ -59,7 +59,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
         var edit = false
 
-
         if (intent.hasExtra("hillfort_edit")) {
             edit = true
             toolbarAdd.title = "Edit Hillfort"
@@ -109,8 +108,14 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfort.addNotes = additionalNotes.text.toString()
             hillfort.visited = visitedSwitch.isChecked
             hillfort.dateVisited = dateVisited.text.toString()
+
+            var allHillforts = app.hillforts.findAll()
+            val currentHill= allHillforts.find{ it.title == cardHillfortTitle.text.toString() }
+
             if (hillfort.title.isEmpty() or hillfort.description.isEmpty()) {
                 toast(R.string.hint_EnterHillfortTitle)
+            } else if (currentHill != null && !intent.hasExtra("hillfort_edit")) {
+                toast(R.string.hint_HillfortAlreadyExists)
             } else {
                 if (edit) {
                     app.hillforts.update(hillfort.copy())
