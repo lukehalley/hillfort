@@ -14,19 +14,18 @@ import org.jetbrains.anko.AnkoLogger
 import org.wit.hillfort.R
 import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.main.MainApp
-import org.wit.hillfort.models.HillfortModel
 
 class HillfortAllMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener, AnkoLogger {
 
     lateinit var map: GoogleMap
     lateinit var app: MainApp
-    var location = HillfortModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_hillforts_map)
         app = application as MainApp
         setSupportActionBar(toolbarAllHillforts)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         allHilllforts_Map.onCreate(savedInstanceState)
         allHilllforts_Map.getMapAsync {
             map = it
