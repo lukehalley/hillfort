@@ -72,6 +72,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfortLocation.setText(R.string.button_changeLocation)
             addressPreview.text = hillfort.address
             deleteHillfortBtn.visibility = View.VISIBLE
+            if (hillfort.rating < 0.5) {
+                toast(R.string.hint_PleaseRateHillfort)
+            }
             if (hillfort.visited) {
                 dateVisited.text = hillfort.dateVisited
                 dateVisited.visibility = View.VISIBLE
@@ -117,6 +120,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 toast(R.string.hint_EnterHillfortTitle)
             } else if (currentHill != null && !intent.hasExtra("hillfort_edit")) {
                 toast(R.string.hint_HillfortAlreadyExists)
+            } else if (hillfort.rating < 0.5) {
+                toast(R.string.hint_PleaseRateHillfort)
             } else {
                 if (edit) {
                     app.hillforts.update(hillfort.copy())

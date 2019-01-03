@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
@@ -24,22 +25,61 @@
 
             <TextView
                 android:id="@+id/cardHillfortTitle"
-                android:layout_width="match_parent"
+                android:layout_width="286dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/cardHillfortLocation"
-                android:layout_width="match_parent"
+                android:layout_width="286dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/cardHillfortDescription"
-                android:layout_width="match_parent"
+                android:layout_width="286dp"
                 android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/cardRatingNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right"
+                        android:visibility="invisible"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/starRatingIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/green_star"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
 
