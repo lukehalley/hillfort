@@ -70,6 +70,10 @@
             android:name=".activities.HillfortAllMapsActivity"
             android:label="@string/title_allHillfortMaps"
             android:parentActivityName=".activities.HillfortListActivity"/>
+        <activity
+            android:name=".activities.HillfortFavListActivity"
+            android:label="@string/title_favHillfort"
+            android:parentActivityName=".activities.HillfortListActivity"/>
     </application>
 
 </manifest>

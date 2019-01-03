@@ -12,6 +12,10 @@
             android:icon="@drawable/map"
             android:title="@string/allmapsTitle" />
         <item
+            android:id="@+id/drawerNav_FavHillforts"
+            android:icon="@drawable/filled_white_heart"
+            android:title="@string/favHillforts"  />
+        <item
             android:id="@+id/drawerNav_Settings"
             android:icon="@drawable/ic_settings_white_24dp"
             android:title="@string/settingsTitle" />

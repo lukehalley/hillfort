@@ -25,6 +25,7 @@
     <string name="title_HillfortList">Hillfort List</string>
     <string name="title_HillfortAdd">Add Hillfort</string>
     <string name="title_allHillfortMaps">All Hillforts</string>
+    <string name="title_favHillfort">Favourite Hillforts</string>
     <string name="toast_InvalidCreds">Incorrect Email or Password!</string>
     <string name="name">Name</string>
     <string name="promptSignUp">Not Signed Up Yet? Sign Up Below</string>
@@ -75,4 +76,5 @@
     <string name="fourthImage">fourthImage</string>
     <string name="thirdImage">thirdImage</string>
     <string name="secondImage">secondImage</string>
+    <string name="favHillforts">Favourites</string>
 </resources>
