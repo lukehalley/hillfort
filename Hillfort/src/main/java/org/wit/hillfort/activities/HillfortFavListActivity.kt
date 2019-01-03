@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_hillfort_list.*
+import kotlinx.android.synthetic.main.activity_fav_hillforts.*
 import org.jetbrains.anko.*
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
@@ -17,17 +17,14 @@ class HillfortFavListActivity : AppCompatActivity(), HillfortListener, AnkoLogge
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fav_hillforts)
         app = application as MainApp
-        toolbarMain.title = title
-        setSupportActionBar(toolbarMain)
+        toolbarFavHillforts.title = title
+        setSupportActionBar(toolbarFavHillforts)
 
         val layoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = layoutManager
+        hillfort_fav_list.layoutManager = layoutManager
         var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
-        recyclerView.adapter = HillfortAdapter(favHills, this)
+        hillfort_fav_list.adapter = HillfortAdapter(favHills, this)
         loadFavHillforts()
-        addHillfortFab.setOnClickListener {
-            startActivityForResult<HillfortActivity>(0)
-        }
 
     }
 
@@ -45,8 +42,8 @@ class HillfortFavListActivity : AppCompatActivity(), HillfortListener, AnkoLogge
     }
 
     fun showHillforts(hillforts: List<HillfortModel>) {
-        recyclerView.adapter = HillfortAdapter(hillforts, this)
-        recyclerView.adapter?.notifyDataSetChanged()
+        hillfort_fav_list.adapter = HillfortAdapter(hillforts, this)
+        hillfort_fav_list.adapter?.notifyDataSetChanged()
     }
 
     override fun onBackPressed() {

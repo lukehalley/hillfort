@@ -55,6 +55,9 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
                 R.id.drawerNav_AllHillforts -> startActivityForResult<HillfortAllMapsActivity>(0)
             }
             when (menuItem?.itemId) {
+                R.id.drawerNav_FavHillforts -> startActivityForResult<HillfortFavListActivity>(0)
+            }
+            when (menuItem?.itemId) {
                 R.id.drawerNav_Settings -> startActivityForResult(intentFor<HillfortSettingsActivity>().putExtra("user_edit", user), 0)
             }
             when (menuItem?.itemId) {
@@ -119,11 +122,11 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         showHillforts(app.hillforts.findAll())
     }
 
-    private fun loadFavHillforts() {
-//        FILTER ONLY HILLFORTS THAT ARE FAV
-        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
-        showHillforts(favHills)
-    }
+//    private fun loadFavHillforts() {
+////        FILTER ONLY HILLFORTS THAT ARE FAV
+//        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
+//        showHillforts(favHills)
+//    }
 
     fun showHillforts(hillforts: List<HillfortModel>) {
         val mypreference = HillfortSharedPreferences(this)
