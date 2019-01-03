@@ -26,10 +26,10 @@
                 android:layout_height="wrap_content"
                 app:titleTextColor="@color/colorPrimary" />
 
-            <SearchView
-                android:id="@+id/searchHillforts"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <!--<SearchView-->
+                <!--android:id="@+id/searchHillforts"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" />-->
 
         </android.support.design.widget.AppBarLayout>
 

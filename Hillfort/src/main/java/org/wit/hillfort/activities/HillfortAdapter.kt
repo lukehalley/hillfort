@@ -21,6 +21,7 @@ interface HillfortListener {
 class HillfortAdapter(private var hillforts: List<HillfortModel>, private val listener: HillfortListener) : RecyclerView.Adapter<HillfortAdapter.MainHolder>(), Filterable {
 
     private var hillfortsFull: List<HillfortModel>? = null
+    private var recycleFilter : RecycleFilter? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_list_hillfort, parent, false))
@@ -65,7 +66,10 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>, private val li
     }
 
     override fun getFilter(): Filter {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (recycleFilter == null){
+            recycleFilter = RecycleFilter()
+        }
+        return recycleFilter as RecycleFilter
     }
 
     inner class RecycleFilter: Filter(){
@@ -92,5 +96,7 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>, private val li
             notifyDataSetChanged()
         }
 
+
     }
+
 }
