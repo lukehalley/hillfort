@@ -59,7 +59,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
         var edit = false
 
-
         if (intent.hasExtra("hillfort_edit")) {
             edit = true
             toolbarAdd.title = "Edit Hillfort"

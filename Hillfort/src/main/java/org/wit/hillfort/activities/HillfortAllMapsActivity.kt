@@ -1,6 +1,6 @@
 package org.wit.hillfort.activities
 
-import android.location.Geocoder
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -10,13 +10,13 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_all_hillforts_map.*
 import kotlinx.android.synthetic.main.content_hillfort_maps.*
+import org.jetbrains.anko.AnkoLogger
 import org.wit.hillfort.R
+import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 
-class HillfortAllMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
-
-
+class HillfortAllMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener, AnkoLogger {
 
     lateinit var map: GoogleMap
     lateinit var app: MainApp
@@ -61,13 +61,31 @@ class HillfortAllMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
 
     override fun onMarkerClick(marker: Marker?): Boolean {
         if (marker != null) {
-            hillfortTitle.text = marker.title
-            val geocoder = Geocoder(this)
-            location.lat = marker.position.latitude
-            location.lng = marker.position.longitude
-            val addresses = geocoder.getFromLocation(location.lat, location.lng, 1)
-            location.address = addresses.get(0).getAddressLine(0)
-            hillfortAddress.text = location.address
+//            cardAllHillfortsTitle.text = marker.title
+//            val geocoder = Geocoder(this)
+//            location.lat = marker.position.latitude
+//            location.lng = marker.position.longitude
+//            val addresses = geocoder.getFromLocation(location.lat, location.lng, 1)
+//            location.address = addresses.get(0).getAddressLine(0)
+//            cardAllHillfortsLocation.text = location.address
+
+            var allHillforts = app.hillforts.findAll()
+            val currentHill= allHillforts.find{ it.title == marker.title }
+            if (currentHill != null) {
+                cardAllHillfortsTitle.text = currentHill.title
+                cardAllHillfortsDescription.text = currentHill.description
+                cardAllHillfortsLocation.text = "Address: " + currentHill.address
+                cardAllHillfortsImage.setImageBitmap(readImageFromPath(cardAllHillfortsImage.context, currentHill.firstImage))
+                if (currentHill.visited) {
+                    cardAllHillfortsIndicator.setBackgroundColor(Color.parseColor("#5db761"))
+                    cardAllHillfortsIndicator.setText(R.string.isVisited)
+                } else {
+                    cardAllHillfortsIndicator.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                    cardAllHillfortsIndicator.setText(R.string.notVisited)
+                }
+
+            }
+            
         }
         return false
     }
