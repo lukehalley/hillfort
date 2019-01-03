@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.card_hillfort.view.*
+import kotlinx.android.synthetic.main.card_list_hillfort.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.wit.hillfort.R
 import org.wit.hillfort.helpers.readImageFromPath
@@ -20,7 +20,7 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>,
                                   private val listener: HillfortListener) : RecyclerView.Adapter<HillfortAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_hillfort, parent, false))
+        return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_list_hillfort, parent, false))
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
