@@ -3,8 +3,10 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
-        <device id="pixel_2" />
         <device id="Nexus 5X" />
+        <device id="pixel_2" />
+        <device id="Nexus 4" />
+        <device id="Nexus 6" />
         <device id="pixel_2_xl" />
         <device id="pixel" />
         <device id="Nexus 6P" />
@@ -24,16 +26,11 @@
     <list default="true" id="d4543ee8-0b09-4421-8d9b-952e3d5d37e6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,7 +77,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_login.xml">
           <provider selected="true" editor-type-id="android-designer2">
             <state />
@@ -91,6 +88,18 @@
               <folding>
                 <element signature="e#1346#1361#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_register.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="95" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -2965,7 +2974,6 @@
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/xml/file_paths.xml" />
         <option value="$PROJECT_DIR$/../AndroidStudio/DeviceExplorer/google-pixel_2-FA79L1A04658/data/data/org.wit.hillfort/files/hillforts.json" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortRegisterActivity.kt" />
-        <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortLoginActivity.kt" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortSettingsActivity.kt" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_settings.xml" />
@@ -3000,6 +3008,7 @@
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/hillfort_fav_list_item.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortFavListActivity.kt" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml" />
       </list>
     </option>
   </component>
@@ -3021,23 +3030,6 @@
             <path>
               <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
               <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
@@ -3239,12 +3231,12 @@
       <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.25028312" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.19800995" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.20199005" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.3283582" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21671991" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21671991" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.25870648" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
       <window_info anchor="right" id="Gradle" order="3" />
@@ -3326,24 +3318,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="58" />
-          <folding>
-            <element signature="e#1196#1214#0" expanded="true" />
-            <element signature="e#3814#3828#0" expanded="true" />
-            <element signature="e#4167#4182#0" expanded="true" />
-            <element signature="e#4516#4534#0" expanded="true" />
-            <element signature="e#4868#4893#0" expanded="true" />
-            <element signature="e#5345#5369#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../AndroidStudio/DeviceExplorer/google-pixel_2-FA79L1A04658/data/data/org.wit.hillfort/files/users.json" />
     <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_splashscreen.xml">
       <provider editor-type-id="android-designer2">
@@ -3753,6 +3727,16 @@
           <folding>
             <element signature="e#1346#1361#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_register.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="95" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="54" />
         </state>
       </provider>
     </entry>
