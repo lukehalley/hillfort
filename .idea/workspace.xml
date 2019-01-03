@@ -3,6 +3,7 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
+        <device id="Nexus 5X" />
         <device id="pixel_2" />
         <device id="pixel_2_xl" />
         <device id="pixel" />
@@ -27,7 +28,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,7 +56,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HillfortListActivity.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HillfortListActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="458">
@@ -80,6 +83,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="activity_hillfort.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="528" column="12" selection-start-line="528" selection-start-column="12" selection-end-line="528" selection-end-column="12" />
+              <folding>
+                <element signature="e#1056#1078#0" expanded="true" />
+                <element signature="e#2947#2963#0" expanded="true" />
+                <element signature="e#5023#5051#0" expanded="true" />
+                <element signature="e#6616#6647#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -95,12 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hillfortCount</find>
-      <find>hillfort_edit</find>
-      <find>abstract</find>
-      <find>HillfortListener</find>
-      <find>HillfortModel</find>
-      <find>item_add</find>
       <find>change_hillfortSecondImage</find>
       <find>Hill</find>
       <find>set</find>
@@ -125,6 +140,12 @@
       <find>itemView.visitedIndicator</find>
       <find>Placemark</find>
       <find>HillfortFavListener</find>
+      <find>android:visibility=&quot;gone&quot;</find>
+      <find>chooseFirstImageGallery</find>
+      <find>Image</find>
+      <find>Sec</find>
+      <find>Second</find>
+      <find>chooseS</find>
     </findStrings>
     <replaceStrings>
       <replace>50dp</replace>
@@ -142,6 +163,7 @@
       <replace>cardAllHillfortsIndicator</replace>
       <replace>Hillfort</replace>
       <replace>HillfortListListener</replace>
+      <replace>android:visibility=&quot;visible&quot;</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app</dir>
@@ -2921,12 +2943,12 @@
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/drawable/ic_favorite_border.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/HillfortModel.kt" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/models/HillfortJSONStore.kt" />
-        <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/drawable/button_favorite.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/card_hillfort.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAdapter.kt" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt" />
+        <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml" />
       </list>
     </option>
   </component>
@@ -2960,40 +2982,6 @@
             <path>
               <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
               <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="hillfort" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="hillfort" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="hillfort" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Hillfort" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -3179,13 +3167,13 @@
       <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.25028312" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.19800995" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.19701493" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.3283582" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21671991" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.25870648" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.11927582" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.25870648" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -3614,16 +3602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="479" column="49" lean-forward="true" selection-start-line="479" selection-start-column="49" selection-end-line="479" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../AndroidStudio/DeviceExplorer/google-pixel_2-FA79L1A04658/data/data/org.wit.hillfort/files/hillforts.json">
       <provider selected="true" editor-type-id="text-editor">
         <state />
@@ -3709,6 +3687,22 @@
             <element signature="e#2469#2490#1" expanded="true" />
             <element signature="e#3573#3594#1" expanded="true" />
             <element signature="e#5227#5248#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_hillfort.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="528" column="12" selection-start-line="528" selection-start-column="12" selection-end-line="528" selection-end-column="12" />
+          <folding>
+            <element signature="e#1056#1078#0" expanded="true" />
+            <element signature="e#2947#2963#0" expanded="true" />
+            <element signature="e#5023#5051#0" expanded="true" />
+            <element signature="e#6616#6647#0" expanded="true" />
           </folding>
         </state>
       </provider>
