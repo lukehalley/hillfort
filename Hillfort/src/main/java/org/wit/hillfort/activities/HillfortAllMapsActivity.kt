@@ -61,13 +61,6 @@ class HillfortAllMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
 
     override fun onMarkerClick(marker: Marker?): Boolean {
         if (marker != null) {
-//            cardAllHillfortsTitle.text = marker.title
-//            val geocoder = Geocoder(this)
-//            location.lat = marker.position.latitude
-//            location.lng = marker.position.longitude
-//            val addresses = geocoder.getFromLocation(location.lat, location.lng, 1)
-//            location.address = addresses.get(0).getAddressLine(0)
-//            cardAllHillfortsLocation.text = location.address
 
             var allHillforts = app.hillforts.findAll()
             val currentHill= allHillforts.find{ it.title == marker.title }

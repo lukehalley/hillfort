@@ -22,19 +22,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4543ee8-0b09-4421-8d9b-952e3d5d37e6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAllMapsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAllMapsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hillfort/src/main/res/layout/content_hillfort_maps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/layout/content_hillfort_maps.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,7 +53,7 @@
       <file leaf-file-name="HillfortAdapter.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAdapter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="405">
               <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
               <folding>
                 <element signature="e#36#447#0" expanded="true" />
@@ -76,7 +65,7 @@
       <file leaf-file-name="HillfortListActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
+            <state relative-caret-position="305">
               <caret line="91" column="6" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
               <folding>
                 <element signature="e#37#700#0" expanded="true" />
@@ -85,15 +74,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HillfortAllMapsActivity.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HillfortAllMapsActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAllMapsActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
+            <state relative-caret-position="313">
+              <caret line="64" selection-start-line="64" selection-end-line="65" selection-end-column="74" />
               <folding>
                 <element signature="e#37#714#0" expanded="true" />
-                <element signature="e#3037#3055#1" expanded="true" />
-                <element signature="e#3220#3239#1" expanded="true" />
+                <element signature="e#3113#3131#1" expanded="true" />
+                <element signature="e#3308#3327#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,11 +103,20 @@
       <file leaf-file-name="HillfortActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="34" />
+            <state relative-caret-position="355">
+              <caret line="117" column="46" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="46" />
               <folding>
                 <element signature="e#37#1020#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="603">
+              <caret line="69" column="71" selection-start-line="69" selection-start-column="71" selection-end-line="69" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -2977,10 +2975,10 @@
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/activity_all_hillforts_map.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/drawer_view.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt" />
-        <option value="$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/res/layout/content_hillfort_maps.xml" />
         <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAllMapsActivity.kt" />
+        <option value="$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt" />
+        <option value="$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml" />
       </list>
     </option>
   </component>
@@ -3253,12 +3251,12 @@
       <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.22189055" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="7" visible="true" weight="0.24776119" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.22189055" />
+      <window_info anchor="bottom" id="Logcat" order="7" weight="0.44676617" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13631523" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13631523" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.084337346" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3273632" />
       <window_info anchor="right" id="Gradle" order="3" />
@@ -3668,13 +3666,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/card_hillfort.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3">
@@ -3683,46 +3674,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-          <folding>
-            <element signature="e#36#447#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="91" column="6" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
-          <folding>
-            <element signature="e#37#700#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortMapsActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="18" column="144" selection-start-line="18" selection-start-column="134" selection-end-line="18" selection-end-column="144" />
-          <folding>
-            <element signature="e#37#667#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="e#37#1020#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/layout/content_hillfort_maps.xml">
@@ -3735,15 +3686,62 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortMapsActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="18" column="144" selection-start-line="18" selection-start-column="134" selection-end-line="18" selection-end-column="144" />
+          <folding>
+            <element signature="e#37#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAllMapsActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
+        <state relative-caret-position="313">
+          <caret line="64" selection-start-line="64" selection-end-line="65" selection-end-column="74" />
           <folding>
             <element signature="e#37#714#0" expanded="true" />
-            <element signature="e#3037#3055#1" expanded="true" />
-            <element signature="e#3220#3239#1" expanded="true" />
+            <element signature="e#3113#3131#1" expanded="true" />
+            <element signature="e#3308#3327#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortListActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="91" column="6" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
+          <folding>
+            <element signature="e#37#700#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+          <folding>
+            <element signature="e#36#447#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/java/org/wit/hillfort/activities/HillfortActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="117" column="46" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="46" />
+          <folding>
+            <element signature="e#37#1020#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hillfort/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="69" column="71" selection-start-line="69" selection-start-column="71" selection-end-line="69" selection-end-column="71" />
         </state>
       </provider>
     </entry>
