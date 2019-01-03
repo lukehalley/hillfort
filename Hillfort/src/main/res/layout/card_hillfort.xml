@@ -43,8 +43,8 @@
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_width="75dp"
-                android:layout_height="35dp"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
                 android:layout_gravity="right"
                 android:baselineAligned="false"
                 android:orientation="horizontal">
@@ -52,14 +52,16 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/cardRatingNumber"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="right"
-                        android:visibility="invisible"/>
+                        android:gravity="center"
+                        android:visibility="invisible" />
 
                 </RelativeLayout>
 
@@ -72,14 +74,37 @@
                         android:id="@+id/starRatingIcon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:srcCompat="@drawable/green_star"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/green_star" />
 
                 </RelativeLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:layout_gravity="left"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center">
 
+                    <ImageView
+                        android:id="@+id/favouritedIcon"
+                        android:layout_width="22.5dp"
+                        android:layout_height="22.5dp"
+                        android:foregroundGravity="center"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/outline_green_heart" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

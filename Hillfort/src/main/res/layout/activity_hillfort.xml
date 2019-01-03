@@ -445,19 +445,55 @@
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp" />
 
-                <Button
-                    android:id="@+id/addHillfortBtn"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/colorAccent"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addHillfort"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="300dp"
+                        android:layout_height="85dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/addHillfortBtn"
+                            android:layout_width="325dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/colorAccent"
+                            android:stateListAnimator="@null"
+                            android:text="@string/button_addHillfort"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ToggleButton
+                            android:id="@+id/favouritedButton"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/button_favorite"
+                            android:checked="false"
+                            android:foregroundGravity="center"
+                            android:gravity="center"
+                            android:text=""
+                            android:textOff=""
+                            android:textOn="" />
+
+                    </RelativeLayout>
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/deleteHillfortBtn"
