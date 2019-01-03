@@ -8,12 +8,16 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -24,8 +28,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="0dp">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
 
                 </android.support.constraint.ConstraintLayout>
@@ -51,8 +55,9 @@
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/cardHillfortTitle"
                     android:layout_width="0dp"
-                    android:layout_height="46dp"
+                    android:layout_height="45dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="110dp"
                     android:layout_marginEnd="8dp"
                     android:hint="@string/hint_hillfortTitle"
                     android:inputType="textCapSentences"
@@ -63,19 +68,20 @@
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                     tools:layout_conversion_absoluteHeight="48dp"
-                    tools:layout_conversion_absoluteWidth="395dp"
-                    tools:layout_editor_absoluteY="108dp" />
+                    tools:layout_conversion_absoluteWidth="395dp" />
 
                 <EditText
                     android:id="@+id/cardHillfortDescription"
                     android:layout_width="0dp"
-                    android:layout_height="79dp"
+                    android:layout_height="102dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    android:autofillHints=""
                     android:ems="150"
-                    android:gravity="left|top"
+                    android:gravity="start"
                     android:hint="@string/hint_hillfortDescription"
                     android:inputType="textMultiLine|textCapSentences"
                     android:textColor="@color/colorPrimaryDark"
@@ -89,12 +95,13 @@
                 <EditText
                     android:id="@+id/additionalNotes"
                     android:layout_width="0dp"
-                    android:layout_height="62dp"
+                    android:layout_height="74dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    android:autofillHints=""
                     android:ems="150"
-                    android:gravity="left|top"
+                    android:gravity="top|start"
                     android:hint="@string/hint_hillfortadditionalNotes"
                     android:inputType="textMultiLine|textCapSentences"
                     android:textColor="@color/colorPrimaryDark"
@@ -113,7 +120,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/radio_Visited"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="@+id/linearLayout"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout"
@@ -125,25 +132,30 @@
                     android:id="@+id/dateVisited"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
                     android:text="@string/date_Visited"
                     android:textStyle="italic"
                     android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/visitedSwitch"
                     tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="142dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
 
                 <View
                     android:id="@+id/view7"
                     android:layout_width="0dp"
-                    android:layout_height="1"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginBottom="8dp"
                     android:background="@android:color/darker_gray"
                     app:layout_constraintBottom_toTopOf="@+id/hillfortRating"
                     app:layout_constraintEnd_toEndOf="@+id/linearLayout"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/dateVisited"
                     tools:layout_conversion_absoluteHeight="2dp"
                     tools:layout_conversion_absoluteWidth="411dp" />
 
@@ -151,24 +163,31 @@
                     android:id="@+id/hillfortRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view7"
                     tools:layout_conversion_absoluteHeight="57dp"
-                    tools:layout_conversion_absoluteWidth="240dp"
-                    tools:layout_editor_absoluteX="104dp"
-                    tools:layout_editor_absoluteY="415dp" />
+                    tools:layout_conversion_absoluteWidth="240dp" />
 
                 <TextView
                     android:id="@+id/hillfortRatingTag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
                     android:text="@string/hillfortRating"
                     android:textAlignment="center"
                     android:textSize="14sp"
                     android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/hillfortRating"
                     tools:layout_conversion_absoluteHeight="19dp"
-                    tools:layout_conversion_absoluteWidth="88dp"
-                    tools:layout_editor_absoluteX="189dp" />
+                    tools:layout_conversion_absoluteWidth="88dp" />
 
                 <TextView
                     android:id="@+id/imageTag"
@@ -189,13 +208,14 @@
                 <ImageView
                     android:id="@+id/hillfortFirstImage"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="100dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:adjustViewBounds="false"
+                    android:contentDescription="@string/fImage"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageTag"
@@ -204,17 +224,19 @@
 
                 <Button
                     android:id="@+id/chooseFirstImageGallery"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/gallery"
+                    android:drawableStart="@drawable/gallery"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromGallery"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/chooseFirstImageCamera"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/hillfortFirstImage"
                     tools:layout_conversion_absoluteHeight="48dp"
@@ -222,18 +244,20 @@
 
                 <Button
                     android:id="@+id/chooseFirstImageCamera"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/camera"
+                    android:drawableStart="@drawable/camera"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromCamera"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/chooseFirstImageGallery"
                     app:layout_constraintTop_toBottomOf="@+id/hillfortFirstImage"
                     tools:layout_conversion_absoluteHeight="48dp"
                     tools:layout_conversion_absoluteWidth="174dp" />
@@ -241,33 +265,36 @@
                 <ImageView
                     android:id="@+id/hillfortSecondImage"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="100dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:adjustViewBounds="false"
+                    android:contentDescription="@string/secondImage"
                     android:scaleType="centerCrop"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/view5"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/chooseFirstImageGallery"
                     tools:layout_conversion_absoluteHeight="0dp"
                     tools:layout_conversion_absoluteWidth="0dp" />
 
                 <Button
                     android:id="@+id/chooseSecondImageGallery"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/gallery"
+                    android:drawableStart="@drawable/gallery"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromGallery"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@+id/chooseSecondImageCamera"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/hillfortSecondImage"
                     tools:layout_conversion_absoluteHeight="0dp"
@@ -275,12 +302,13 @@
 
                 <Button
                     android:id="@+id/chooseSecondImageCamera"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/camera"
+                    android:drawableStart="@drawable/camera"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromCamera"
@@ -288,35 +316,58 @@
                     android:textSize="16sp"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/chooseSecondImageGallery"
                     app:layout_constraintTop_toBottomOf="@+id/hillfortSecondImage"
+                    tools:layout_conversion_absoluteHeight="0dp"
+                    tools:layout_conversion_absoluteWidth="0dp" />
+
+                <ImageView
+                    android:id="@+id/hillfortThirdImage"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/thirdImage"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseSecondImageGallery"
                     tools:layout_conversion_absoluteHeight="0dp"
                     tools:layout_conversion_absoluteWidth="0dp" />
 
                 <Button
                     android:id="@+id/chooseThirdImageGallery"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/gallery"
+                    android:drawableStart="@drawable/gallery"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromGallery"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@+id/chooseThirdImageCamera"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/hillfortThirdImage"
                     tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteY="1039dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
 
                 <Button
                     android:id="@+id/chooseThirdImageCamera"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/camera"
+                    android:drawableStart="@drawable/camera"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromCamera"
@@ -324,35 +375,58 @@
                     android:textSize="16sp"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/chooseThirdImageGallery"
+                    app:layout_constraintTop_toBottomOf="@+id/hillfortThirdImage"
                     tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteY="1039dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
+
+                <ImageView
+                    android:id="@+id/hillfortFourthImage"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/fourthImage"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseThirdImageCamera"
+                    tools:layout_conversion_absoluteHeight="0dp"
+                    tools:layout_conversion_absoluteWidth="0dp" />
 
                 <Button
                     android:id="@+id/chooseFourthImageGallery"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/gallery"
+                    android:drawableStart="@drawable/gallery"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromGallery"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@+id/chooseFourthImageCamera"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/hillfortFourthImage"
                     tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteY="1095dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
 
                 <Button
                     android:id="@+id/chooseFourthImageCamera"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
-                    android:drawableLeft="@drawable/camera"
+                    android:drawableStart="@drawable/camera"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
                     android:text="@string/button_addImageFromCamera"
@@ -360,15 +434,67 @@
                     android:textSize="16sp"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/chooseFourthImageGallery"
+                    app:layout_constraintTop_toBottomOf="@+id/hillfortFourthImage"
                     tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteY="1095dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
+
+
+                <View
+                    android:id="@+id/view8"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseFourthImageCamera"
+                    tools:layout_conversion_absoluteHeight="2dp"
+                    tools:layout_conversion_absoluteWidth="411dp" />
+
+                <TextView
+                    android:id="@+id/mapTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="8dp"
+                    android:text="@string/mapTag"
+                    android:textAlignment="viewStart"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view8"
+                    tools:layout_conversion_absoluteHeight="0dp"
+                    tools:layout_conversion_absoluteWidth="395dp" />
+
+                <TextView
+                    android:id="@+id/addressPreview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/no_address_set"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toTopOf="@+id/hillfortLocation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mapTag"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:layout_conversion_absoluteHeight="0dp"
+                    tools:layout_conversion_absoluteWidth="377dp" />
 
                 <Button
                     android:id="@+id/hillfortLocation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorAccent"
                     android:paddingTop="8dp"
@@ -380,116 +506,69 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addressPreview"
                     tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="379dp"
-                    tools:layout_editor_absoluteY="1244dp" />
-
+                    tools:layout_conversion_absoluteWidth="379dp" />
 
                 <View
-                    android:id="@+id/view8"
+                    android:id="@+id/view10"
                     android:layout_width="0dp"
-                    android:layout_height="1"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
                     android:background="@android:color/darker_gray"
                     app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/hillfortLocation"
                     tools:layout_conversion_absoluteHeight="2dp"
-                    tools:layout_conversion_absoluteWidth="411dp"
-                    tools:layout_editor_absoluteY="1161dp" />
-
-                <TextView
-                    android:id="@+id/mapTag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:padding="8dp"
-                    android:text="@string/mapTag"
-                    android:textAlignment="viewStart"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="395dp"
-                    tools:layout_editor_absoluteY="1175dp" />
+                    tools:layout_conversion_absoluteWidth="411dp" />
 
                 <Button
                     android:id="@+id/addHillfortBtn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@color/colorAccent"
                     android:stateListAnimator="@null"
                     android:text="@string/button_addHillfort"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/favouritedButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view10"
                     tools:layout_conversion_absoluteHeight="48dp"
-                    tools:layout_conversion_absoluteWidth="325dp"
-                    tools:layout_editor_absoluteX="35dp"
-                    tools:layout_editor_absoluteY="1371dp" />
+                    tools:layout_conversion_absoluteWidth="325dp" />
 
                 <Button
                     android:id="@+id/deleteHillfortBtn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@android:color/holo_red_dark"
                     android:stateListAnimator="@null"
                     android:text="@string/button_deleteHillfort"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     android:visibility="visible"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="221dp"
-                    tools:layout_editor_absoluteY="1371dp" />
-
-                <TextView
-                    android:id="@+id/addressPreview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="No Address Set"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    app:layout_constraintBottom_toTopOf="@+id/hillfortLocation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.512"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="377dp" />
-
-                <ImageView
-                    android:id="@+id/hillfortFourthImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="false"
-                    android:scaleType="centerCrop"
-                    android:visibility="visible"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="0dp" />
-
-                <ImageView
-                    android:id="@+id/hillfortThirdImage"
-                    android:layout_width="0dp"
-                    android:layout_height="80"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:adjustViewBounds="false"
-                    android:scaleType="centerCrop"
-                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/chooseSecondImageGallery"
+                    app:layout_constraintTop_toBottomOf="@+id/addHillfortBtn"
                     tools:layout_conversion_absoluteHeight="0dp"
                     tools:layout_conversion_absoluteWidth="0dp" />
 
                 <ToggleButton
                     android:id="@+id/favouritedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/button_favorite"
                     android:checked="false"
                     android:foregroundGravity="center"
@@ -497,34 +576,12 @@
                     android:text=""
                     android:textOff=""
                     android:textOn=""
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/addHillfortBtn"
+                    app:layout_constraintTop_toTopOf="@+id/view10"
                     tools:layout_conversion_absoluteHeight="35dp"
-                    tools:layout_conversion_absoluteWidth="35dp"
-                    tools:layout_editor_absoluteX="363dp"
-                    tools:layout_editor_absoluteY="1387dp" />
-
-                <View
-                    android:id="@+id/view9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/darker_gray"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    tools:layout_conversion_absoluteHeight="2dp"
-                    tools:layout_conversion_absoluteWidth="411dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="720dp" />
-
-                <View
-                    android:id="@+id/view5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/darker_gray"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    tools:layout_conversion_absoluteHeight="2dp"
-                    tools:layout_conversion_absoluteWidth="411dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="720dp" />
+                    tools:layout_conversion_absoluteWidth="35dp" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
