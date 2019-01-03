@@ -70,4 +70,9 @@
     <string name="hint_HillfortAlreadyExists">"Hillfort Already Exists!"</string>
     <string name="hillfortRating">Hillfort Rating</string>
     <string name="hint_PleaseRateHillfort">Please Rate The Hillfort!</string>
+    <string name="fImage">firstImage</string>
+    <string name="no_address_set">No Address Set</string>
+    <string name="fourthImage">fourthImage</string>
+    <string name="thirdImage">thirdImage</string>
+    <string name="secondImage">secondImage</string>
 </resources>
