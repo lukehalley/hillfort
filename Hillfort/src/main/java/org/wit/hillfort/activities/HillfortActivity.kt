@@ -114,7 +114,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
             if (hillfort.title.isEmpty() or hillfort.description.isEmpty()) {
                 toast(R.string.hint_EnterHillfortTitle)
-            } else if (currentHill != null) {
+            } else if (currentHill != null && !intent.hasExtra("hillfort_edit")) {
                 toast(R.string.hint_HillfortAlreadyExists)
             } else {
                 if (edit) {
