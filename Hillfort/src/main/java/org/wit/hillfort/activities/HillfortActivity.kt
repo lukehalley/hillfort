@@ -324,6 +324,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
     }
 
+    fun showPlacemark(placemark: HillfortModel) {
+        placemarkTitle.setText(placemark.title)
+        description.setText(placemark.description)
+        placemarkImage.setImageBitmap(readImageFromPath(this, placemark.image))
+        if (placemark.image != null) {
+            chooseImage.setText(R.string.change_placemark_image)
+        }
+        btnAdd.setText(R.string.save_placemark)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)
         return super.onCreateOptionsMenu(menu)
