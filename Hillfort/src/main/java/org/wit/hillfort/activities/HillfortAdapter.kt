@@ -53,7 +53,11 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>,
                 itemView.visitedIndicator.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
                 itemView.visitedIndicator.setText(R.string.notVisited)
             }
-
+            if (hillfort.favourited){
+                itemView.favouritedIcon.setImageResource(R.drawable.filled_green_heart)
+            } else {
+                itemView.favouritedIcon.setImageResource(R.drawable.outline_green_heart)
+            }
         }
     }
 }

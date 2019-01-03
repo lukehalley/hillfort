@@ -95,7 +95,7 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:id="@+id/favouritedIcon1"
+                        android:id="@+id/favouritedIcon"
                         android:layout_width="22.5dp"
                         android:layout_height="22.5dp"
                         android:foregroundGravity="center"
