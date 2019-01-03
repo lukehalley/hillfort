@@ -119,6 +119,12 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         showHillforts(app.hillforts.findAll())
     }
 
+    private fun loadFavHillforts() {
+//        FILTER ONLY HILLFORTS THAT ARE FAV
+        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
+        showHillforts(favHills)
+    }
+
     fun showHillforts(hillforts: List<HillfortModel>) {
         val mypreference = HillfortSharedPreferences(this)
         val userName = mypreference.getCurrentUserName()
