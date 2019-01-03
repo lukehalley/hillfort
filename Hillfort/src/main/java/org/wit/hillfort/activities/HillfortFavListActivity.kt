@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_fav_hillforts.*
-import org.jetbrains.anko.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.intentFor
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
@@ -19,13 +20,12 @@ class HillfortFavListActivity : AppCompatActivity(), HillfortListener, AnkoLogge
         app = application as MainApp
         toolbarFavHillforts.title = title
         setSupportActionBar(toolbarFavHillforts)
-
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val layoutManager = LinearLayoutManager(this)
         hillfort_fav_list.layoutManager = layoutManager
         var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
         hillfort_fav_list.adapter = HillfortAdapter(favHills, this)
         loadFavHillforts()
-
     }
 
     override fun onHillfortClick(hillfort: HillfortModel) {
@@ -44,15 +44,5 @@ class HillfortFavListActivity : AppCompatActivity(), HillfortListener, AnkoLogge
     fun showHillforts(hillforts: List<HillfortModel>) {
         hillfort_fav_list.adapter = HillfortAdapter(hillforts, this)
         hillfort_fav_list.adapter?.notifyDataSetChanged()
-    }
-
-    override fun onBackPressed() {
-        alert(R.string.logoutPrompt) {
-            yesButton {
-                finish()
-                super.onBackPressed()
-            }
-            noButton {}
-        }.show()
     }
 }
