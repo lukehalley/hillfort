@@ -112,6 +112,10 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
     }
 
     private fun loadHillforts() {
+//        FILTER ONLY HILLFORTS THAT ARE FAV
+//        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
+//        showHillforts(favHills)
+
         showHillforts(app.hillforts.findAll())
     }
 
