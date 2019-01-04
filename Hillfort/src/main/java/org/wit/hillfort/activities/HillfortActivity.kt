@@ -51,6 +51,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
     var mCurrentPhotoPath: String = ""
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
