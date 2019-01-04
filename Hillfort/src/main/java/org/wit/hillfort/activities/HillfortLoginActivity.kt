@@ -11,7 +11,6 @@ import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
-import org.wit.hillfort.models.UserModel
 
 class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
 
@@ -25,19 +24,20 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
         val mypreference = HillfortSharedPreferences(this)
 
         loginButton.setOnClickListener {
-            showProgress()
-            var users = app.users.findAll()
-            var foundUser: UserModel? = users.find { p -> p.email == enteredEmail.text.toString() }
 
-            if (foundUser != null) {
-                auth.signInWithEmailAndPassword(foundUser.email, foundUser.password)
+//            var users = app.users.findAll()
+//            var foundUser: UserModel? = users.find { p -> p.email == enteredEmail.text.toString() }
+
+            if (enteredEmail.text.toString().isNotEmpty() && enteredPassword.text.toString().isNotEmpty()) {
+                showProgress()
+                auth.signInWithEmailAndPassword(enteredEmail.text.toString(), enteredPassword.text.toString())
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
                                 val user = auth.currentUser
-                                mypreference.setCurrentUserName(foundUser.name)
-                                mypreference.setCurrentUserEmail(foundUser.email)
-                                mypreference.setCurrentUserPassword(foundUser.password)
+                                mypreference.setCurrentUserName(enteredEmail.text.toString())
+                                mypreference.setCurrentUserEmail(enteredEmail.text.toString())
+                                mypreference.setCurrentUserPassword(enteredPassword.text.toString())
                                 startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", enteredEmail.text.toString()), 0)
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -48,6 +48,12 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
                             }
                             hideProgress()
                         }
+            } else if (enteredEmail.text.toString().isEmpty()){
+                toast("Please Enter Your Email")
+            } else if (enteredPassword.text.toString().isEmpty()){
+                toast("Please Enter Your Email")
+            } else {
+                toast(R.string.hint_EnterAllFields)
             }
         }
 
