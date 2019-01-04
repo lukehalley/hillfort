@@ -65,9 +65,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     private var locationGps : Location? = null
     private var locationNetwork : Location? = null
 
-
-
-
     private var permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -399,19 +396,19 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                         addressPreview.text = addresses[0].getAddressLine(0)
                         hillfortLocation.isClickable = false
                         hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
-
+                        toast(addresses[0].getAddressLine(0))
                         hillfort.lat = liveLat
                         hillfort.lng = liveLong
                         hillfort.zoom = 13F
                         hillfort.address = addresses[0].getAddressLine(0)
 
                     } else {
-                        addressPreview.append("Live GPS Latitude : " + locationGps!!.latitude + " GPS Longitude  : " + locationGps!!.longitude)
                         val liveLat = locationNetwork!!.latitude
                         val liveLong = locationNetwork!!.longitude
                         val geocoder = Geocoder(this)
                         val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
                         addressPreview.text = addresses[0].getAddressLine(0)
+                        toast(addresses[0].getAddressLine(0))
                         hillfortLocation.isClickable = false
                         hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
 
