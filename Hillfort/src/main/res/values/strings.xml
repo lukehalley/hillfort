@@ -10,7 +10,7 @@
     <string name="title_editHillfort">Edit Hillfort</string>
     <string name="menu_addHillfort">Add</string>
     <string name="menu_cancelHillfort">Cancel</string>
-    <string name="hint_EnterHillfortTitle">Please Fill In All Above Fields!</string>
+    <string name="hint_EnterAllFields">Please Fill In All Above Fields!</string>
     <string name="button_saveHillfort">Save Hillfort</string>
     <string name="button_addImageFromGallery"> Gallery </string>
     <string name="button_addAnotherImage"> Add Another Image </string>
