@@ -77,4 +77,5 @@
     <string name="thirdImage">thirdImage</string>
     <string name="secondImage">secondImage</string>
     <string name="favHillforts">Favourites</string>
+    <string name="toast_AuthFail">Authentication Failed</string>
 </resources>
