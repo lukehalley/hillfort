@@ -1,15 +1,22 @@
 package org.wit.hillfort.activities
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.location.Geocoder
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.provider.Settings
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -33,6 +40,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
+private const val PERMISSION_REQUEST = 10
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
@@ -51,10 +59,31 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
     var mCurrentPhotoPath: String = ""
 
+    lateinit var locationManager: LocationManager
+    private var hasGps = false
+    private var hasNetwork = false
+    private var locationGps : Location? = null
+    private var locationNetwork : Location? = null
+
+    private var permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hillfort)
+
+        // Getting permissions
+        disableView()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkPermission(permissions)) {
+                enableView()
+            } else {
+                requestPermissions(permissions, PERMISSION_REQUEST)
+            }
+        } else {
+            enableView()
+        }
+
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -290,6 +319,111 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             startActivityForResult(intentFor<HillfortMapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
 
+        getCurrentLocationBtn.setOnClickListener {
+            locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            hasGps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+            hasNetwork = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+
+
+            if (hasGps || hasNetwork){
+
+                if (hasGps){
+                    info { "LHK: GPS Is Enabled $hasGps" }
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0F, object : LocationListener {
+                        override fun onLocationChanged(location: Location?) {
+                            if(location != null){
+                                locationGps = location
+                            }
+                        }
+
+                        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+
+                        }
+
+                        override fun onProviderEnabled(provider: String?) {
+
+                        }
+
+                        override fun onProviderDisabled(provider: String?) {
+
+                        }
+
+                    })
+
+                    val localGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                    if (localGpsLocation != null){
+                        locationGps = localGpsLocation
+                    }
+
+                }
+
+                if (hasNetwork){
+                    info { "LHK: Network Is Enabled $hasNetwork" }
+                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0F, object : LocationListener {
+                        override fun onLocationChanged(location: Location?) {
+                            if(location != null){
+                                locationNetwork = location
+                            }
+                        }
+
+                        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+
+                        }
+
+                        override fun onProviderEnabled(provider: String?) {
+
+                        }
+
+                        override fun onProviderDisabled(provider: String?) {
+
+                        }
+
+                    })
+
+                    val localNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+                    if (localNetworkLocation != null){
+                        locationNetwork = localNetworkLocation
+                    }
+
+                }
+
+                if (locationGps != null && locationNetwork != null){
+                    if (locationGps!!.accuracy > locationNetwork!!.accuracy){
+                        val liveLat = locationNetwork!!.latitude
+                        val liveLong = locationNetwork!!.longitude
+                        val geocoder = Geocoder(this)
+                        val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+                        addressPreview.text = addresses[0].getAddressLine(0)
+                        hillfortLocation.isClickable = false
+                        hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+                        toast(addresses[0].getAddressLine(0))
+                        hillfort.lat = liveLat
+                        hillfort.lng = liveLong
+                        hillfort.zoom = 13F
+                        hillfort.address = addresses[0].getAddressLine(0)
+
+                    } else {
+                        val liveLat = locationNetwork!!.latitude
+                        val liveLong = locationNetwork!!.longitude
+                        val geocoder = Geocoder(this)
+                        val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+                        addressPreview.text = addresses[0].getAddressLine(0)
+                        toast(addresses[0].getAddressLine(0))
+                        hillfortLocation.isClickable = false
+                        hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+
+                        hillfort.lat = liveLat
+                        hillfort.lng = liveLong
+                        hillfort.zoom = 13F
+                        hillfort.address = addresses[0].getAddressLine(0)
+                    }
+                }
+
+            } else {
+                startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+            }
+        }
+
         visitedSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 val current = LocalDateTime.now()
@@ -315,12 +449,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
 
         }
-
-//        button_favorite.setOnClickListener {
-//            info { "CLICK 66" }
-//        }
-
-
 
     }
 
@@ -497,6 +625,119 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
         return Uri.fromFile(f).toString()
     }
+
+    private fun disableView() {
+
+    }
+
+    private fun enableView() {
+        toast("Permission Done!")
+    }
+
+    private fun checkPermission(permissionArray: Array<String>): Boolean {
+        var allSuccess = true
+        for (i in permissionArray.indices) {
+            if (checkCallingOrSelfPermission(permissionArray[i]) == PackageManager.PERMISSION_DENIED){
+                allSuccess = false
+            }
+        }
+        return allSuccess
+    }
+
+//    @SuppressLint("MissingPermission")
+//    fun getLocation() {
+//        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+//        hasGps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+//        hasNetwork = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+//
+//
+//        if (hasGps || hasNetwork){
+//
+//            if (hasGps){
+//                info { "LHK: GPS Is Enabled $hasGps" }
+//                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0F, object : LocationListener {
+//                    override fun onLocationChanged(location: Location?) {
+//                        if(location != null){
+//                            locationGps = location
+//                        }
+//                    }
+//
+//                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//
+//                    }
+//
+//                    override fun onProviderEnabled(provider: String?) {
+//
+//                    }
+//
+//                    override fun onProviderDisabled(provider: String?) {
+//
+//                    }
+//
+//                })
+//
+//                val localGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+//                if (localGpsLocation != null){
+//                    locationGps = localGpsLocation
+//                }
+//
+//            }
+//
+//            if (hasNetwork){
+//                info { "LHK: Network Is Enabled $hasNetwork" }
+//                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0F, object : LocationListener {
+//                    override fun onLocationChanged(location: Location?) {
+//                        if(location != null){
+//                            locationNetwork = location
+//                        }
+//                    }
+//
+//                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//
+//                    }
+//
+//                    override fun onProviderEnabled(provider: String?) {
+//
+//                    }
+//
+//                    override fun onProviderDisabled(provider: String?) {
+//
+//                    }
+//
+//                })
+//
+//                val localNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+//                if (localNetworkLocation != null){
+//                    locationNetwork = localNetworkLocation
+//                }
+//
+//            }
+//
+//            if (locationGps != null && locationNetwork != null){
+//                if (locationGps!!.accuracy > locationNetwork!!.accuracy){
+//                    val liveLat = locationNetwork!!.latitude
+//                    val liveLong = locationNetwork!!.longitude
+//                    val geocoder = Geocoder(this)
+//                    val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+//                    addressPreview.text = addresses[0].getAddressLine(0)
+//                    hillfortLocation.isClickable = false
+//                    hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+//                } else {
+//                    addressPreview.append("Live GPS Latitude : " + locationGps!!.latitude + " GPS Longitude  : " + locationGps!!.longitude)
+//                    val liveLat = locationNetwork!!.latitude
+//                    val liveLong = locationNetwork!!.longitude
+//                    val geocoder = Geocoder(this)
+//                    val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+//                    addressPreview.text = addresses[0].getAddressLine(0)
+//                    hillfortLocation.isClickable = false
+//                    hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+//                }
+//            }
+//
+//        } else {
+//            startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+//        }
+//    }
 
 }
 
