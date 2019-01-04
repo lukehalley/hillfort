@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
-import android.support.v4.view.MenuItemCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
@@ -23,7 +22,6 @@ import org.wit.hillfort.models.UserModel
 class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
     lateinit var app: MainApp
-    var adapter : HillfortAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +38,9 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
+
+
+
         loadHillforts()
         addHillfortFab.setOnClickListener() {
             startActivityForResult<HillfortActivity>(0)
@@ -79,16 +80,19 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        var adapter = HillfortAdapter(app.hillforts.findAll(), this)
         menuInflater.inflate(R.menu.menu_main, menu)
-        var searchItem : MenuItem? = menu?.findItem(R.id.searchHillforts)
-        var searchView : SearchView = MenuItemCompat.getActionProvider(searchItem) as SearchView
+        var searchItem : MenuItem? = menu?.findItem(R.id.action_search)
+        val searchView = searchItem?.actionView as SearchView
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
+                toast("FIRE SUB")
                 return false
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
+                toast("FIRE CHANGE" + adapter)
                 adapter?.filter?.filter(p0)
                 return false
             }
@@ -130,22 +134,14 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         loadHillforts()
+        toast("FIRE LOAD")
         super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun loadHillforts() {
-//        FILTER ONLY HILLFORTS THAT ARE FAV
-//        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
-//        showHillforts(favHills)
 
         showHillforts(app.hillforts.findAll())
     }
-
-//    private fun loadFavHillforts() {
-////        FILTER ONLY HILLFORTS THAT ARE FAV
-//        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
-//        showHillforts(favHills)
-//    }
 
     fun showHillforts(hillforts: List<HillfortModel>) {
         val mypreference = HillfortSharedPreferences(this)

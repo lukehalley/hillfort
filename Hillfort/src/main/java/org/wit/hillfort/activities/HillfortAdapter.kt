@@ -9,6 +9,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import kotlinx.android.synthetic.main.card_list_hillfort.view.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import org.wit.hillfort.R
 import org.wit.hillfort.helpers.readImageFromPath
 import org.wit.hillfort.models.HillfortModel
@@ -18,9 +19,9 @@ interface HillfortListener {
     fun onOptionsItemSelected(item: MenuItem?): Boolean
 }
 
-class HillfortAdapter(private var hillforts: List<HillfortModel>, private val listener: HillfortListener) : RecyclerView.Adapter<HillfortAdapter.MainHolder>(), Filterable {
+class HillfortAdapter(private var hillforts: List<HillfortModel>, private val listener: HillfortListener) : RecyclerView.Adapter<HillfortAdapter.MainHolder>(), Filterable, AnkoLogger {
 
-    private var hillfortsFull: List<HillfortModel>? = null
+    val hillfortsFull: List<HillfortModel>? = hillforts
     private var recycleFilter : RecycleFilter? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -35,6 +36,8 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>, private val li
     override fun getItemCount(): Int = hillforts.size
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), AnkoLogger {
+
+
 
         fun bind(hillfort: HillfortModel, listener: HillfortListener) {
             itemView.cardHillfortTitle.text = hillfort.title
@@ -73,26 +76,35 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>, private val li
     }
 
     inner class RecycleFilter: Filter(){
+
         override fun performFiltering(constraint: CharSequence?): FilterResults {
-            var results : FilterResults = FilterResults()
-            if (constraint !=  null && constraint.isNotEmpty()) {
-                var localList : ArrayList<HillfortModel> = ArrayList<HillfortModel>()
+            var results = FilterResults()
+            info { "HILLFORTS THE 2ND ARRAY " + hillfortsFull}
+            if (constraint != null && constraint.isNotEmpty()) {
+                var localList : ArrayList<HillfortModel> = ArrayList()
                 for (i : Int in 0..hillfortsFull?.size?.minus(1) as Int){
                     if (hillfortsFull?.get(i)?.title?.toLowerCase()?.contains(constraint.toString().toLowerCase()) as Boolean){
-                        localList.add(hillfortsFull?.get(i) as HillfortModel)
+                        localList.add(hillfortsFull?.get(i))
                     }
                 }
                 results.values = localList
+                info { "RESULT: " + localList }
                 results.count = localList.size
             } else {
                 results.values = hillfortsFull
+                info { "RESULT: " + hillfortsFull }
                 results.count = hillfortsFull?.size as Int
             }
+            info { "RETURN RESULTS" +  results}
             return results
         }
 
         override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-            hillforts = results?.values as ArrayList<HillfortModel>
+            info { "HILLFORTS THE RESULTS !!! " + results?.values }
+            info { "HILLFORTS THE BEFORE " + hillforts }
+
+            hillforts = results?.values as List<HillfortModel>
+            info { "CHANGED: " + hillforts }
             notifyDataSetChanged()
         }
 
