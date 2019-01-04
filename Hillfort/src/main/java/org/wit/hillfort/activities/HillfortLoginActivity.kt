@@ -2,6 +2,8 @@ package org.wit.hillfort.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.*
 import org.wit.hillfort.R
@@ -9,6 +11,9 @@ import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.UserModel
 
 class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
+
+    var auth: FirebaseAuth = FirebaseAuth.getInstance()
+
     lateinit var app: MainApp
     override fun onCreate(savedInstanceState: Bundle?) {
         app = application as MainApp
@@ -35,4 +40,13 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
             startActivityForResult<HillfortRegisterActivity>(0)
         }
     }
+
+    fun showProgress() {
+        loadingLoginIndicator.visibility = View.VISIBLE
+    }
+
+    fun hideProgress() {
+        loadingLoginIndicator.visibility = View.GONE
+    }
+
 }
