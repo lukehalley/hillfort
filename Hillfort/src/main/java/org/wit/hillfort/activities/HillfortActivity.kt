@@ -1,6 +1,5 @@
 package org.wit.hillfort.activities
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -65,6 +64,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     private var hasNetwork = false
     private var locationGps : Location? = null
     private var locationNetwork : Location? = null
+
+
+
 
     private var permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
 
@@ -321,7 +323,108 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         }
 
         getCurrentLocationBtn.setOnClickListener {
-            getLocation()
+            locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            hasGps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+            hasNetwork = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+
+
+            if (hasGps || hasNetwork){
+
+                if (hasGps){
+                    info { "LHK: GPS Is Enabled $hasGps" }
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0F, object : LocationListener {
+                        override fun onLocationChanged(location: Location?) {
+                            if(location != null){
+                                locationGps = location
+                            }
+                        }
+
+                        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+
+                        }
+
+                        override fun onProviderEnabled(provider: String?) {
+
+                        }
+
+                        override fun onProviderDisabled(provider: String?) {
+
+                        }
+
+                    })
+
+                    val localGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                    if (localGpsLocation != null){
+                        locationGps = localGpsLocation
+                    }
+
+                }
+
+                if (hasNetwork){
+                    info { "LHK: Network Is Enabled $hasNetwork" }
+                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0F, object : LocationListener {
+                        override fun onLocationChanged(location: Location?) {
+                            if(location != null){
+                                locationNetwork = location
+                            }
+                        }
+
+                        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+
+                        }
+
+                        override fun onProviderEnabled(provider: String?) {
+
+                        }
+
+                        override fun onProviderDisabled(provider: String?) {
+
+                        }
+
+                    })
+
+                    val localNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+                    if (localNetworkLocation != null){
+                        locationNetwork = localNetworkLocation
+                    }
+
+                }
+
+                if (locationGps != null && locationNetwork != null){
+                    if (locationGps!!.accuracy > locationNetwork!!.accuracy){
+                        val liveLat = locationNetwork!!.latitude
+                        val liveLong = locationNetwork!!.longitude
+                        val geocoder = Geocoder(this)
+                        val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+                        addressPreview.text = addresses[0].getAddressLine(0)
+                        hillfortLocation.isClickable = false
+                        hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+
+                        hillfort.lat = liveLat
+                        hillfort.lng = liveLong
+                        hillfort.zoom = 13F
+                        hillfort.address = addresses[0].getAddressLine(0)
+
+                    } else {
+                        addressPreview.append("Live GPS Latitude : " + locationGps!!.latitude + " GPS Longitude  : " + locationGps!!.longitude)
+                        val liveLat = locationNetwork!!.latitude
+                        val liveLong = locationNetwork!!.longitude
+                        val geocoder = Geocoder(this)
+                        val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+                        addressPreview.text = addresses[0].getAddressLine(0)
+                        hillfortLocation.isClickable = false
+                        hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+
+                        hillfort.lat = liveLat
+                        hillfort.lng = liveLong
+                        hillfort.zoom = 13F
+                        hillfort.address = addresses[0].getAddressLine(0)
+                    }
+                }
+
+            } else {
+                startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+            }
         }
 
         visitedSwitch.setOnCheckedChangeListener { _, isChecked ->
@@ -544,91 +647,100 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         return allSuccess
     }
 
-    @SuppressLint("MissingPermission")
-    fun getLocation() {
-        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        hasGps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-        hasNetwork = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-
-
-        if (hasGps || hasNetwork){
-
-            if (hasGps){
-                info { "LHK: GPS Is Enabled $hasGps" }
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0F, object : LocationListener {
-                    override fun onLocationChanged(location: Location?) {
-                        if(location != null){
-                            locationGps = location
-                        }
-                    }
-
-                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-
-                    override fun onProviderEnabled(provider: String?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-
-                    override fun onProviderDisabled(provider: String?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-
-                })
-
-                val localGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-                if (localGpsLocation != null){
-                    locationGps = localGpsLocation
-                }
-
-            }
-
-            if (hasNetwork){
-                info { "LHK: Network Is Enabled $hasNetwork" }
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0F, object : LocationListener {
-                    override fun onLocationChanged(location: Location?) {
-                        if(location != null){
-                            locationNetwork = location
-                        }
-                    }
-
-                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-
-                    override fun onProviderEnabled(provider: String?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-
-                    override fun onProviderDisabled(provider: String?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-
-                })
-
-                val localNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-                if (localNetworkLocation != null){
-                    locationNetwork = localNetworkLocation
-                }
-
-            }
-
-            if (locationGps != null && locationNetwork != null){
-                if (locationGps!!.accuracy > locationNetwork!!.accuracy){
-                    addressPreview.append("Live Network Latitude : " + locationNetwork!!.latitude + " Network Latitude : " + locationNetwork!!.latitude)
-                    info { "LHK: " + " Network Latitude : " + locationNetwork!!.latitude}
-                    info { "LHK: " + " Network Longitude  : " + locationNetwork!!.longitude}
-                } else {
-                    addressPreview.append("Live GPS Latitude : " + locationGps!!.latitude + " GPS Longitude  : " + locationGps!!.longitude)
-                    info { "LHK: " + " GPS Latitude : " + locationGps!!.latitude}
-                    info { "LHK: " + " GPS Longitude  : " + locationGps!!.longitude}
-                }
-            }
-
-        } else {
-            startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
-        }
-    }
+//    @SuppressLint("MissingPermission")
+//    fun getLocation() {
+//        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+//        hasGps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+//        hasNetwork = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+//
+//
+//        if (hasGps || hasNetwork){
+//
+//            if (hasGps){
+//                info { "LHK: GPS Is Enabled $hasGps" }
+//                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0F, object : LocationListener {
+//                    override fun onLocationChanged(location: Location?) {
+//                        if(location != null){
+//                            locationGps = location
+//                        }
+//                    }
+//
+//                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//
+//                    }
+//
+//                    override fun onProviderEnabled(provider: String?) {
+//
+//                    }
+//
+//                    override fun onProviderDisabled(provider: String?) {
+//
+//                    }
+//
+//                })
+//
+//                val localGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+//                if (localGpsLocation != null){
+//                    locationGps = localGpsLocation
+//                }
+//
+//            }
+//
+//            if (hasNetwork){
+//                info { "LHK: Network Is Enabled $hasNetwork" }
+//                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0F, object : LocationListener {
+//                    override fun onLocationChanged(location: Location?) {
+//                        if(location != null){
+//                            locationNetwork = location
+//                        }
+//                    }
+//
+//                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//
+//                    }
+//
+//                    override fun onProviderEnabled(provider: String?) {
+//
+//                    }
+//
+//                    override fun onProviderDisabled(provider: String?) {
+//
+//                    }
+//
+//                })
+//
+//                val localNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+//                if (localNetworkLocation != null){
+//                    locationNetwork = localNetworkLocation
+//                }
+//
+//            }
+//
+//            if (locationGps != null && locationNetwork != null){
+//                if (locationGps!!.accuracy > locationNetwork!!.accuracy){
+//                    val liveLat = locationNetwork!!.latitude
+//                    val liveLong = locationNetwork!!.longitude
+//                    val geocoder = Geocoder(this)
+//                    val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+//                    addressPreview.text = addresses[0].getAddressLine(0)
+//                    hillfortLocation.isClickable = false
+//                    hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+//                } else {
+//                    addressPreview.append("Live GPS Latitude : " + locationGps!!.latitude + " GPS Longitude  : " + locationGps!!.longitude)
+//                    val liveLat = locationNetwork!!.latitude
+//                    val liveLong = locationNetwork!!.longitude
+//                    val geocoder = Geocoder(this)
+//                    val addresses = geocoder.getFromLocation(liveLat, liveLong, 1)
+//                    addressPreview.text = addresses[0].getAddressLine(0)
+//                    hillfortLocation.isClickable = false
+//                    hillfortLocation.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
+//                }
+//            }
+//
+//        } else {
+//            startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+//        }
+//    }
 
 }
 
