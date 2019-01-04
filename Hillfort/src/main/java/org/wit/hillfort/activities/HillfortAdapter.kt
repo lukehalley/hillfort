@@ -102,9 +102,7 @@ class HillfortAdapter(private var hillforts: List<HillfortModel>, private val li
         override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
             info { "HILLFORTS THE RESULTS !!! " + results?.values }
             info { "HILLFORTS THE BEFORE " + hillforts }
-
             hillforts = results?.values as List<HillfortModel>
-            info { "CHANGED: " + hillforts }
             notifyDataSetChanged()
         }
 
