@@ -24,8 +24,9 @@ Thumbs.db
 *.iml
 .idea
 .idea/workspace.xml
-.gradle
+.gradle/
 build/
+*/build/
 .navigation
 captures/
 output.json
@@ -33,6 +34,15 @@ output.json
 # API Keys
 values/keys.xml
 
-#NDK
+
 obj/
 .externalNativeBuild
+
+.gradle/4.6/fileHashes/fileHashes.bin
+.gradle/4.6/fileHashes/fileHashes.lock
+.gradle/4.6/javaCompile/javaCompile.lock
+.gradle/4.6/javaCompile/taskHistory.bin
+.gradle/4.6/taskHistory/taskHistory.bin
+.gradle/4.6/taskHistory/taskHistory.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.idea/workspace.xml
