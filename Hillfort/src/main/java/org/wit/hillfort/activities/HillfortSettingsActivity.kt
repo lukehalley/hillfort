@@ -41,7 +41,7 @@ class HillfortSettingsActivity : AppCompatActivity(), AnkoLogger {
             user.email = editUserEmail.text.toString()
             user.password = editUserPassword.text.toString()
             if (user.email.isEmpty() or user.password.isEmpty()) {
-                toast(R.string.hint_EnterHillfortTitle)
+                toast(R.string.hint_EnterAllFields)
             } else {
                 if (editUserPassword.text.toString() == editUserPasswordConfirm.text.toString()) {
                     alert(R.string.confirmUserEditSave) {

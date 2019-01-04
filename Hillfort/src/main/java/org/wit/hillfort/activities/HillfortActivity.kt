@@ -151,7 +151,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             var allHillforts = app.hillforts.findAll()
             val currentHill= allHillforts.find{ it.title == cardHillfortTitle.text.toString() }
             if (hillfort.title.isEmpty() or hillfort.description.isEmpty()) {
-                toast(R.string.hint_EnterHillfortTitle)
+                toast(R.string.hint_EnterAllFields)
             } else if (currentHill != null && !intent.hasExtra("hillfort_edit")) {
                 toast(R.string.hint_HillfortAlreadyExists)
             } else if (hillfort.rating < 0.5) {
