@@ -60,6 +60,8 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
         hillforts.add(hillfort)
 
         hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(key).setValue(hillfort)
+
+        updateImage(hillfort)
     }
 
     override fun clear() {
@@ -89,11 +91,19 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
     }
 
     fun updateImage(hillfort: HillfortModel) {
-        if (hillfort.firstImage != "") {
-            val fileName = File(hillfort.firstImage)
-            val imageName = fileName.name
+        if (hillfort.firstImage != "" || hillfort.secondImage != "" || hillfort.thirdImage != "" || hillfort.fourthImage != "") {
+            val firstImageToUpload = File(hillfort.firstImage)
+            val secondImageToUpload = File(hillfort.secondImage)
+            val thirdImageToUpload = File(hillfort.thirdImage)
+            val fourthImageToUpload = File(hillfort.fourthImage)
 
-            var imageRef = st.child(auth.uid.toString() + '/' + imageName)
+
+            val firstImageName = firstImageToUpload.name
+            val secondImageName = secondImageToUpload.name
+            val thirdImageName = thirdImageToUpload.name
+            val fourthImageName = fourthImageToUpload.name
+
+            var imageRef = st.child(auth.uid.toString() + '/' + firstImageName)
             val baos = ByteArrayOutputStream()
             val bitmap = readImageFromPath(context, hillfort.firstImage)
 
