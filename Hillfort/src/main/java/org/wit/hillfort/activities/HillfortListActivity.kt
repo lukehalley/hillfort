@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.jetbrains.anko.*
 import org.wit.hillfort.R
@@ -64,6 +65,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
                 R.id.drawerNav_Logout ->
                     alert(R.string.logoutPrompt) {
                         yesButton {
+                            FirebaseAuth.getInstance().signOut()
                             finish()
                         }
                         noButton {}
@@ -97,6 +99,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
             R.id.item_logout ->
                 alert(R.string.logoutPrompt) {
                     yesButton {
+                        FirebaseAuth.getInstance().signOut()
                         finish()
                     }
                     noButton {}
@@ -152,6 +155,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
     override fun onBackPressed() {
         alert(R.string.logoutPrompt) {
             yesButton {
+                FirebaseAuth.getInstance().signOut()
                 finish()
                 super.onBackPressed()
             }

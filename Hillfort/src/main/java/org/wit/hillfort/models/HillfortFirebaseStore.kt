@@ -1,12 +1,14 @@
 package org.wit.hillfort.models
 
 import android.content.Context
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import org.wit.hillfort.Hillforts
 import org.wit.hillfort.activities.HillfortSharedPreferences
 import org.wit.hillfort.helpers.exists
@@ -26,8 +28,7 @@ fun generateRandomHillfortId(): Long {
 class HillfortJSONStore : HillfortStore, AnkoLogger {
 
     var hillfortDatabase: DatabaseReference = FirebaseDatabase.getInstance().reference
-
-
+    var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     val context: Context
     var hillforts = mutableListOf<HillfortModel>()
@@ -46,16 +47,18 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     override fun create(hillfort: HillfortModel) {
 
         val mypreference = HillfortSharedPreferences(context)
-
+        
         hillfort.id = generateRandomHillfortId()
 
-        val key = hillfortDatabase.child("users").child(mypreference.getCurrentUserID().toString()).child("hillforts").push().key
+        info { "KEY: " + auth.uid.toString() }
+
+        var key = hillfortDatabase.child("users").child(auth.uid.toString()).child("hillforts").push().key
 
         hillfort.fbId = key!!
 
         hillforts.add(hillfort)
 
-        hillfortDatabase.child("users").child(mypreference.getCurrentUserID().toString()).child(Hillforts.FIREBASE_TASK).child(key).setValue(hillfort)
+        hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(key).setValue(hillfort)
 
         serialize()
     }
@@ -87,12 +90,12 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
             foundHillfort.fourthImage = hillfort.fourthImage
             serialize()
         }
-        hillfortDatabase.child("users").child(mypreference.getCurrentUserID().toString()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).setValue(hillfort)
+        hillfortDatabase.child("users").child(mypreference.getCurrentUserID()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).setValue(hillfort)
     }
 
     override fun delete(hillfort: HillfortModel) {
         val mypreference = HillfortSharedPreferences(context)
-        hillfortDatabase.child("users").child(mypreference.getCurrentUserID().toString()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).removeValue()
+        hillfortDatabase.child("users").child(mypreference.getCurrentUserID()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).removeValue()
         hillforts.remove(hillfort)
         serialize()
     }

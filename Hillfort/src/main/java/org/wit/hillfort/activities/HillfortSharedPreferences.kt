@@ -14,14 +14,14 @@ class HillfortSharedPreferences(context: Context){
 
     val preference = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
-    fun setCurrentUserID(id: Long) {
+    fun setCurrentUserID(id: String) {
         val editor = preference.edit()
-        editor.putLong(PREF_VAL_USER_ID, id)
+        editor.putString(PREF_VAL_USER_ID, String.toString())
         editor.apply()
     }
 
-    fun getCurrentUserID() : Long {
-        return preference.getLong(PREF_VAL_USER_ID, 0)
+    fun getCurrentUserID() : String {
+        return preference.getString(PREF_VAL_USER_ID, "ID NA")
     }
 
 

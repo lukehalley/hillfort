@@ -11,7 +11,6 @@ import org.jetbrains.anko.toast
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.UserModel
-import java.util.*
 
 class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
 
@@ -42,7 +41,7 @@ class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
                             if (enteredPassword.text.toString() == enteredPasswordConfirm.text.toString()) {
                                 if (task.isSuccessful) {
                                     val mypreference = HillfortSharedPreferences(this)
-                                    mypreference.setCurrentUserID(Random().nextLong())
+                                    mypreference.setCurrentUserID(auth.uid.toString())
                                     // Sign in success, update UI with the signed-in user's information
                                     toast(R.string.hint_SucessfullRegister)
                                     val user = auth.currentUser
