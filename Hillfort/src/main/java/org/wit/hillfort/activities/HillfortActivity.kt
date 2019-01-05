@@ -91,11 +91,15 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
         app = application as MainApp
         var edit = false
+        shareHillfortBtn.isClickable = false
+        shareHillfortBtn.setBackgroundColor(Color.parseColor("#FF9E9E9E"))
 
         if (intent.hasExtra("hillfort_edit")) {
             edit = true
             toolbarAdd.title = "Edit Hillfort"
             setSupportActionBar(toolbarAdd)
+            hillfortLocation.isClickable = true
+            shareHillfortBtn.setBackgroundColor(Color.parseColor("#FF30399F"))
             hillfort = intent.extras.getParcelable<HillfortModel>("hillfort_edit")
             cardHillfortTitle.setText(hillfort.title)
             cardHillfortDescription.setText(hillfort.description)
@@ -138,6 +142,35 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 chooseFourthImageCamera.visibility = View.VISIBLE
             }
             addHillfortBtn.setText(R.string.button_saveHillfort)
+
+            shareHillfortBtn.setOnClickListener {
+
+                var visit = ""
+
+                if (hillfort.visited){
+                    visit = "have"
+                } else {
+                    visit = "haven't yet"
+                }
+
+                val hillfortShare = "Check out this Hillfort I " + visit + " visited: \n" +
+                        "Title: " + hillfort.title + "\n" +
+                        "Description: " + hillfort.description + "\n" +
+                        "Additional Notes: " + hillfort.addNotes + "\n" +
+                        "Rating: " + hillfort.rating + "\n" +
+                        "Address: " + hillfort.address + "\n" +
+                        "Longitude: " + hillfort.lat + "\n" +
+                        "Latitude: " + hillfort.lng
+
+                val intent = Intent()
+
+                intent.action = Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT, hillfortShare)
+                intent.type = "text/plain"
+
+                startActivity(Intent.createChooser(intent, "Share Hillfort To: "))
+
+            }
         }
 
         addHillfortBtn.setOnClickListener {
@@ -177,6 +210,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 noButton {}
             }.show()
         }
+
+
 
 
 
@@ -319,6 +354,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
             startActivityForResult(intentFor<HillfortMapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
+
+
 
         getCurrentLocationBtn.setOnClickListener {
             locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager

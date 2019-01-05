@@ -2,10 +2,10 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorDisabled">#9E9E9E</color>
+    <color name="colorDisabled">#9e9e9e</color>
     <color name="colorAccent">#4caf50</color>
     <color name="colorPrimaryTint">#5db761</color>
     <color name="transparent">#00000000</color>
-    <color name="pink_500">#E91E63</color>
+    <color name="pink_500">#e91e63</color>
 
 </resources>
