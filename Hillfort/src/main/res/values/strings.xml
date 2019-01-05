@@ -78,4 +78,5 @@
     <string name="secondImage">secondImage</string>
     <string name="favHillforts">Favourites</string>
     <string name="toast_AuthFail">Authentication Failed</string>
+    <string name="text_favorites">Favourites</string>
 </resources>

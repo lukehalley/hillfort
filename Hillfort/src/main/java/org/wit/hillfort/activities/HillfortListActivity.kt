@@ -2,6 +2,7 @@ package org.wit.hillfort.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
@@ -18,6 +19,10 @@ import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.models.UserModel
+
+
+
+
 
 class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
 
@@ -43,6 +48,8 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         }
 
         var mDrawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+
+        val bottomNavigationView = findViewById(R.id.bottomNav) as BottomNavigationView
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
 
@@ -75,6 +82,17 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
             mDrawerLayout.closeDrawers()
             true
         }
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.btmNav_FavHillforts -> startActivityForResult<HillfortFavListActivity>(0)
+            }
+            when (item.itemId) {
+                R.id.btmNav_AllHillforts -> startActivityForResult<HillfortAllMapsActivity>(0)
+            }
+            true
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -120,18 +138,8 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
     }
 
     private fun loadHillforts() {
-//        FILTER ONLY HILLFORTS THAT ARE FAV
-//        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
-//        showHillforts(favHills)
-
         showHillforts(app.hillforts.findAll())
     }
-
-//    private fun loadFavHillforts() {
-////        FILTER ONLY HILLFORTS THAT ARE FAV
-//        var favHills: List<HillfortModel> = app.hillforts.findAll().filter { s -> s.favourited }
-//        showHillforts(favHills)
-//    }
 
     fun showHillforts(hillforts: List<HillfortModel>) {
         val mypreference = HillfortSharedPreferences(this)
