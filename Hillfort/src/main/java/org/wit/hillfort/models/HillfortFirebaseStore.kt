@@ -2,15 +2,13 @@ package org.wit.hillfort.models
 
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.hillfort.Hillforts
-import org.wit.hillfort.activities.HillfortSharedPreferences
 import org.wit.hillfort.helpers.exists
 import org.wit.hillfort.helpers.read
 import org.wit.hillfort.helpers.write
@@ -45,8 +43,6 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     }
 
     override fun create(hillfort: HillfortModel) {
-
-        val mypreference = HillfortSharedPreferences(context)
         
         hillfort.id = generateRandomHillfortId()
 
@@ -68,9 +64,6 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     }
 
     override fun update(hillfort: HillfortModel) {
-
-        val mypreference = HillfortSharedPreferences(context)
-
         var foundHillfort: HillfortModel? = hillforts.find { p -> p.id == hillfort.id }
         if (foundHillfort != null) {
             foundHillfort.title = hillfort.title
@@ -90,12 +83,11 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
             foundHillfort.fourthImage = hillfort.fourthImage
             serialize()
         }
-        hillfortDatabase.child("users").child(mypreference.getCurrentUserID()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).setValue(hillfort)
+        hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).setValue(hillfort)
     }
 
     override fun delete(hillfort: HillfortModel) {
-        val mypreference = HillfortSharedPreferences(context)
-        hillfortDatabase.child("users").child(mypreference.getCurrentUserID()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).removeValue()
+        hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).removeValue()
         hillforts.remove(hillfort)
         serialize()
     }
@@ -108,5 +100,18 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     private fun deserialize() {
         val jsonString = read(context, HILLFORT_JSON_FILE)
         hillforts = Gson().fromJson(jsonString, listType)
+    }
+
+    fun fetchHillforts(hillfortsReady: () -> Unit) {
+        val valueEventListener = object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+            }
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.children.mapNotNullTo(hillforts) { it.getValue<HillfortModel>(HillfortModel::class.java) }
+                hillfortsReady()
+            }
+        }
+        hillforts.clear()
+        hillfortDatabase.child("users").child(auth.uid.toString()).child("hillforts").addListenerForSingleValueEvent(valueEventListener)
     }
 }

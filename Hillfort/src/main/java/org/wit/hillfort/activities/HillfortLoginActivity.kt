@@ -25,9 +25,6 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
 
         loginButton.setOnClickListener {
 
-//            var users = app.users.findAll()
-//            var foundUser: UserModel? = users.find { p -> p.email == enteredEmail.text.toString() }
-
             if (enteredEmail.text.toString().isNotEmpty() && enteredPassword.text.toString().isNotEmpty()) {
                 showProgress()
                 auth.signInWithEmailAndPassword(enteredEmail.text.toString(), enteredPassword.text.toString())
@@ -35,7 +32,6 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
                                 val user = auth.currentUser
-
                                 mypreference.setCurrentUserName(enteredEmail.text.toString())
                                 mypreference.setCurrentUserEmail(enteredEmail.text.toString())
                                 mypreference.setCurrentUserPassword(enteredPassword.text.toString())
