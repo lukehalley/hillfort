@@ -72,6 +72,8 @@ Finally connect your device or start an emulator and run the app! 😃
 
 ## Key Features
 
+### Hillfort Alpha & 1.0
+
 * Splashscreen
 * Persitance for both Hillforts and Users using JSON
 * Register and Login
@@ -101,8 +103,20 @@ Finally connect your device or start an emulator and run the app! 😃
   - Empty field checking
 * Pop Up Windows
   - Used in multiple areas such as logging out (are you sure you want to logout?) and when deleting a hillfort (are you sure you want to delete this hillfort?) etc...
-* Firebase
+
+### Hillfort 2.0
+
+* New Features In 2.0
   - Firebase Authentication
   - Firebase Hillfort Data Using Realtime Database - Create, Read, Update Delete
   - Firebase Database - used to store all four images 
+  - Map View Of All Hillforts
+  - Rate Hillfort
+  - Mark As Favourite
+  - Current Location Detection
+  - Share Hillfort With Other Apps
+  - Landscape App Wide Support
+  - Bottom Nav
+  - Navigation Drawer
+
   
