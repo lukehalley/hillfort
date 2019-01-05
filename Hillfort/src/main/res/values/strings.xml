@@ -79,4 +79,5 @@
     <string name="favHillforts">Favourites</string>
     <string name="toast_AuthFail">Authentication Failed</string>
     <string name="text_favorites">Favourites</string>
+    <string name="button_shareHillfort">SHARE HILLFORT</string>
 </resources>
