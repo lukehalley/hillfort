@@ -11,31 +11,43 @@ import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
+import org.wit.hillfort.models.HillfortFirebaseStore
 
 class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
 
     var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    var fireStore: HillfortFirebaseStore? = null
+
+
 
     lateinit var app: MainApp
     override fun onCreate(savedInstanceState: Bundle?) {
         app = application as MainApp
+
+        if (app.hillforts is HillfortFirebaseStore) {
+            fireStore = app.hillforts as HillfortFirebaseStore
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val mypreference = HillfortSharedPreferences(this)
 
         loginButton.setOnClickListener {
-
             if (enteredEmail.text.toString().isNotEmpty() && enteredPassword.text.toString().isNotEmpty()) {
                 showProgress()
                 auth.signInWithEmailAndPassword(enteredEmail.text.toString(), enteredPassword.text.toString())
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
-                                // Sign in success, update UI with the signed-in user's information
-                                val user = auth.currentUser
-                                mypreference.setCurrentUserName(enteredEmail.text.toString())
-                                mypreference.setCurrentUserEmail(enteredEmail.text.toString())
-                                mypreference.setCurrentUserPassword(enteredPassword.text.toString())
-                                startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", enteredEmail.text.toString()), 0)
+                                if (fireStore != null) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    fireStore!!.fetchHillforts {
+//                                        val user = auth.currentUser
+                                        mypreference.setCurrentUserName(enteredEmail.text.toString())
+                                        mypreference.setCurrentUserEmail(enteredEmail.text.toString())
+                                        mypreference.setCurrentUserPassword(enteredPassword.text.toString())
+                                        startActivityForResult(intentFor<HillfortListActivity>().putExtra("loggedInUser", enteredEmail.text.toString()), 0)
+                                    }
+                                }
                             } else {
                                 // If sign in fails, display a message to the user.
                                 toast(R.string.toast_InvalidCreds)
@@ -66,17 +78,5 @@ class HillfortLoginActivity : AppCompatActivity(), AnkoLogger {
     fun hideProgress() {
         loadingLoginIndicator.visibility = View.GONE
     }
-
-//    fun doSignUp(email: String, password: String) {
-//        showProgress()
-//        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(view!!) { task ->
-//            if (task.isSuccessful) {
-//                view?.navigateTo(VIEW.LIST)
-//            } else {
-//                view?.toast("Sign Up Failed: ${task.exception?.message}")
-//            }
-//            view?.hideProgress()
-//        }
-//    }
 
 }

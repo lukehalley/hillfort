@@ -66,6 +66,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
                     alert(R.string.logoutPrompt) {
                         yesButton {
                             FirebaseAuth.getInstance().signOut()
+                            app.hillforts.clear()
                             finish()
                         }
                         noButton {}
@@ -100,6 +101,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
                 alert(R.string.logoutPrompt) {
                     yesButton {
                         FirebaseAuth.getInstance().signOut()
+                        app.hillforts.clear()
                         finish()
                     }
                     noButton {}
@@ -156,6 +158,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener, AnkoLogger {
         alert(R.string.logoutPrompt) {
             yesButton {
                 FirebaseAuth.getInstance().signOut()
+                app.hillforts.clear()
                 finish()
                 super.onBackPressed()
             }
