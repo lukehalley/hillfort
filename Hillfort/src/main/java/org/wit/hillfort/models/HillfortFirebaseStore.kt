@@ -1,14 +1,20 @@
 package org.wit.hillfort.models
 
 import android.content.Context
+import android.graphics.Bitmap
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.hillfort.Hillforts
 import org.wit.hillfort.helpers.exists
+import org.wit.hillfort.helpers.readImageFromPath
+import java.io.ByteArrayOutputStream
+import java.io.File
 import java.util.*
 
 val HILLFORT_JSON_FILE = "hillforts.json"
@@ -24,6 +30,7 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
 
     var hillfortDatabase: DatabaseReference = FirebaseDatabase.getInstance().reference
     var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    lateinit var st: StorageReference
 
     val context: Context
 
@@ -53,8 +60,6 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
         hillforts.add(hillfort)
 
         hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(key).setValue(hillfort)
-
-//        serialize()
     }
 
     override fun clear() {
@@ -79,26 +84,39 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
             foundHillfort.secondImage = hillfort.secondImage
             foundHillfort.thirdImage = hillfort.thirdImage
             foundHillfort.fourthImage = hillfort.fourthImage
-//            serialize()
         }
         hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).setValue(hillfort)
+    }
+
+    fun updateImage(hillfort: HillfortModel) {
+        if (hillfort.firstImage != "") {
+            val fileName = File(hillfort.firstImage)
+            val imageName = fileName.name
+
+            var imageRef = st.child(auth.uid.toString() + '/' + imageName)
+            val baos = ByteArrayOutputStream()
+            val bitmap = readImageFromPath(context, hillfort.firstImage)
+
+            bitmap?.let {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                val data = baos.toByteArray()
+                val uploadTask = imageRef.putBytes(data)
+                uploadTask.addOnFailureListener {
+                    info { it }
+                }.addOnSuccessListener { taskSnapshot ->
+                    taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
+                        hillfort.firstImage = it.toString()
+                        hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).setValue(hillfort)
+                    }
+                }
+            }
+        }
     }
 
     override fun delete(hillfort: HillfortModel) {
         hillfortDatabase.child("users").child(auth.uid.toString()).child(Hillforts.FIREBASE_TASK).child(hillfort.fbId).removeValue()
         hillforts.remove(hillfort)
-//        serialize()
     }
-
-//    private fun serialize() {
-//        val jsonString = gsonBuilder.toJson(hillforts, listType)
-//        write(context, HILLFORT_JSON_FILE, jsonString)
-//    }
-
-//    private fun deserialize() {
-//        val jsonString = read(context, HILLFORT_JSON_FILE)
-//        hillforts = Gson().fromJson(jsonString, listType)
-//    }
 
     fun fetchHillforts(hillfortsReady: () -> Unit) {
         val valueEventListener = object : ValueEventListener {
@@ -110,8 +128,7 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
             }
         }
         hillforts.clear()
-//        hillfortDatabase.child("users").child(auth.uid.toString()).child("hillforts").addListenerForSingleValueEvent(valueEventListener)
-
+        st = FirebaseStorage.getInstance().reference
         hillfortDatabase.child("users").child(FirebaseAuth.getInstance().currentUser!!.uid).child(Hillforts.FIREBASE_TASK).addListenerForSingleValueEvent(valueEventListener)
 
         info { "GOT THESE HILLFORTS: " + hillforts }
