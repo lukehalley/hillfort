@@ -5,6 +5,7 @@ import android.content.Context
 class HillfortSharedPreferences(context: Context){
 
     val PREFERENCE_NAME = "CurrentUser"
+    val PREF_VAL_USER_ID = "CurrentUserID"
     val PREF_VAL_USER_NAME = "CurrentUserName"
     val PREF_VAL_USER_EMAIL = "CurrentUserEmail"
     val PREF_VAL_USER_PASSWORD = "CurrentUserPassword"
@@ -12,6 +13,17 @@ class HillfortSharedPreferences(context: Context){
     val PREF_VAL_HILLFORT_VISITED_COUNT= "CurrentVisitedHillfortCount"
 
     val preference = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
+
+    fun setCurrentUserID(id: Long) {
+        val editor = preference.edit()
+        editor.putLong(PREF_VAL_USER_ID, id)
+        editor.apply()
+    }
+
+    fun getCurrentUserID() : Long {
+        return preference.getLong(PREF_VAL_USER_ID, 0)
+    }
+
 
     fun getCurrentUserName() : String {
         return preference.getString(PREF_VAL_USER_NAME, "Name NA")
@@ -62,5 +74,7 @@ class HillfortSharedPreferences(context: Context){
         editor.putInt(PREF_VAL_HILLFORT_VISITED_COUNT, count)
         editor.apply()
     }
+
+
 
 }

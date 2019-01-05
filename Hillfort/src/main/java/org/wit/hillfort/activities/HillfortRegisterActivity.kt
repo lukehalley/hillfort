@@ -11,6 +11,7 @@ import org.jetbrains.anko.toast
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.UserModel
+import java.util.*
 
 class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
 
@@ -30,58 +31,6 @@ class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
 
         registerButton.setOnClickListener {
 
-            // OLD
-            /////////////////////////////
-
-//            var users = app.users.findAll()
-//
-//            if (enteredEmail.text.toString() !in users.toString()) {
-//
-//                user.name = enteredName.text.toString()
-//                user.email = enteredEmail.text.toString()
-//                user.password = enteredPassword.text.toString()
-//                if (user.name.isEmpty() or user.email.isEmpty() or user.password.isEmpty()) {
-//                    toast(R.string.hint_EnterHillfortTitle)
-//                } else {
-//                    if (enteredPassword.text.toString() == enteredPasswordConfirm.text.toString()) {
-//                        app.users.create(user.copy())
-//                        setResult(AppCompatActivity.RESULT_OK)
-//                        toast(R.string.hint_SucessfullRegister)
-//                        finish()
-//                    } else {
-//                        toast("Passwords Do Not Match!")
-//                    }
-//                }
-//            } else {
-//                toast(R.string.err_UserExists)
-//            }
-
-            // NEW
-            /////////////////////////////
-
-//            var users = app.users.findAll()
-//
-//            if (enteredEmail.text.toString() !in users.toString()) {
-//
-//                user.name = enteredName.text.toString()
-//                user.email = enteredEmail.text.toString()
-//                user.password = enteredPassword.text.toString()
-//                if (user.name.isEmpty() or user.email.isEmpty() or user.password.isEmpty()) {
-//                    toast(R.string.hint_EnterHillfortTitle)
-//                } else {
-//                    if (enteredPassword.text.toString() == enteredPasswordConfirm.text.toString()) {
-//                        app.users.create(user.copy())
-//                        setResult(AppCompatActivity.RESULT_OK)
-//                        toast(R.string.hint_SucessfullRegister)
-//                        finish()
-//                    } else {
-//                        toast("Passwords Do Not Match!")
-//                    }
-//                }
-//            } else {
-//                toast(R.string.err_UserExists)
-//            }
-
             showProgress()
 
             // [START create_user_with_email]
@@ -92,6 +41,8 @@ class HillfortRegisterActivity : AppCompatActivity(), AnkoLogger {
                         } else {
                             if (enteredPassword.text.toString() == enteredPasswordConfirm.text.toString()) {
                                 if (task.isSuccessful) {
+                                    val mypreference = HillfortSharedPreferences(this)
+                                    mypreference.setCurrentUserID(Random().nextLong())
                                     // Sign in success, update UI with the signed-in user's information
                                     toast(R.string.hint_SucessfullRegister)
                                     val user = auth.currentUser
