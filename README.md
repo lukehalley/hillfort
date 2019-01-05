@@ -88,3 +88,8 @@ Finally connect your device or start an emulator and run the app! 😃
   - Empty field checking
 * Pop Up Windows
   - Used in multiple areas such as logging out (are you sure you want to logout?) and when deleting a hillfort (are you sure you want to delete this hillfort?) etc...
+* Firebase
+  - Firebase Authentication
+  - Firebase Hillfort Data Using Realtime Database - Create, Read, Update Delete
+  - Firebase Database - used to store all four images 
+  
