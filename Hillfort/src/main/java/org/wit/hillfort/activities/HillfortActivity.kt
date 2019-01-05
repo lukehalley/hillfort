@@ -296,6 +296,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         hillfortLocation.setOnClickListener {
             val location = HillfortModel(
                     hillfort.id,
+                    hillfort.fbId,
                     hillfort.title,
                     hillfort.description,
                     hillfort.addNotes,

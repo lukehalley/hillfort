@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
+import org.wit.hillfort.activities.HillfortSharedPreferences
 import org.wit.hillfort.helpers.exists
 import org.wit.hillfort.helpers.read
 import org.wit.hillfort.helpers.write
@@ -36,7 +37,9 @@ class UserJSONStore : UserStore, AnkoLogger {
     }
 
     override fun create(user: UserModel) {
+        val mypreference = HillfortSharedPreferences(context)
         user.id = generateRandomUserId()
+
         users.add(user)
         serialize()
     }
