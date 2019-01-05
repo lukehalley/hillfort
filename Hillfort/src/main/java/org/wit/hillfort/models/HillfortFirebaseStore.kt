@@ -93,6 +93,7 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
 
     fun updateImage(hillfort: HillfortModel) {
         if (hillfort.firstImage != "" || hillfort.secondImage != "" || hillfort.thirdImage != "" || hillfort.fourthImage != "") {
+
             val firstImageToUpload = File(hillfort.firstImage)
             val secondImageToUpload = File(hillfort.secondImage)
             val thirdImageToUpload = File(hillfort.thirdImage)
