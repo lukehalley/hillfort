@@ -162,8 +162,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                         "Longitude: " + hillfort.lat + "\n" +
                         "Latitude: " + hillfort.lng
 
-                info { "SHARING: " + hillfortShare }
-
                 val intent = Intent()
 
                 intent.action = Intent.ACTION_SEND
