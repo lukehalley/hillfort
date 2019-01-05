@@ -11,7 +11,14 @@
 
 ## Demo
 
-Full Youtube Video Demo Of The Finished App I recorded for my submission: http://bit.ly/HillfortAppDemo
+
+<p align="center">
+Full Youtube Video Demo Of The Finished App I recorded for my submission: 
+</p>
+
+<p align="center">
+http://bit.ly/HillfortAppDemo
+</p>
 
 <p align="center">
   <img src="https://media.giphy.com/media/63LNxgT7pn0Ma9NRHh/giphy.gif">
