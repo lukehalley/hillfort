@@ -112,7 +112,7 @@ class HillfortFirebaseStore : HillfortStore, AnkoLogger {
         hillforts.clear()
 //        hillfortDatabase.child("users").child(auth.uid.toString()).child("hillforts").addListenerForSingleValueEvent(valueEventListener)
 
-        hillfortDatabase.child("users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("hillfort").addListenerForSingleValueEvent(valueEventListener)
+        hillfortDatabase.child("users").child(FirebaseAuth.getInstance().currentUser!!.uid).child(Hillforts.FIREBASE_TASK).addListenerForSingleValueEvent(valueEventListener)
 
         info { "GOT THESE HILLFORTS: " + hillforts }
 
