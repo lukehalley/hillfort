@@ -13,11 +13,15 @@
 
 
 <p align="center">
-Full Youtube Video Demo Of The Finished App I recorded for my submission: 
+Full Video Demo Of The App I Recorded For My Submission Can Be Seen Here: 
 </p>
 
 <p align="center">
 http://bit.ly/HillfortAppDemo
+</p>
+
+<p align="center">
+ 
 </p>
 
 <p align="center">
