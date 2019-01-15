@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">An firebase enabled Android application built with Kotlin for my 4th Year, Semester 1 "Mobile App Dev" module for our first assignment.</a></h4>
+<h4 align="center">A firebase enabled Android application built with Kotlin for my 4th Year, Semester 1 "Mobile App Dev" module for our first assignment.</a></h4>
 
 ## Demo
 
