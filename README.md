@@ -56,15 +56,17 @@ Then [open the project in Android Studio](https://github.com/dogriffiths/HeadFir
 
 navigate to the file located:
 
-`Hillfort/src/main/AndroidManifest.xml`
+`Hillfort/src/main/res/values/keys.xml`
 
 and find the following lines:
 
-`<meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR-API-KEY-HERE" />`
+`<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mapsKey">[IN YOUR KEY HERE]</string>
+</resources>
+`
 
-replace `YOUR-API-KEY-HERE` with your Google Maps API.
+replace `[IN YOUR KEY HERE]` with your Google Maps API.
 
 If you do not know how to get a Google Maps API [here is a tutorial by Google](https://developers.google.com/maps/documentation/android-sdk/signup)
 
